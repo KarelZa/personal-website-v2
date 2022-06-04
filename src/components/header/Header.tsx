@@ -11,8 +11,8 @@ import {
 	Toolbar,
 	Typography,
 } from '@mui/material';
-import theme from '../styles/appTheme/theme';
-import Link from './Link';
+import theme from '../../styles/appTheme/theme';
+import Link from '../Link';
 import { Spin as Hamburger } from 'hamburger-react';
 import Logo from './Logo';
 import MobileNav from './MobileNav';

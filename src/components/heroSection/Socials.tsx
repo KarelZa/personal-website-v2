@@ -1,7 +1,8 @@
 import { Grid, IconButton } from '@mui/material';
 import React from 'react';
 import { FaLinkedin, FaFacebookSquare, FaGithubSquare } from 'react-icons/fa';
-import Link from './Link';
+import { StyledSocials } from '../../styles/heroSection/socials';
+import Link from '../Link';
 type Props = {};
 
 const SocialContacts = [
@@ -12,20 +13,13 @@ const SocialContacts = [
 
 const Socials = (props: Props) => {
 	return (
-		<Grid
-			container
-			spacing={1}
-			mt={2}
-			sx={{ justifyContent: { xs: 'center', md: 'flex-start' } }}
-		>
+		<StyledSocials>
 			{SocialContacts.map((item) => (
-				<Grid item key={item.url}>
-					<Link href={item.url}>
-						<item.icon fontSize={40} color='white' />
-					</Link>
-				</Grid>
+				<Link href={item.url} key={item.url}>
+					<item.icon fontSize={40} />
+				</Link>
 			))}
-		</Grid>
+		</StyledSocials>
 	);
 };
 

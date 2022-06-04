@@ -1,7 +1,7 @@
 import { Drawer, Fade, List, ListItem, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
-import theme from '../styles/appTheme/theme';
-import Link from './Link';
+import theme from '../../styles/appTheme/theme';
+import Link from '../Link';
 
 type Props = {
 	isOpen: boolean;

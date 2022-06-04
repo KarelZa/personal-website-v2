@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
-import Link from './Link';
+import Link from '../Link';
 
 type Props = {
 	navigationLinks: {
