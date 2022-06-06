@@ -2,98 +2,175 @@ import { Box, Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { relative } from 'path';
 
+export const StyledProjectsWrapper = styled(Box)(({ theme }) => ({
+	[theme.breakpoints.up('md')]: {
+		'& > .MuiBox-root:nth-of-type(2n) > .project-content': {
+			textAlign: 'left',
+			gridColumn: '2/8',
+		},
+		'& > .MuiBox-root:nth-of-type(2n) > .project-image': {
+			gridColumn: '6/-2',
+		},
+		'& > .MuiBox-root:nth-of-type(2n) > .project-content > .MuiBox-root > .tech-list': {
+			position: 'relative',
+			listStyleType: 'none',
+			display: 'flex',
+			flexWrap: 'wrap',
+			justifyContent: 'flex-start',
+			padding: '0',
+			margin: '10px 0',
+			zIndex: 2,
+			'& > li': {
+				marginLeft: '0px',
+				marginRight: '10px',
+			},
+		},
+		'& > .MuiBox-root:nth-of-type(2n) > .project-content > .MuiBox-root  > .external-links': {
+			fontSize: '1.3rem',
+			'& a': {
+				paddingLeft: '0rem',
+				paddingRight: '1rem',
+			},
+		},
+	},
+}));
+
 export const StyledProject = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12,1fr)',
-	padding: '0 2rem',
+	margin: '1.5rem 1rem',
+	position: 'relative',
 
 	'& .project-image, & .project-content': {
 		gridRow: '1/2',
 	},
 	'& .project-image': {
 		gridColumn: '1/-1',
-
-		position: 'relative',
-	},
-	'& .project-image a': {
 		position: 'relative',
 		alignSelf: 'center',
+		zIndex: 1,
+		opacity: '.25',
+		height: '100%',
+		boxShadow: '0 10px 30px -15px black',
+	},
+	'& .project-image a': {
+		display: 'block',
+		border: `1px solid rgba(209, 214, 5, .5)`,
+		position: 'relative',
+		alignSelf: 'center',
+		vericalAlign: 'middle',
 		width: '100%',
 		height: '100%',
+		backgroundColor: 'rgba(0,200, 250, .5)',
+		borderRadius: '5px',
+		zIndex: 1,
 	},
 	'& .project-image a::before': {
+		content: "''",
 		position: 'absolute',
-		content: '""',
 		width: '100%',
 		height: '100%',
 		inset: '0px',
-		zIndex: '3',
+		zIndex: 3,
+		opacity: '.5',
 		mixBlendMode: 'screen',
-		opacity: '.7',
-		backgroundColor: '#0a192f',
+		backgroundColor: theme.palette.background.default,
 	},
 	'& .project-image .image-wrapper': {
-		width: '100%',
-		maxWidth: '700px',
-		maxHeight: '400px',
-		verticalAlign: 'middle',
-		alignSelf: 'center',
-		display: 'flex',
+		display: 'block',
 		position: 'relative',
 		overflow: 'hidden',
-		boxShadow: '0 10px 30px -15px black',
-	},
-	'& .project-image img': {
-		height: '100%',
+		objectFit: 'cover',
 		width: 'auto',
-		filter: 'grayscale(60%) contrast(1) brightness(80%)',
+		height: '100%',
 		mixBlendMode: 'multiply',
+		filter: 'grayscale(100%) contrast(1) brightness(100%)',
+		maxWidth: '100%',
+		verticalAlign: 'middle',
+		borderRadius: '5px',
+	},
+	'& .project-image  .image-wrapper img': {
+		height: '100%',
+		width: '100%',
+		objectFit: 'cover',
 	},
 	'& .project-content': {
+		position: 'relative',
 		alignSelf: 'center',
 		textAlign: 'left',
 		gridRow: '1/2',
 		gridColumn: '1/-1',
-		padding: '30px 20px 25px',
-		zIndex: '2',
+		padding: '1.5rem',
 	},
-	'& .MuiTypography-h5': {
+	'& .MuiTypography-overline': {
+		position: 'relative',
+	},
+	'& .MuiTypography-h4': {
 		marginBottom: '20px',
+		fontWeight: '800',
+
+		'& > a': {
+			textDecoration: 'none',
+			color: '#e6f1ff',
+			zIndex: 1,
+		},
 	},
 	'& .project-description': {
-		borderRadius: '3px',
+		position: 'relative',
+		margin: '1.2rem 0',
+		zIndex: 2,
 	},
 	'& .external-links': {
-		fontSize: '1.3rem',
+		fontSize: '1.5rem',
+		marginTop: '1rem',
 		'& a': {
 			paddingRight: '1rem',
 		},
 	},
-	ul: {
+	'& .tech-list': {
+		position: 'relative',
 		listStyleType: 'none',
 		display: 'flex',
 		flexWrap: 'wrap',
 		justifyContent: 'flex-start',
 		padding: '0',
 		margin: '10px 0',
+		zIndex: 2,
+		'& li': {
+			marginRight: '10px',
+		},
 	},
-	li: {
-		marginRight: '20px',
+	[theme.breakpoints.up('sm')]: {
+		margin: '1.5rem 2rem',
+		'& .project-content': {
+			padding: '0 3rem',
+		},
 	},
-
 	[theme.breakpoints.up('md')]: {
-		padding: '1rem 5rem',
+		padding: '1rem 0rem',
 
 		'& .project-image, & .project-content': {
 			gridRow: '1/2',
 		},
 		'& .project-image': {
 			gridColumn: '2/8',
+			opacity: '1',
 		},
-		'& .project-image img': {
-			objectFit: 'contain',
+		'& .project-image a': {
+			border: `none`,
+		},
+		'& .project-image a:hover': {
+			backgroundColor: 'transparent',
+		},
+		'& .project-image a:hover::before': {
+			display: 'none',
+		},
+		'& .project-image a > .image-wrapper:hover ': {
+			filter: 'grayscale(0%) contrast(1) brightness(100%)',
+		},
+		'& .project-image .image-wrapper img': {
+			width: '100%',
 			height: '100%',
-			maxWidth: '100%',
 			filter: 'none',
 			mixBlendMode: 'normal',
 		},
@@ -101,7 +178,7 @@ export const StyledProject = styled(Box)(({ theme }) => ({
 			alignSelf: 'center',
 			textAlign: 'right',
 			gridRow: '1/2',
-			gridColumn: '5/-2',
+			gridColumn: '6/-2',
 			padding: '0',
 		},
 		'& .MuiTypography-h5': {
@@ -120,16 +197,16 @@ export const StyledProject = styled(Box)(({ theme }) => ({
 				paddingRight: '0',
 			},
 		},
-		ul: {
+		'& .tech-list': {
 			listStyleType: 'none',
 			display: 'flex',
 			flexWrap: 'wrap',
 			justifyContent: 'flex-end',
 			margin: '25px 0 10px',
-		},
-		li: {
-			marginLeft: '10px',
-			marginRight: '0',
+			'& li': {
+				marginLeft: '10px',
+				marginRight: '0',
+			},
 		},
 	},
 }));

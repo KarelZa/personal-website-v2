@@ -7,9 +7,7 @@ import photo from '../../../public/images/profilepic.png';
 import Typewriter from 'typewriter-effect';
 import theme from '../../styles/appTheme/theme';
 
-type Props = {};
-
-const HeroSection = (props: Props) => {
+const HeroSection = () => {
 	return (
 		<StyledHeroSection>
 			<Container maxWidth={'lg'} sx={{ height: '100%' }}>

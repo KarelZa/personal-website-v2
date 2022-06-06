@@ -95,7 +95,7 @@ const Skills = (props: Props) => {
 				textAlign={'center'}
 				mb={'3rem'}
 			>
-				SKILLS
+				Skills
 			</StyledCaption>
 
 			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
