@@ -2,6 +2,7 @@ import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const StyledFeatWrapper = styled(Box)(({ theme }) => ({
+	// backgroundColor: 'red',
 	[theme.breakpoints.up('md')]: {
 		'& > .MuiBox-root:nth-of-type(2n) > .project-content': {
 			textAlign: 'left',

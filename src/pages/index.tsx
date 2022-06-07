@@ -9,12 +9,20 @@ import Skills from '../components/skills/Skills';
 import theme from '../styles/appTheme/theme';
 import { Container, useMediaQuery } from '@mui/material';
 import { Project } from '../models/project.model';
+import ProjectCards from '../components/projectCards/ProjectCards';
 
 interface Props {
-	projects: Project[];
+	featuredProjects: Project[];
+	projects: {
+		title: string;
+		description: string;
+		tags: string[];
+		id: string;
+	}[];
 }
 
-const Home: NextPage<Props> = ({ projects }) => {
+const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
+	console.log(featuredProjects);
 	console.log(projects);
 
 	return (
@@ -26,16 +34,15 @@ const Home: NextPage<Props> = ({ projects }) => {
 					content='Welcome to my personal website, where you can find information about me, my work/projects and also contact details'
 				/>
 			</Head>
+
 			<Header />
 			<HeroSection />
-			<Container
-				maxWidth='lg'
-				disableGutters={useMediaQuery(theme.breakpoints.only('xs'))}
-				sx={{ color: 'white' }}
-			>
+
+			<Container maxWidth='lg' sx={{ color: '#ECFBFC' }}>
 				<About />
 				<Skills />
-				<Projects projects={projects} />
+				<Projects projects={featuredProjects} />
+				<ProjectCards cardData={projects} />
 			</Container>
 		</>
 	);
@@ -44,19 +51,26 @@ const Home: NextPage<Props> = ({ projects }) => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
 	const client = await clientPromise;
 	const db = client.db('personal-website'); // accessing db
-	let projectCollection = await db.collection('projects').find({}).toArray(); // accessing collection & getting all documents
-	projectCollection = JSON.parse(JSON.stringify(projectCollection));
-	console.log(projectCollection);
+	let featuredCollection = await db.collection('featured').find({}).toArray(); // accessing collection & getting all documents
+	let projectsCollection = await db.collection('projects').find({}).toArray();
+	featuredCollection = JSON.parse(JSON.stringify(featuredCollection));
+	projectsCollection = JSON.parse(JSON.stringify(projectsCollection));
 
 	return {
 		props: {
-			projects: projectCollection.map((project) => ({
+			featuredProjects: featuredCollection.map((featured) => ({
+				title: featured.title,
+				description: featured.desc,
+				tech: featured.usedtech,
+				image: featured.img,
+				link: featured.link,
+				id: featured._id.toString(),
+			})),
+			projects: projectsCollection.map((project) => ({
 				title: project.title,
 				description: project.desc,
-				tech: project.usedtech,
-				image: project.img,
-				link: project.link,
-				id: project._id.toString(),
+				tags: project.tags,
+				id: project._id,
 			})),
 		},
 	};

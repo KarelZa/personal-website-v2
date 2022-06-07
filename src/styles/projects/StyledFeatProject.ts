@@ -4,8 +4,9 @@ import { styled } from '@mui/material/styles';
 export const StyledFeatProject = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12,1fr)',
-	margin: '1.5rem 1rem',
+	margin: '1.5rem 0rem',
 	position: 'relative',
+	// backgroundColor: 'green',
 
 	'& .project-image, & .project-content': {
 		gridRow: '1/2',
@@ -72,6 +73,7 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 		},
 		'& .MuiTypography-h4': {
 			marginBottom: '20px',
+			fontFamily: 'Inter',
 			fontWeight: '800',
 			'& > a': {
 				textDecoration: 'none',
@@ -108,7 +110,8 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 
 	// SMALL DEVICES
 	[theme.breakpoints.up('sm')]: {
-		margin: '1.5rem 2rem',
+		margin: '0rem 0rem',
+		padding: '2rem',
 		'& .project-content': {
 			padding: '0 3rem',
 		},
