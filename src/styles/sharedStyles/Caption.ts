@@ -1,6 +1,5 @@
-import { Grid, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { letterSpacing } from '@mui/system';
 
 interface Props {
 	contentString?: string;

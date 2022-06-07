@@ -1,59 +1,21 @@
-import { MongoClient } from 'mongodb';
-import { Box, Paper, useMediaQuery } from '@mui/material';
-import { Container } from '@mui/system';
-import type { NextPage } from 'next';
+import type { NextPage, GetStaticProps } from 'next';
+import clientPromise from '../../lib/mongodb';
 import Head from 'next/head';
 import About from '../components/about/About';
 import Header from '../components/header/Header';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import HeroSection from '../components/heroSection/HeroSection';
 import Projects from '../components/projects/Projects';
 import Skills from '../components/skills/Skills';
 import theme from '../styles/appTheme/theme';
-import { StyledDivider } from '../styles/sharedStyles/Divider';
-import { GetStaticProps } from 'next';
-
-const dummyData = [
-	{
-		title: 'Printify',
-		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe istererum  similiquedolordoloremqexercitationem nostrum ut quo amet repellendus.',
-		tech: ['react', 'typescript', 'Material-UI', 'React'],
-		links: [
-			{ icon: <FiGithub />, url: 'https://github.com' },
-			{ icon: <FiExternalLink />, url: 'https://seznam.cz' },
-		],
-	},
-	{
-		title: 'NaserSi123',
-		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe istererum  similiquedolordoloremqexercitationem nostrum ut quo amet repellendus. Lorem ipsum dolor sit amet consectetu adipisicing elit. Saepe istererum  similiquedolordoloremqexercitationemnostrum ut quo amet repellendus.',
-		tech: ['PHP', 'Styled-Components', 'MUI', 'React'],
-		links: [
-			{ icon: <FiGithub />, url: 'https://github.com' },
-			{ icon: <FiExternalLink />, url: 'https://seznam.cz' },
-		],
-	},
-	{
-		title: 'Printify',
-		desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe istererum  similiquedolordoloremqexercitationem nostrum ut quo amet repellendus.',
-		tech: ['react', 'typescript', 'Material-UI', 'React'],
-		links: [
-			{ icon: <FiGithub />, url: 'https://github.com' },
-			{ icon: <FiExternalLink />, url: 'https://seznam.cz' },
-		],
-	},
-];
+import { Container, useMediaQuery } from '@mui/material';
+import { Project } from '../models/project.model';
 
 interface Props {
-	meetups: {
-		title: string;
-		address: string;
-		image: string;
-		id: string;
-	}[];
+	projects: Project[];
 }
 
-const Home: NextPage<Props> = ({ meetups }) => {
-	console.log(meetups);
+const Home: NextPage<Props> = ({ projects }) => {
+	console.log(projects);
 
 	return (
 		<>
@@ -73,28 +35,28 @@ const Home: NextPage<Props> = ({ meetups }) => {
 			>
 				<About />
 				<Skills />
-				<Projects data={dummyData} />
+				<Projects projects={projects} />
 			</Container>
 		</>
 	);
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-	// fetch data from API
-	const client = await MongoClient.connect(
-		'mongodb+srv://karlza:karlza@testorderfood.rkwku.mongodb.net/meetups?retryWrites=true&w=majority'
-	); // connection string
-	const db = client.db(); // accessing db
-	const meetupsCollection = db.collection('meetupsCollection'); // accessing collection
-	const meetups = await meetupsCollection.find().toArray(); // find by default finds all documents inside collection
-	client.close();
+	const client = await clientPromise;
+	const db = client.db('personal-website'); // accessing db
+	let projectCollection = await db.collection('projects').find({}).toArray(); // accessing collection & getting all documents
+	projectCollection = JSON.parse(JSON.stringify(projectCollection));
+	console.log(projectCollection);
+
 	return {
 		props: {
-			meetups: meetups.map((meetup) => ({
-				title: meetup.title,
-				address: meetup.address,
-				image: meetup.image,
-				id: meetup._id.toString(),
+			projects: projectCollection.map((project) => ({
+				title: project.title,
+				description: project.desc,
+				tech: project.usedtech,
+				image: project.img,
+				link: project.link,
+				id: project._id.toString(),
 			})),
 		},
 	};
