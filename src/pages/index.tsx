@@ -10,6 +10,8 @@ import theme from '../styles/appTheme/theme';
 import { Container, useMediaQuery } from '@mui/material';
 import { Project } from '../models/project.model';
 import ProjectCards from '../components/projectCards/ProjectCards';
+import { StyledDivider } from '../styles/sharedStyles/Divider';
+import Contact from '../components/contact/Contact';
 
 interface Props {
 	featuredProjects: Project[];
@@ -18,12 +20,16 @@ interface Props {
 		description: string;
 		tags: string[];
 		id: string;
+		links: {
+			icon: string;
+			url: string;
+		}[];
 	}[];
 }
 
 const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
-	console.log(featuredProjects);
-	console.log(projects);
+	// console.log(featuredProjects);
+	// console.log(projects);
 
 	return (
 		<>
@@ -38,11 +44,12 @@ const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
 			<Header />
 			<HeroSection />
 
-			<Container maxWidth='lg' sx={{ color: '#ECFBFC' }}>
+			<Container maxWidth='lg' sx={{ px: { xs: '1.5rem', sm: '3rem', md: '3rem' } }}>
 				<About />
 				<Skills />
 				<Projects projects={featuredProjects} />
 				<ProjectCards cardData={projects} />
+				<Contact />
 			</Container>
 		</>
 	);
@@ -63,13 +70,14 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 				description: featured.desc,
 				tech: featured.usedtech,
 				image: featured.img,
-				link: featured.link,
+				links: featured.links,
 				id: featured._id.toString(),
 			})),
 			projects: projectsCollection.map((project) => ({
 				title: project.title,
 				description: project.desc,
 				tags: project.tags,
+				links: project.links,
 				id: project._id,
 			})),
 		},

@@ -6,6 +6,9 @@ export interface Project {
 		path: string;
 		alt: string;
 	};
-	link: string;
 	id: string;
+	links: {
+		name: string;
+		url: string;
+	}[];
 }

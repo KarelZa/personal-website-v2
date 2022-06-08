@@ -3,10 +3,10 @@ import aboutpic from '../../../public/images/silueta4.jpg';
 
 import React from 'react';
 import { StyledAbout } from '../../styles/about/about';
-import { GridColumn } from '../../styles/sharedStyles/GridColumn';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
 import theme from '../../styles/appTheme/theme';
 import { StyledCaption } from '../../styles/sharedStyles/Caption';
+import { Flex } from '../../styles/sharedStyles/Flex';
 
 type Props = {};
 
@@ -17,14 +17,9 @@ const About = (props: Props) => {
 				<img src={aboutpic.src} />
 			</Grid>
 			<Grid item md={6}>
-				<GridColumn>
+				<Flex direction='column'>
 					<StyledCaption contentString='ABOUT'>Karel Zamazal</StyledCaption>
-					<Typography
-						variant='h6'
-						fontWeight={'light'}
-						mt={1}
-						color={theme.palette.primary.main}
-					>
+					<Typography variant='h6' fontWeight={'100'} mt={1} color={'secondary'}>
 						Junior Web developer
 					</Typography>
 					<StyledDivider />
@@ -34,7 +29,7 @@ const About = (props: Props) => {
 						job opportunity where I could utilize and further develop my skills. I am
 						mostly interested in React technology and everything around it.
 					</Typography>
-				</GridColumn>
+				</Flex>
 			</Grid>
 		</StyledAbout>
 	);

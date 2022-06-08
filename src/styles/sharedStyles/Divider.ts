@@ -13,10 +13,11 @@ export const StyledDivider = styled('hr', {
 })<Props>(({ theme, color, width }) => ({
 	height: '1px',
 	border: 'none',
-	width: '25%',
-	backgroundColor: theme.palette.primary.main,
+	width: '15%',
+	borderRadius: '25%',
+	backgroundColor: theme.palette.secondary.main,
 	opacity: '.3',
-	margin: '1.5rem 0',
+	margin: '1.2rem auto',
 
 	[theme.breakpoints.up('sm')]: {
 		width: '15%',

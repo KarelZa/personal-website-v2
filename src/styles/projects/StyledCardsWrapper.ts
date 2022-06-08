@@ -5,10 +5,10 @@ export const StyledCardsWrapper = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	marginTop: '2rem',
 	padding: '0',
-	maxWidht: '1000px',
 
 	gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-	gap: '1.3rem',
+	gap: '1.2rem',
+	// backgroundColor: 'red',
 
 	// SMALL DEVICES
 	[theme.breakpoints.up('sm')]: {
@@ -19,6 +19,7 @@ export const StyledCardsWrapper = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up('md')]: {
 		gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
 		// backgroundColor: 'red',
-		padding: '3rem',
+		padding: '0rem 2rem',
+		margin: '0 auto',
 	},
 }));

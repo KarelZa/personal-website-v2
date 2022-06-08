@@ -6,7 +6,8 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 	justifyContent: 'center',
 	color: 'white',
 	height: '100%',
-	padding: '1rem',
+	padding: '0rem',
+	margin: '2rem 0',
 	// backgroundColor: 'red',
 
 	'& .MuiGrid-root.MuiGrid-container': { justifyContent: 'center' },

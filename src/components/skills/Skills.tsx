@@ -2,6 +2,7 @@ import { Box, Grid } from '@mui/material';
 import React from 'react';
 
 import { StyledCaption } from '../../styles/sharedStyles/Caption';
+import { StyledDivider } from '../../styles/sharedStyles/Divider';
 import { StyledSkills } from '../../styles/skills/Skills';
 
 import PrimarySkills from './PrimarySkills';
@@ -87,19 +88,22 @@ const iconsArr = {
 
 const Skills = (props: Props) => {
 	return (
-		<StyledSkills>
+		<>
 			<StyledCaption
 				contentString='SKILLS'
-				leftcss='50%'
-				translatecss='-50'
-				textAlign={'center'}
-				mb={'3rem'}
+				// leftcss='50%'
+				// translatecss='-50'
+				// textAlign={'center'}
+				// mb={'3rem'}
+				textAlign={'right'}
 			>
 				Skills
 			</StyledCaption>
-
-			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
-		</StyledSkills>
+			<StyledDivider />
+			<StyledSkills>
+				<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
+			</StyledSkills>
+		</>
 	);
 };
 

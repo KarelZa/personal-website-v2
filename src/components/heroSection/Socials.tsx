@@ -1,4 +1,3 @@
-import { Grid, IconButton } from '@mui/material';
 import React from 'react';
 import { FaLinkedin, FaFacebookSquare, FaGithubSquare } from 'react-icons/fa';
 import { StyledSocials } from '../../styles/heroSection/socials';

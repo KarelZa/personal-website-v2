@@ -4,9 +4,10 @@ import { styled } from '@mui/material/styles';
 export const StyledFeatProject = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12,1fr)',
-	margin: '1.5rem 0rem',
+	margin: '0rem 0rem',
 	position: 'relative',
 	// backgroundColor: 'green',
+	gap: '0rem',
 
 	'& .project-image, & .project-content': {
 		gridRow: '1/2',
@@ -77,7 +78,7 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 			fontWeight: '800',
 			'& > a': {
 				textDecoration: 'none',
-				color: '#e6f1ff',
+				color: theme.palette.primary.dark,
 				zIndex: 1,
 			},
 		},
@@ -85,12 +86,19 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 			position: 'relative',
 			margin: '1.2rem 0',
 			zIndex: 2,
+			'& .MuiTypography-body1': {
+				fontWeight: '200',
+			},
 		},
 		'& .external-links': {
 			fontSize: '1.5rem',
 			marginTop: '1rem',
 			'& a': {
+				color: theme.palette.secondary.main,
 				paddingRight: '1rem',
+				'&:hover': {
+					color: theme.palette.secondary.contrastText,
+				},
 			},
 		},
 		'& .tech-list': {
@@ -111,7 +119,7 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 	// SMALL DEVICES
 	[theme.breakpoints.up('sm')]: {
 		margin: '0rem 0rem',
-		padding: '2rem',
+		padding: '0rem',
 		'& .project-content': {
 			padding: '0 3rem',
 		},
@@ -119,13 +127,12 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 
 	// MEDIUM DEVICES
 	[theme.breakpoints.up('md')]: {
-		padding: '1rem 0rem',
-
+		padding: '0 3rem',
 		'& .project-image, & .project-content': {
 			gridRow: '1/2',
 		},
 		'& .project-image': {
-			gridColumn: '2/8',
+			gridColumn: '1/8',
 			opacity: '1',
 			'& a': {
 				border: `none`,
@@ -145,8 +152,9 @@ export const StyledFeatProject = styled(Box)(({ theme }) => ({
 			alignSelf: 'center',
 			textAlign: 'right',
 			gridRow: '1/2',
-			gridColumn: '6/-2',
+			gridColumn: '6/-1',
 			padding: '0',
+
 			'& .MuiTypography-h5': {
 				marginBottom: '20px',
 			},

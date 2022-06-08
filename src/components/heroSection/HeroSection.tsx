@@ -5,7 +5,6 @@ import { Container } from '@mui/system';
 import Socials from './Socials';
 import photo from '../../../public/images/profilepic.png';
 import Typewriter from 'typewriter-effect';
-import theme from '../../styles/appTheme/theme';
 
 const HeroSection = () => {
 	return (

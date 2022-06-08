@@ -3,6 +3,7 @@ import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import React from 'react';
 import Link from '../Link';
 import { Project } from '../../models/project.model';
+
 import { StyledFeatProject } from '../../styles/projects/StyledFeatProject';
 
 type Props = {
@@ -14,13 +15,11 @@ const FeaturedProject = ({ project }: Props) => {
 		<StyledFeatProject key={project.id}>
 			<Box className='project-content'>
 				<Box>
-					<Typography variant='overline' color='primary'>
+					<Typography variant='overline' color={'secondary'}>
 						Featured Project
 					</Typography>
 					<Typography variant='h4'>
-						<Link href={project.link} color='#e6f1ff'>
-							{project.title}
-						</Link>
+						<Link href={project.links[0].url}>{project.title}</Link>
 					</Typography>
 					<Box className='project-description'>
 						<Typography variant='body1'>{project.description}</Typography>
@@ -33,17 +32,22 @@ const FeaturedProject = ({ project }: Props) => {
 						))}
 					</ul>
 					<Box className='external-links'>
-						<Link href={'https://github.com'}>
-							<FiGithub />
-						</Link>
-						<Link href={project.link}>
-							<FiExternalLink />
-						</Link>
+						{project.links.map((link, index) => (
+							<Link href={link.url} key={index}>
+								{link.name === 'github' ? <FiGithub /> : <FiExternalLink />}
+							</Link>
+						))}
 					</Box>
 				</Box>
 			</Box>
 			<Box className='project-image'>
-				<Link href={project.link}>
+				<Link
+					href={
+						project.links[0].name !== 'github'
+							? project.links[0].url
+							: project.links[1].url
+					}
+				>
 					<div className='image-wrapper'>
 						<img src={project.image.path} alt={project.image.alt} />
 					</div>

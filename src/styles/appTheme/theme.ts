@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
+import { red, yellow } from '@mui/material/colors';
 
 // Create a theme instance.
 const theme = createTheme({
@@ -8,17 +8,23 @@ const theme = createTheme({
 			default: '#0a192f',
 		},
 		primary: {
-			main: '#D1D646',
+			light: '#000',
+			main: '#ECFBFC',
+			dark: '#e6f1ff',
 		},
 		secondary: {
-			main: '#19857b',
+			contrastText: '#EEF355',
+			main: '#D1D646',
 		},
-		error: {
-			main: red.A400,
+		text: {
+			primary: yellow[300],
 		},
 	},
 	typography: {
 		fontFamily: 'Montserrat',
+		allVariants: {
+			color: '#ECFBFC',
+		},
 	},
 	breakpoints: {
 		values: {
@@ -27,6 +33,17 @@ const theme = createTheme({
 			md: 813,
 			lg: 1180,
 			xl: 1536,
+		},
+	},
+	components: {
+		MuiTextField: {
+			styleOverrides: {
+				root: {
+					'& .MuiOutlinedInput-root:hover': {
+						borderColor: 'red',
+					},
+				},
+			},
 		},
 	},
 });
