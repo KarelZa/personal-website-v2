@@ -20,7 +20,7 @@ const PrimarySkills = (props: Props) => {
 	return (
 		<StyledPrimarySkills>
 			{props.iconsArr.map((icon) => (
-				<SkillItem imgPath={icon.imgPath} alt={icon.name} title={icon.name} />
+				<SkillItem key={icon.id} imgPath={icon.imgPath} alt={icon.name} title={icon.name} />
 			))}
 		</StyledPrimarySkills>
 	);

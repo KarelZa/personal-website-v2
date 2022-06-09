@@ -7,10 +7,16 @@ export const StyledForm = styled('form')(({ theme }) => ({
 	'& .MuiFormControl-root': {
 		width: '100%',
 		marginBottom: '1rem',
-		// backgroundColor: 'green',
+		position: 'relative',
 		backgroundColor: theme.palette.background.default,
-		border: `.5px solid rgba(230, 241, 255, .2)`,
-		// borderBottom: `.5px solid rgba(230, 241, 255, .4)`,
+		'& .MuiFormHelperText-root': {
+			// marginLeft: '0rem',
+		},
+	},
+	'& .MuiOutlinedInput-root': {
+		'& fieldset': {
+			borderColor: 'rgba(230, 241, 255, .2)',
+		},
 	},
 	'& .MuiButton-root': {
 		display: 'block',

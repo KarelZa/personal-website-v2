@@ -1,90 +1,105 @@
-import { Box, Button, Grid, TextField, Typography, useMediaQuery } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import React from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import { Button, Grid, Typography, useMediaQuery } from '@mui/material';
+import { useForm, SubmitHandler, Controller, useController } from 'react-hook-form';
 import theme from '../../styles/appTheme/theme';
 import { StyledContact } from '../../styles/contact/StyledContact';
 import { StyledForm } from '../../styles/contact/StyledForm';
 import { Flex } from '../../styles/sharedStyles/Flex';
+import { StyledCaption } from '../../styles/sharedStyles/Caption';
+import CustomInput from './CustomInput';
+import { IFormInputs } from '../../models/form.model';
+import axios from 'axios';
 
-// type IFormInputs = {
-// 	name: string;
-// 	email: string;
-// 	subject: string;
-// 	message: string;
-// };
-
-// interface CSS {
-// 	focusColor?: string;
-// }
-
-// const CssTextField = styled(TextField, {
-// 	shouldForwardProp: (props) => props !== 'focusColor',
-// })<CSS>((p) => ({
-// 	// input label when focused
-// 	'& label.Mui-focused': {
-// 		color: p.focusColor,
-// 	},
-// 	// focused color for input with variant='standard'
-// 	'& .MuiInput-underline:after': {
-// 		borderBottomColor: p.focusColor,
-// 	},
-// 	// focused color for input with variant='filled'
-// 	'& .MuiFilledInput-underline:after': {
-// 		borderBottomColor: p.focusColor,
-// 	},
-// 	// focused color for input with variant='outlined'
-// 	'& .MuiOutlinedInput-root': {
-// 		'&.Mui-focused fieldset': {
-// 			borderColor: p.focusColor,
-// 		},
-// 	},
-// }));
+// Rules
+const schema: yup.SchemaOf<IFormInputs> = yup.object({
+	name: yup.string().required().min(2),
+	email: yup.string().required().email(),
+	subject: yup.string(),
+	message: yup.string().required().min(5).max(500),
+});
 
 const Contact = () => {
+	const {
+		control, // contains methods for registering component into React Hook Form
+		handleSubmit, // submit func
+	} = useForm<IFormInputs>({
+		resolver: yupResolver(schema), // resolving errors through YUP lib
+	});
+
+	const formSubmitHandler: SubmitHandler<IFormInputs> = async (formValues: IFormInputs) => {
+		let config = {
+			method: 'post',
+			url: `${'http://localhost:3000/api/contact'}`,
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			data: formValues,
+		};
+
+		try {
+			const response = await axios(config);
+			console.log(response);
+			if (response.status === 200) {
+				console.log('success');
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<StyledContact>
-			<Grid container my={5}>
+			<Grid container my={5} justifyContent={'center'} gap={2}>
 				<Grid
-					container
+					item
 					md={5}
-					margin='0 auto'
 					textAlign={'left'}
 					justifyContent='center'
 					alignContent={'center'}
 				>
-					<Typography variant='h4' textAlign={'center'}>
-						Get in touch
-					</Typography>
+					<StyledCaption contentString='CONTACT'>Get in touch</StyledCaption>
 					<Typography variant='body1'>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sequi ipsam
 						impedit voluptas architecto dolor obcaecati ratione nulla ex unde esse.
 					</Typography>
 				</Grid>
 
-				<Grid item xs={12} md={9} margin='0 auto'>
-					<StyledForm>
+				<Grid item xs={12} md={10}>
+					<StyledForm onSubmit={handleSubmit(formSubmitHandler)}>
 						<Flex
-							direction={useMediaQuery(theme.breakpoints.up('md')) ? 'row' : 'column'}
+							direction={useMediaQuery(theme.breakpoints.up('sm')) ? 'row' : 'column'}
 							gap='1rem'
 						>
-							<TextField
-								id='filled-basic'
-								label='Name'
-								variant='filled'
-								sx={{ width: '100%' }}
+							<CustomInput
+								control={control}
+								name='name'
+								id='outlined-basic'
+								defaultValue=''
 							/>
-							<TextField id='filled-basic' label='Email' variant='filled' />
+							<CustomInput
+								control={control}
+								name='email'
+								id='outlined-basic'
+								defaultValue=''
+							/>
 						</Flex>
-						{/* <TextField id='filled-basic' label='Subject' variant='filled' /> */}
-						<TextField id='filled-basic' label='Subject' variant='filled' />
-						<TextField
-							id='filled-multiline-static'
-							label='Message'
-							multiline
-							rows={5}
-							variant='filled'
+						<CustomInput
+							control={control}
+							name='subject'
+							id='outlined-basic'
+							defaultValue=''
 						/>
-						<Button variant='outlined' color='primary' size='large'>
+						<CustomInput
+							control={control}
+							name='message'
+							isMultiline
+							rows={6}
+							id='outlined-multiline-static'
+							defaultValue=''
+						/>
+						<Button variant='outlined' type='submit' color='primary' size='large'>
 							SEND MESSAGE
 						</Button>
 					</StyledForm>

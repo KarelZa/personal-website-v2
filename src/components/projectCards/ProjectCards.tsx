@@ -23,7 +23,7 @@ type Props = {
 };
 
 const ProjectCards = ({ cardData }: Props) => {
-	console.log(cardData);
+	// console.log(cardData);
 
 	return (
 		<>
@@ -40,7 +40,7 @@ const ProjectCards = ({ cardData }: Props) => {
 									<BsCodeSquare size={33} />
 									<div>
 										{card.links.map((link, index) => (
-											<Link href={link.url}>
+											<Link href={link.url} key={index}>
 												{link.icon === 'github' ? (
 													<FiGithub size={25} />
 												) : (

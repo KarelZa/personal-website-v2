@@ -12,7 +12,7 @@ type Props = {
 
 const FeaturedProject = ({ project }: Props) => {
 	return (
-		<StyledFeatProject key={project.id}>
+		<StyledFeatProject>
 			<Box className='project-content'>
 				<Box>
 					<Typography variant='overline' color={'secondary'}>

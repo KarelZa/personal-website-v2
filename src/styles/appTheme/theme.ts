@@ -17,7 +17,7 @@ const theme = createTheme({
 			main: '#D1D646',
 		},
 		text: {
-			primary: yellow[300],
+			primary: '#ECFBFC',
 		},
 	},
 	typography: {
@@ -38,11 +38,7 @@ const theme = createTheme({
 	components: {
 		MuiTextField: {
 			styleOverrides: {
-				root: {
-					'& .MuiOutlinedInput-root:hover': {
-						borderColor: 'red',
-					},
-				},
+				root: {},
 			},
 		},
 	},

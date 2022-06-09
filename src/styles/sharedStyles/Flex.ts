@@ -16,8 +16,8 @@ export const Flex = styled('div', {
 	flexDirection: direction || 'row',
 	alignItems: 'center',
 
-	[theme.breakpoints.up('md')]: {
+	[theme.breakpoints.up('sm')]: {
 		alignItems: 'flex-start',
-		gap: direction === 'row' && gap,
+		gap: gap,
 	},
 }));

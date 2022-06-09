@@ -20,7 +20,7 @@ const Projects = ({ projects }: Props) => {
 			<StyledDivider />
 			<StyledFeatWrapper>
 				{projects.map((project) => (
-					<FeaturedProject project={project} />
+					<FeaturedProject key={project.id} project={project} />
 				))}
 			</StyledFeatWrapper>
 		</>
