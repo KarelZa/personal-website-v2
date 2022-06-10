@@ -2,7 +2,7 @@ import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import React from 'react';
 import { Container } from '@mui/system';
-import Socials from './Socials';
+import Socials from '../Socials';
 import photo from '../../../public/images/profilepic.png';
 import Typewriter from 'typewriter-effect';
 
@@ -59,7 +59,6 @@ const HeroSection = () => {
 								/>
 							</Typography>
 						</Grid>
-						<Socials />
 					</Grid>
 					<Grid item textAlign='center' sx={{ width: { xs: '50%', sm: '30%' } }}>
 						<img src={photo.src} style={{ maxWidth: '100%', minWidth: '100%' }} />

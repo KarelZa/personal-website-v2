@@ -1,18 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-	AppBar,
-	Box,
-	Container,
-	Drawer,
-	Fade,
-	IconButton,
-	List,
-	ListItem,
-	Toolbar,
-	Typography,
-} from '@mui/material';
-import theme from '../../styles/appTheme/theme';
-import Link from '../Link';
+import { AppBar, Container, IconButton, Toolbar } from '@mui/material';
 import { Spin as Hamburger } from 'hamburger-react';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
@@ -21,7 +8,7 @@ import Nav from './Nav';
 type Props = {};
 
 const navigationLinks = [
-	{ name: 'Home', href: '#home' },
+	{ name: 'Home', href: '/' },
 	{ name: 'About', href: '#about' },
 	{ name: 'Skills', href: '#skills' },
 	{ name: 'Projects', href: '#projects' },

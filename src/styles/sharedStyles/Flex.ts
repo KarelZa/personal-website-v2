@@ -15,9 +15,10 @@ export const Flex = styled('div', {
 	display: 'flex',
 	flexDirection: direction || 'row',
 	alignItems: 'center',
+	justifyContent: 'center',
 
 	[theme.breakpoints.up('sm')]: {
-		alignItems: 'flex-start',
+		alignItems: 'center',
 		gap: gap,
 	},
 }));

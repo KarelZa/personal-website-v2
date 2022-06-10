@@ -12,9 +12,9 @@ type Props = {
 const Nav = (props: Props) => {
 	return (
 		<Box display={{ xs: 'none', sm: 'flex' }}>
-			{props.navigationLinks.map((link) => (
+			{props.navigationLinks.map((link, index) => (
 				<Link
-					key={link.name}
+					key={index}
 					href={link.href}
 					sx={{
 						color: 'white',

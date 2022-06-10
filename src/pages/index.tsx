@@ -7,11 +7,14 @@ import HeroSection from '../components/heroSection/HeroSection';
 import Projects from '../components/projects/Projects';
 import Skills from '../components/skills/Skills';
 import theme from '../styles/appTheme/theme';
-import { Container, useMediaQuery } from '@mui/material';
+import { Box, Container, useMediaQuery } from '@mui/material';
 import { Project } from '../models/project.model';
 import ProjectCards from '../components/projectCards/ProjectCards';
 import { StyledDivider } from '../styles/sharedStyles/Divider';
 import Contact from '../components/contact/Contact';
+import Footer from '../components/Footer/Footer';
+import { RiGithubLine } from 'react-icons/ri';
+import Socials from '../components/Socials';
 
 interface Props {
 	featuredProjects: Project[];
@@ -41,15 +44,18 @@ const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
 				/>
 			</Head>
 
-			<Header />
-			<HeroSection />
-
-			<Container maxWidth='lg' sx={{ px: { xs: '1.5rem', sm: '3rem', md: '3rem' } }}>
-				<About />
-				<Skills />
-				<Projects projects={featuredProjects} />
-				<ProjectCards cardData={projects} />
-				<Contact />
+			<Container maxWidth='lg'>
+				<Header />
+				<HeroSection />
+				{useMediaQuery(theme.breakpoints.up('md')) && <Socials />}
+				<main>
+					<About />
+					<Skills />
+					<Projects projects={featuredProjects} />
+					<ProjectCards cardData={projects} />
+					<Contact />
+				</main>
+				<Footer />
 			</Container>
 		</>
 	);

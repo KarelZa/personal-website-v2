@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
 					<meta name='theme-color' content={theme.palette.primary.main} />
 					<link rel='shortcut icon' href='./favicon.ico' />
 					<link
-						href='https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Montserrat:wght@300;400;500;600;700&family=Pacifico&family=Permanent+Marker&family=Roboto:wght@500;700&display=swap'
+						href='https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Montserrat:wght@100;200;300;400;500;600;700&family=Pacifico&family=Permanent+Marker&family=Roboto:wght@500;700&display=swap'
 						rel='stylesheet'
 					/>
 					{/* Inject MUI styles first to match with the prepend: true configuration. */}

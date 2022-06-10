@@ -5,7 +5,7 @@ import React from 'react';
 import { StyledCardsWrapper } from '../../styles/projects/StyledCardsWrapper';
 import Link from '../Link';
 import { StyledCard } from '../../styles/projects/StyledCard';
-import { StyledCaption } from '../../styles/sharedStyles/Caption';
+import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import theme from '../../styles/appTheme/theme';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
 
@@ -27,9 +27,7 @@ const ProjectCards = ({ cardData }: Props) => {
 
 	return (
 		<>
-			<StyledCaption contentString='PROJECTS'>
-				Other {useMediaQuery(theme.breakpoints.down('md')) && 'Projects'}
-			</StyledCaption>
+			<SectionCaption>projects</SectionCaption>
 			<StyledDivider />
 			<StyledCardsWrapper>
 				{cardData.map((card) => (

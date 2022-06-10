@@ -24,7 +24,6 @@ export const StyledDivider = styled('hr', {
 	},
 	[theme.breakpoints.up('md')]: {
 		margin: '.5rem 0',
-		backgroundColor: color || 'transparent',
-		width: width || '0',
+		display: 'none',
 	},
 }));

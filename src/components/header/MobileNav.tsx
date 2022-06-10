@@ -45,9 +45,9 @@ const MobileNav = (props: Props) => {
 						backgroundColor: 'green',
 					}}
 				>
-					{props.navigationLinks.map((link) => (
+					{props.navigationLinks.map((link, index) => (
 						<Link
-							key={link.name}
+							key={index}
 							href={link.href}
 							sx={{
 								color: 'white',

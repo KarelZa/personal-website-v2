@@ -45,8 +45,9 @@ export const StyledCard = styled(Box)(({ theme }) => ({
 					color: theme.palette.secondary.main,
 				},
 			},
-			'& p': {
-				fontWeight: '100',
+			'& .MuiTypography-body2 ': {
+				lineHeight: '1.5',
+				fontWeight: '200',
 			},
 		},
 		'& .card--footer': {
@@ -79,13 +80,7 @@ export const StyledCard = styled(Box)(({ theme }) => ({
 			// backgroundColor: 'red',
 			'& .card--body': {
 				'& .MuiTypography-h6': {
-					fontFamily: 'Inter',
 					lineHeight: '1.3',
-					fontWeight: '700',
-				},
-				'& .MuiTypography-body2 ': {
-					fontWeight: '100',
-					lineHeight: '1.5',
 				},
 			},
 		},

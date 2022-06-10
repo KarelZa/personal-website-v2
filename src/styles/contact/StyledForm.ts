@@ -2,7 +2,8 @@ import { styled } from '@mui/material/styles';
 
 export const StyledForm = styled('form')(({ theme }) => ({
 	// backgroundColor: 'red',
-	marginTop: '1.5rem',
+	// marginTop: '1.5rem',
+	// marginBottom: '1.5rem',
 
 	'& .MuiFormControl-root': {
 		width: '100%',
@@ -21,6 +22,10 @@ export const StyledForm = styled('form')(({ theme }) => ({
 	'& .MuiButton-root': {
 		display: 'block',
 		margin: '0 auto',
+		padding: '.7rem 2rem',
+		fontFamily: 'Inter',
+		letterSpacing: '.1rem',
+		fontWeight: '800',
 	},
 
 	// SMALL DEVICES
@@ -28,5 +33,9 @@ export const StyledForm = styled('form')(({ theme }) => ({
 	// MEDIUM DEVICES
 	[theme.breakpoints.up('md')]: {
 		marginTop: 0,
+		'& .MuiButton-root': {
+			marginRight: 0,
+			padding: '.8rem 3rem',
+		},
 	},
 }));

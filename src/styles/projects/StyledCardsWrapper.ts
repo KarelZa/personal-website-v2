@@ -19,7 +19,8 @@ export const StyledCardsWrapper = styled(Box)(({ theme }) => ({
 	[theme.breakpoints.up('md')]: {
 		gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
 		// backgroundColor: 'red',
-		padding: '0rem 2rem',
+
+		padding: '0rem 3rem',
 		margin: '0 auto',
 	},
 }));

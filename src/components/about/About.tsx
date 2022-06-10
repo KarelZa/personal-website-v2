@@ -1,29 +1,38 @@
-import { Box, Button, Container, Divider, Grid, Typography } from '@mui/material';
-import aboutpic from '../../../public/images/silueta4.jpg';
-
 import React from 'react';
+import { Grid, Typography } from '@mui/material';
+import aboutpic from '../../../public/images/silueta4.jpg';
 import { StyledAbout } from '../../styles/about/about';
-import { StyledDivider } from '../../styles/sharedStyles/Divider';
-import theme from '../../styles/appTheme/theme';
-import { StyledCaption } from '../../styles/sharedStyles/Caption';
+import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { Flex } from '../../styles/sharedStyles/Flex';
 
 type Props = {};
 
 const About = (props: Props) => {
 	return (
-		<StyledAbout container>
-			<Grid item md={4} textAlign='center'>
+		<StyledAbout container id='about'>
+			<Grid
+				item
+				md={4}
+				textAlign='center'
+				display={'flex'}
+				alignContent={'center'}
+				justifyContent='center'
+			>
 				<img src={aboutpic.src} />
 			</Grid>
 			<Grid item md={6}>
 				<Flex direction='column'>
-					<StyledCaption contentString='ABOUT'>Karel Zamazal</StyledCaption>
-					<Typography variant='h6' fontWeight={'100'} mt={1} color={'secondary'}>
+					<SectionCaption>ABOUT</SectionCaption>
+					<Typography variant='h4'>Karel Zamazal</Typography>
+					<Typography variant='h6' fontWeight={'100'} mb={3} color={'secondary'}>
 						Junior Web developer
 					</Typography>
-					<StyledDivider />
-					<Typography variant='subtitle1' textAlign={{ xs: 'center', md: 'left' }}>
+
+					<Typography
+						variant='body1'
+						textAlign={{ xs: 'center', md: 'left' }}
+						lineHeight={1.9}
+					>
 						Based in the Czech Republic, I've just finished Object-Oriented Programming
 						course at the Technical University of Ostrava. Currently I am seeking for a
 						job opportunity where I could utilize and further develop my skills. I am
