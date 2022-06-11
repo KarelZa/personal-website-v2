@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import { BsCodeSquare } from 'react-icons/bs';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 // Styling
-import { StyledCard } from '../../styles/projects/StyledCard';
+import { StyledCard } from '../../styles/projectCards/StyledCard';
 // Model (Interface/Type)
 import { CardProps } from '../../models/card.model';
 

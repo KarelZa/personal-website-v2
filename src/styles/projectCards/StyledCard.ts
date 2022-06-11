@@ -13,7 +13,7 @@ export const StyledCard = styled(Box)(({ theme }) => ({
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
-		boxShadow: `0 5px 15px -10px black`,
+		boxShadow: `0 0px 15px -10px black`,
 		padding: '1rem 1.5rem',
 
 		'& .card--body': {
@@ -67,17 +67,18 @@ export const StyledCard = styled(Box)(({ theme }) => ({
 		},
 	},
 	// SMALL DEVICES
-	[theme.breakpoints.up('sm')]: {
-		// backgroundColor: 'red',
-	},
+	[theme.breakpoints.up('sm')]: {},
 	// SMALL DEVICES
 	[theme.breakpoints.up('md')]: {
 		border: 'none',
+		transition: 'transform ease 500ms',
+		'&: hover': {
+			boxShadow: '0px 11px 15px -6px rgba(0,0,0,0.3)',
+			transform: ' translate3d(0px, -13px, 0px)',
+		},
 
 		'& .card-inner': {
 			padding: '1.5rem 1.9rem',
-
-			// backgroundColor: 'red',
 			'& .card--body': {
 				'& .MuiTypography-h6': {
 					lineHeight: '1.3',

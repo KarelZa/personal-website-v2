@@ -5,7 +5,6 @@ import { Grid, Typography } from '@mui/material';
 // Styling
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
-import { StyledDivider } from '../../styles/sharedStyles/Divider';
 
 const Contact = () => {
 	return (
@@ -13,15 +12,12 @@ const Contact = () => {
 			<Grid container justifyContent={'center'} gap={5}>
 				<Grid
 					item
-					xs={10}
-					sm={8}
-					md={6}
+					xs={12}
 					textAlign={'left'}
 					justifyContent='center'
 					alignContent={'center'}
 				>
-					<SectionCaption>contact</SectionCaption>
-					<StyledDivider />
+					<SectionCaption justifySelf='center'>contact</SectionCaption>
 					<Typography variant='body1' textAlign={'center'} mt={1}>
 						Whether you looking for a new member to strengthen your crew or just want to
 						chat, feel free to send me a message.

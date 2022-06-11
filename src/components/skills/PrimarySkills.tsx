@@ -1,22 +1,21 @@
-import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
-
-import theme from '../../styles/appTheme/theme';
-import { StyledPrimarySkills } from '../../styles/skills/StyledPrimarySkills';
+// Components
 import SkillItem from './SkillItem';
+// Styling
+import { StyledPrimarySkills } from '../../styles/skills/StyledPrimarySkills';
 
-interface Icon {
+interface IconProps {
 	id: string;
 	imgPath: string;
 	name: string;
 }
 
-interface Props {
-	iconsArr: Icon[];
+interface PrimarySkillsProps {
+	iconsArr: IconProps[];
 	title: string;
 }
 
-const PrimarySkills = (props: Props) => {
+const PrimarySkills = (props: PrimarySkillsProps) => {
 	return (
 		<StyledPrimarySkills>
 			{props.iconsArr.map((icon) => (

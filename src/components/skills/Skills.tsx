@@ -4,7 +4,6 @@ import PrimarySkills from './PrimarySkills';
 // Styling
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
-import { StyledDivider } from '../../styles/sharedStyles/Divider';
 
 const iconsArr = {
 	primary: [
@@ -86,8 +85,7 @@ const iconsArr = {
 const Skills = () => {
 	return (
 		<StyledSection id='skills'>
-			<SectionCaption>Skills</SectionCaption>
-			<StyledDivider />
+			<SectionCaption justifySelf='flex-end'>Skills</SectionCaption>
 			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
 		</StyledSection>
 	);

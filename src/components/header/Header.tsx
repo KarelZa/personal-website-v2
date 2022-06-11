@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { AppBar, Container, IconButton, Toolbar } from '@mui/material';
-import { Spin as Hamburger } from 'hamburger-react';
+import React, { useState } from 'react';
+// Components
+import Nav from './Nav';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
-import Nav from './Nav';
-
-type Props = {};
+import { AppBar, Container, IconButton, Toolbar } from '@mui/material';
+import { Spin as Hamburger } from 'hamburger-react';
 
 const navigationLinks = [
 	{ name: 'Home', href: '/' },
@@ -15,7 +14,7 @@ const navigationLinks = [
 	{ name: 'Contact', href: '#contact' },
 ];
 
-const Header = (props: Props) => {
+const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const hamburgerOnClickHandler = () => {

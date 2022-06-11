@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Snackbar, useMediaQuery } from '@mui/material';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { IFormInputs } from '../../models/form.model';
+import { FormInputsProps } from '../../models/form.model';
 import { StyledForm } from '../../styles/contact/StyledForm';
 import { Flex } from '../../styles/sharedStyles/Flex';
 import CustomInput from './CustomInput';
@@ -18,7 +18,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props,
 });
 
 // Rules
-const schema: yup.SchemaOf<IFormInputs> = yup.object({
+const schema: yup.SchemaOf<FormInputsProps> = yup.object({
 	name: yup.string().required().min(2),
 	email: yup.string().required().email(),
 	subject: yup.string(),
@@ -43,11 +43,13 @@ const ContactForm = (props: Props) => {
 		control, // contains methods for registering component into React Hook Form
 		handleSubmit, // submit func
 		reset,
-	} = useForm<IFormInputs>({
+	} = useForm<FormInputsProps>({
 		resolver: yupResolver(schema), // resolving errors through YUP lib
 	});
 
-	const formSubmitHandler: SubmitHandler<IFormInputs> = async (formValues: IFormInputs) => {
+	const formSubmitHandler: SubmitHandler<FormInputsProps> = async (
+		formValues: FormInputsProps
+	) => {
 		let config = {
 			method: 'post',
 			url: `${'http://localhost:3000/api/contact'}`,
@@ -73,7 +75,7 @@ const ContactForm = (props: Props) => {
 		<StyledForm onSubmit={handleSubmit(formSubmitHandler)}>
 			<Flex
 				direction={useMediaQuery(theme.breakpoints.up('sm')) ? 'row' : 'column'}
-				gap='1rem'
+				gap={useMediaQuery(theme.breakpoints.up('sm')) ? '1rem' : '0'}
 			>
 				<CustomInput control={control} name='name' id='outlined-basic' defaultValue='' />
 				<CustomInput control={control} name='email' id='outlined-basic' defaultValue='' />

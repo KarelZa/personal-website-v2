@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const StyledPrimarySkills = styled(Grid)(({ theme }) => ({
@@ -12,7 +12,7 @@ export const StyledPrimarySkills = styled(Grid)(({ theme }) => ({
 	[theme.breakpoints.up('sm')]: {
 		gridTemplateColumns: 'repeat(5,1fr)',
 		gridTemplateRows: 'repeat(2,1fr)',
-		padding: '0 2.5rem',
+		rowGap: '2rem',
 		'& img': {
 			height: '50px',
 			margin: '0 auto',
@@ -21,12 +21,17 @@ export const StyledPrimarySkills = styled(Grid)(({ theme }) => ({
 	[theme.breakpoints.up('md')]: {
 		gridTemplateColumns: 'repeat(6,1fr)',
 		gridTemplateRows: 'repeat(2,1fr)',
-		padding: '0 5rem',
-		rowGap: '2rem',
-		columnGap: '0rem',
+		padding: '0 3rem',
+		rowGap: '3rem',
+		columnGap: '1rem',
 		'& img': {
-			height: '55px',
-			margin: '0 auto',
+			height: '60px',
+		},
+	},
+	[theme.breakpoints.up('lg')]: {
+		padding: '0 1rem',
+		'& img': {
+			height: '75px',
 		},
 	},
 }));

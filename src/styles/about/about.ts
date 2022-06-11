@@ -16,7 +16,7 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 	'& img': {
 		width: '100%',
 		height: '100%',
-		maxWidth: '230px',
+		maxWidth: '250px',
 		objectFit: 'contain',
 		borderRadius: '50%',
 	},
@@ -25,6 +25,8 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		alignItems: 'center',
+		position: 'relative',
+
 		'& .MuiGrid-root.MuiGrid-item:last-of-type': {
 			marginTop: '0rem',
 		},

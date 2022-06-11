@@ -13,7 +13,7 @@ const About = () => {
 		<StyledSection id='about'>
 			<SectionCaption>ABOUT</SectionCaption>
 			<StyledAbout container>
-				<Grid item md={6} alignSelf={'flex-start'}>
+				<Grid item md={6}>
 					<Flex direction='column'>
 						<Typography variant='h4'>Karel Zamazal</Typography>
 						<Typography variant='h6' fontWeight={'100'} mb={3} color={'secondary'}>
@@ -26,11 +26,11 @@ const About = () => {
 							lineHeight={1.9}
 							px={{ xs: 1, md: 0 }}
 						>
-							Based in the Czech Republic, I've just finished Object-Oriented
+							Based in the Ostrava, Czech Republic, I've just finished Object-Oriented
 							Programming course at the Technical University of Ostrava. Currently I
 							am seeking for a job opportunity where I could utilize and further
-							develop my skills. I am mostly interested in React technology and
-							everything around & about it.
+							develop my skills. I spent most of my time learning or building stuff in
+							React technology as I enjoy it the most.
 						</Typography>
 					</Flex>
 				</Grid>

@@ -1,10 +1,9 @@
-import { Typography } from '@mui/material';
 import React from 'react';
+// Components
+import { Typography } from '@mui/material';
 import Link from '../shared/Link';
 
-type Props = {};
-
-const Logo = (props: Props) => {
+const Logo = () => {
 	return (
 		<Link
 			href='/'

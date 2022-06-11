@@ -20,7 +20,7 @@ export const StyledCardsWrapper = styled(Box)(({ theme }) => ({
 		gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
 		// backgroundColor: 'red',
 
-		padding: '0rem 3rem',
+		padding: '0rem 2rem',
 		margin: '0 auto',
 	},
 }));

@@ -32,7 +32,7 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		position: 'fixed',
 		width: '50px',
 		bottom: '0',
-		left: '20px',
+		left: '12px',
 		margin: '0',
 		padding: '0',
 		'& ul': {
@@ -49,8 +49,8 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 			'&::after': {
 				display: 'block',
 				content: '""',
-				width: '.9px',
-				opacity: '.5',
+				width: '1px',
+				opacity: '.3',
 				height: '100px',
 				backgroundColor: theme.palette.primary.dark,
 			},
@@ -69,6 +69,8 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 
 					'&:hover': {
 						color: 'red',
+						boxShadow: 'rgba(0, 0, 0, 0.22) 0px -10px 43px',
+						transform: 'translate3d(0px, -15px, 0px)',
 					},
 				},
 				'&:last-of-type': {

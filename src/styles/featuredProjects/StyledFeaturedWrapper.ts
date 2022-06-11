@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-export const StyledFeatWrapper = styled(Box)(({ theme }) => ({
+export const StyledFeaturedWrapper = styled(Box)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateRows: 'repeat(auto-fill,minmax(2,1fr))',
 	gap: '2rem',

@@ -1,7 +1,7 @@
 import { TextField } from '@mui/material';
 import * as React from 'react';
 import { useForm, useController, UseControllerProps } from 'react-hook-form';
-import { IFormInputs } from '../../models/form.model';
+import { FormInputsProps } from '../../models/form.model';
 
 interface AdditionalProps {
 	rows?: number;
@@ -9,7 +9,7 @@ interface AdditionalProps {
 	id: string;
 }
 
-function CustomInput({ ...props }: AdditionalProps & UseControllerProps<IFormInputs>) {
+function CustomInput({ ...props }: AdditionalProps & UseControllerProps<FormInputsProps>) {
 	const {
 		field: { ref, ...field }, // done this way to allow on focus on error
 		fieldState,

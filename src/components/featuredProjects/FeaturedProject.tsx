@@ -5,7 +5,7 @@ import { FiExternalLink, FiGithub } from 'react-icons/fi';
 // Model (Interface/Type)
 import { ProjectProps } from '../../models/project.model';
 // Styling
-import { StyledFeatProject } from '../../styles/projects/StyledFeatProject';
+import { StyledFeatProject } from '../../styles/featuredProjects/StyledFeatProject';
 
 type FeaturedProjectProps = {
 	project: ProjectProps;
