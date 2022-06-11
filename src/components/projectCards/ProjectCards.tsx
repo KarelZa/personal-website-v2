@@ -1,72 +1,29 @@
-import { Box, Container, Typography, useMediaQuery } from '@mui/material';
-import { BsCodeSquare } from 'react-icons/bs';
-import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import React from 'react';
+// Components
+import ProjectCard from './ProjectCard';
+// Styling
 import { StyledCardsWrapper } from '../../styles/projects/StyledCardsWrapper';
-import Link from '../Link';
-import { StyledCard } from '../../styles/projects/StyledCard';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
-import theme from '../../styles/appTheme/theme';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
+import { StyledSection } from '../../styles/sharedStyles/Section';
+// Model (Interface/Type)
+import { CardProps } from '../../models/card.model';
 
-type Props = {
-	cardData: {
-		title: string;
-		description: string;
-		tags: string[];
-		id: string;
-		links: {
-			icon: string;
-			url: string;
-		}[];
-	}[];
+type ProjectCardsProps = {
+	cards: CardProps[];
 };
 
-const ProjectCards = ({ cardData }: Props) => {
-	// console.log(cardData);
-
+const ProjectCards = ({ cards }: ProjectCardsProps) => {
 	return (
-		<>
+		<StyledSection>
 			<SectionCaption>projects</SectionCaption>
 			<StyledDivider />
 			<StyledCardsWrapper>
-				{cardData.map((card) => (
-					<StyledCard key={card.id}>
-						<Box className='card-inner'>
-							<div className='card--body'>
-								<div className='card--top'>
-									<BsCodeSquare size={33} />
-									<div>
-										{card.links.map((link, index) => (
-											<Link href={link.url} key={index}>
-												{link.icon === 'github' ? (
-													<FiGithub size={25} />
-												) : (
-													<FiExternalLink size={25} />
-												)}
-											</Link>
-										))}
-									</div>
-								</div>
-								<Link href={card.links[0].url}>
-									<Typography variant='h6'>{card.title}</Typography>
-								</Link>
-								<Typography variant='body2'>{card.description}</Typography>
-							</div>
-							<div className='card--footer'>
-								<ul>
-									{card.tags.map((tag, index) => (
-										<li key={index}>
-											<Typography variant='caption'>{tag}</Typography>
-										</li>
-									))}
-								</ul>
-							</div>
-						</Box>
-					</StyledCard>
+				{cards.map((card) => (
+					<ProjectCard key={card.id} card={card} />
 				))}
 			</StyledCardsWrapper>
-		</>
+		</StyledSection>
 	);
 };
 

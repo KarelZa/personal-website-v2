@@ -1,15 +1,15 @@
 import React from 'react';
+// Components
 import ContactForm from './ContactForm';
-import { Box, Grid, Typography } from '@mui/material';
-import { StyledContact } from '../../styles/contact/StyledContact';
-
-import theme from '../../styles/appTheme/theme';
+import { Grid, Typography } from '@mui/material';
+// Styling
+import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
 
 const Contact = () => {
 	return (
-		<StyledContact id='contact'>
+		<StyledSection id='contact'>
 			<Grid container justifyContent={'center'} gap={5}>
 				<Grid
 					item
@@ -31,7 +31,7 @@ const Contact = () => {
 					<ContactForm />
 				</Grid>
 			</Grid>
-		</StyledContact>
+		</StyledSection>
 	);
 };
 

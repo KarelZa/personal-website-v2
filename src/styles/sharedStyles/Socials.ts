@@ -1,9 +1,7 @@
-import { Grid } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 export const StyledSocials = styled('div')(({ theme }) => ({
 	// backgroundColor: 'red',
-
 	margin: '0rem 0 .5rem 0',
 	'& ul': {
 		// backgroundColor: 'green',
@@ -30,8 +28,9 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 	[theme.breakpoints.up('sm')]: {},
 	// LARGE DEVICE
 	[theme.breakpoints.up('md')]: {
-		zIndex: 50,
+		zIndex: 10,
 		position: 'fixed',
+		width: '50px',
 		bottom: '0',
 		left: '20px',
 		margin: '0',
@@ -46,7 +45,6 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 			margin: '0',
 			padding: '0',
 			position: 'relative',
-			zIndex: 50,
 
 			'&::after': {
 				display: 'block',
@@ -58,15 +56,23 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 			},
 			'& li': {
 				// backgroundColor: 'yellow',
-				padding: '0rem 0rem',
-				margin: '.3rem 0',
-				'& > .MuiLink-root': {
+				position: 'relative',
+				padding: '.3rem 0rem',
+				zIndex: 30,
+				'& > .MuiTypography-root': {
+					position: 'relative',
+					display: 'inline-block',
 					fontSize: '1.7rem',
 					color: theme.palette.primary.dark,
 					fontWeight: '100',
+					transition: ' transform ease 300ms',
+
+					'&:hover': {
+						color: 'red',
+					},
 				},
 				'&:last-of-type': {
-					marginBottom: '1rem',
+					paddingBottom: '1rem',
 				},
 			},
 		},
@@ -75,12 +81,12 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		left: '3%',
 		'& ul': {
 			'& li': {
-				margin: '.5rem 0',
+				padding: '.3rem 0',
 				'& > .MuiLink-root': {
 					fontSize: '2.2rem',
 				},
 				'&:last-of-type': {
-					marginBottom: '1.2rem',
+					paddingBottom: '1.2rem',
 				},
 			},
 		},

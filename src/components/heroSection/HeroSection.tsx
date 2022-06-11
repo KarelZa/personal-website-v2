@@ -2,7 +2,7 @@ import { Box, Button, Grid, Paper, Typography } from '@mui/material';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import React from 'react';
 import { Container } from '@mui/system';
-import Socials from '../Socials';
+import Socials from '../shared/Socials';
 import photo from '../../../public/images/profilepic.png';
 import Typewriter from 'typewriter-effect';
 

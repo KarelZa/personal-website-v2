@@ -1,7 +1,9 @@
 import React from 'react';
-import { RiLinkedinFill, RiFacebookFill, RiGithubFill } from 'react-icons/ri';
-import { StyledSocials } from '../styles/sharedStyles/Socials';
+// Components
 import Link from './Link';
+import { RiLinkedinFill, RiFacebookFill, RiGithubFill } from 'react-icons/ri';
+// Styling
+import { StyledSocials } from '../../styles/sharedStyles/Socials';
 
 const SocialContacts = [
 	{ icon: RiLinkedinFill, url: 'https://www.linkedin.com/in/karel-zamazal/' },

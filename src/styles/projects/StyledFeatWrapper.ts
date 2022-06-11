@@ -7,6 +7,7 @@ export const StyledFeatWrapper = styled(Box)(({ theme }) => ({
 	gap: '2rem',
 	position: 'relative',
 	margin: '2rem 0',
+
 	// backgroundColor: 'red',
 	[theme.breakpoints.up('md')]: {
 		gap: '4rem',

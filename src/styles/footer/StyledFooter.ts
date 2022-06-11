@@ -1,6 +1,6 @@
 import { styled } from '@mui/material/styles';
 
-export const StyledFooter = styled('div')(({ theme }) => ({
+export const StyledFooter = styled('footer')(({ theme }) => ({
 	padding: '20px',
 	display: 'flex',
 	flexDirection: 'column',

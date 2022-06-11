@@ -1,5 +1,4 @@
-// TYPES FOR THE WHOLE FORM
-export interface IFormInputs {
+export interface FormInputsProps {
 	name?: string;
 	email?: string;
 	subject?: string;

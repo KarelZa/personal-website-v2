@@ -21,4 +21,9 @@ export const Flex = styled('div', {
 		alignItems: 'center',
 		gap: gap,
 	},
+
+	[theme.breakpoints.up('md')]: {
+		alignItems: 'flex-start',
+		gap: gap,
+	},
 }));

@@ -1,19 +1,21 @@
 import React from 'react';
-import { Project } from '../../models/project.model';
+// Components
 import FeaturedProject from './FeaturedProject';
+// Model (Interface/Type)
+import { ProjectProps } from '../../models/project.model';
+// Styling
 import { StyledFeatWrapper } from '../../styles/projects/StyledFeatWrapper';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
-import { useMediaQuery } from '@mui/material';
-import theme from '../../styles/appTheme/theme';
+import { StyledSection } from '../../styles/sharedStyles/Section';
 
-interface Props {
-	projects: Project[];
+interface FeaturedProjectsProps {
+	projects: ProjectProps[];
 }
 
-const Projects = ({ projects }: Props) => {
+const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
 	return (
-		<section id='projects'>
+		<StyledSection id='projects'>
 			<SectionCaption>Projects</SectionCaption>
 			<StyledDivider />
 			<StyledFeatWrapper>
@@ -21,8 +23,8 @@ const Projects = ({ projects }: Props) => {
 					<FeaturedProject key={project.id} project={project} />
 				))}
 			</StyledFeatWrapper>
-		</section>
+		</StyledSection>
 	);
 };
 
-export default Projects;
+export default FeaturedProjects;

@@ -1,39 +1,31 @@
 import type { NextPage, GetStaticProps } from 'next';
-import clientPromise from '../../lib/mongodb';
 import Head from 'next/head';
-import About from '../components/about/About';
+import theme from '../styles/appTheme/theme';
+import clientPromise from '../../lib/mongodb';
+// Components
 import Header from '../components/header/Header';
 import HeroSection from '../components/heroSection/HeroSection';
-import Projects from '../components/projects/Projects';
+import About from '../components/about/About';
 import Skills from '../components/skills/Skills';
-import theme from '../styles/appTheme/theme';
-import { Box, Container, useMediaQuery } from '@mui/material';
-import { Project } from '../models/project.model';
+import FeaturedProjects from '../components/featuredProjects/FeaturedProjects';
 import ProjectCards from '../components/projectCards/ProjectCards';
-import { StyledDivider } from '../styles/sharedStyles/Divider';
+import Socials from '../components/shared/Socials';
 import Contact from '../components/contact/Contact';
 import Footer from '../components/Footer/Footer';
-import { RiGithubLine } from 'react-icons/ri';
-import Socials from '../components/Socials';
+// Model (Interface/Type)
+import { ProjectProps } from '../models/project.model';
+import { CardProps } from '../models/card.model';
+// Styling
+import { Container, useMediaQuery } from '@mui/material';
 
-interface Props {
-	featuredProjects: Project[];
-	projects: {
-		title: string;
-		description: string;
-		tags: string[];
-		id: string;
-		links: {
-			icon: string;
-			url: string;
-		}[];
-	}[];
+interface HomeProps {
+	featuredProjectsData: ProjectProps[];
+	projectCardsData: CardProps[];
 }
 
-const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
+const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
 	// console.log(featuredProjects);
 	// console.log(projects);
-
 	return (
 		<>
 			<Head>
@@ -44,15 +36,15 @@ const Home: NextPage<Props> = ({ projects, featuredProjects }) => {
 				/>
 			</Head>
 
+			{useMediaQuery(theme.breakpoints.up('md')) && <Socials />}
 			<Container maxWidth='lg'>
 				<Header />
-				<HeroSection />
-				{useMediaQuery(theme.breakpoints.up('md')) && <Socials />}
 				<main>
+					<HeroSection />
 					<About />
 					<Skills />
-					<Projects projects={featuredProjects} />
-					<ProjectCards cardData={projects} />
+					<FeaturedProjects projects={featuredProjectsData} />
+					<ProjectCards cards={projectCardsData} />
 					<Contact />
 				</main>
 				<Footer />
@@ -71,7 +63,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 	return {
 		props: {
-			featuredProjects: featuredCollection.map((featured) => ({
+			featuredProjectsData: featuredCollection.map((featured) => ({
 				title: featured.title,
 				description: featured.desc,
 				tech: featured.usedtech,
@@ -79,7 +71,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 				links: featured.links,
 				id: featured._id.toString(),
 			})),
-			projects: projectsCollection.map((project) => ({
+			projectCardsData: projectsCollection.map((project) => ({
 				title: project.title,
 				description: project.desc,
 				tags: project.tags,

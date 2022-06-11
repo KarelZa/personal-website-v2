@@ -1,12 +1,11 @@
-import { Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
-import theme from '../../styles/appTheme/theme';
+// Components
+import { Typography, useMediaQuery } from '@mui/material';
+import Socials from '../shared/Socials';
+// Styling
 import { StyledFooter } from '../../styles/footer/StyledFooter';
-import Socials from '../Socials';
 
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
 	return (
 		<StyledFooter>
 			<Socials />

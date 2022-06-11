@@ -1,16 +1,17 @@
+import React from 'react';
+import Link from '../shared/Link';
 import { Box, Typography } from '@mui/material';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import React from 'react';
-import Link from '../Link';
-import { Project } from '../../models/project.model';
-
+// Model (Interface/Type)
+import { ProjectProps } from '../../models/project.model';
+// Styling
 import { StyledFeatProject } from '../../styles/projects/StyledFeatProject';
 
-type Props = {
-	project: Project;
+type FeaturedProjectProps = {
+	project: ProjectProps;
 };
 
-const FeaturedProject = ({ project }: Props) => {
+const FeaturedProject = ({ project }: FeaturedProjectProps) => {
 	return (
 		<StyledFeatProject>
 			<Box className='project-content'>

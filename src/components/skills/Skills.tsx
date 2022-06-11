@@ -1,13 +1,10 @@
-import { Box, Grid } from '@mui/material';
 import React from 'react';
-
+// Components
+import PrimarySkills from './PrimarySkills';
+// Styling
+import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledDivider } from '../../styles/sharedStyles/Divider';
-import { StyledSkills } from '../../styles/skills/Skills';
-
-import PrimarySkills from './PrimarySkills';
-
-type Props = {};
 
 const iconsArr = {
 	primary: [
@@ -86,15 +83,13 @@ const iconsArr = {
 	],
 };
 
-const Skills = (props: Props) => {
+const Skills = () => {
 	return (
-		<section id='skills'>
+		<StyledSection id='skills'>
 			<SectionCaption>Skills</SectionCaption>
 			<StyledDivider />
-			<StyledSkills>
-				<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
-			</StyledSkills>
-		</section>
+			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
+		</StyledSection>
 	);
 };
 
