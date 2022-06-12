@@ -3,6 +3,7 @@ import nodemailer from 'nodemailer';
 
 interface ResponseData {
 	resMessage: string;
+	severity: string;
 }
 
 export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
@@ -17,7 +18,6 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
 			pass: process.env.MAIL_PASS,
 		},
 	});
-	// sending
 	try {
 		const emailRes = await transporter.sendMail({
 			from: process.env.MAIL_USERNAME,
@@ -29,10 +29,12 @@ export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) =
 	  <p><strong>Subject: </strong>${subject}</p>
 	  <p><strong>Message: </strong><br>${message}</p>`,
 		});
-		console.log('MESSAGE SENT', emailRes.messageId);
-		res.status(200).json({ resMessage: 'Your ✉️ was succesfully sent' });
+		// console.log('MESSAGE SENT', emailRes.messageId);
+		res.status(200).json({ severity: 'success', resMessage: 'Your ✉️ was succesfully sent' });
 	} catch (error) {
-		console.log(error);
-		// res.status(400).json({ messageStatusRes: 'error' });
+		res.status(400).json({
+			severity: 'error',
+			resMessage: 'Your ✉️ did not go through, please try again',
+		});
 	}
 };
