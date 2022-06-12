@@ -1,10 +1,8 @@
 import { styled } from '@mui/material/styles';
 
 export const StyledSocials = styled('div')(({ theme }) => ({
-	// backgroundColor: 'red',
 	margin: '0rem 0 .5rem 0',
 	'& ul': {
-		// backgroundColor: 'green',
 		justifyContent: 'center',
 		display: 'flex',
 		alignItems: 'center',
@@ -13,7 +11,6 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		padding: '0',
 
 		'& li': {
-			// backgroundColor: 'yellow',
 			padding: '0 .5rem',
 			'& > .MuiLink-root': {
 				fontSize: '2.1rem',
@@ -22,21 +19,17 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		},
 	},
 
-	// SMALL DEVICES
 	[theme.breakpoints.up('sm')]: {},
-	// MEDIUM DEVICES
-	[theme.breakpoints.up('sm')]: {},
-	// LARGE DEVICE
+
 	[theme.breakpoints.up('md')]: {
 		zIndex: 10,
 		position: 'fixed',
 		width: '50px',
 		bottom: '0',
-		left: '12px',
+		left: '1rem',
 		margin: '0',
 		padding: '0',
 		'& ul': {
-			// backgroundColor: 'green',
 			display: 'flex',
 			flexDirection: 'column',
 			justifyContent: 'center',
@@ -51,26 +44,20 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 				content: '""',
 				width: '1px',
 				opacity: '.3',
-				height: '100px',
+				height: '60px',
 				backgroundColor: theme.palette.primary.dark,
 			},
 			'& li': {
-				// backgroundColor: 'yellow',
+				backgroundColor: theme.palette.background.default,
 				position: 'relative',
-				padding: '.3rem 0rem',
+				padding: '.1rem 0rem',
 				zIndex: 30,
 				'& > .MuiTypography-root': {
-					position: 'relative',
 					display: 'inline-block',
-					fontSize: '1.7rem',
 					color: theme.palette.primary.dark,
-					fontWeight: '100',
 					transition: ' transform ease 300ms',
-
 					'&:hover': {
-						color: 'red',
-						boxShadow: 'rgba(0, 0, 0, 0.22) 0px -10px 43px',
-						transform: 'translate3d(0px, -15px, 0px)',
+						transform: 'scale(1.2)',
 					},
 				},
 				'&:last-of-type': {
@@ -85,7 +72,7 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 			'& li': {
 				padding: '.3rem 0',
 				'& > .MuiLink-root': {
-					fontSize: '2.2rem',
+					fontSize: '2.3rem',
 				},
 				'&:last-of-type': {
 					paddingBottom: '1.2rem',

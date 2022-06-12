@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 // Components
-import Nav from './Nav';
+import NavLinks from './NavLinks';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
-import { AppBar, Container, IconButton, Toolbar } from '@mui/material';
+import { IconButton, Toolbar } from '@mui/material';
 import { Spin as Hamburger } from 'hamburger-react';
+// Styling
+import { StyledHeader } from '../../styles/header/Header.styled';
 
 const navigationLinks = [
 	{ name: 'Home', href: '/' },
@@ -22,35 +24,16 @@ const Header = () => {
 	};
 
 	return (
-		<AppBar sx={{ backgroundColor: 'transparent' }}>
-			<Container maxWidth='lg'>
-				<Toolbar
-					sx={{
-						margin: 0,
-						padding: 0,
-						display: 'flex',
-						justifyContent: 'space-between',
-						alignItems: 'center',
-						height: '8vh',
-					}}
-					disableGutters
-				>
-					<Logo />
-					<Nav navigationLinks={navigationLinks} />
-					<IconButton
-						sx={{
-							display: { sm: 'none' },
-							p: 0,
-							m: 0,
-						}}
-						onClick={hamburgerOnClickHandler}
-					>
-						<Hamburger label='Show menu' color='white' />
-					</IconButton>
-				</Toolbar>
-			</Container>
+		<StyledHeader>
+			<Toolbar component={'nav'}>
+				<Logo />
+				<NavLinks navigationLinks={navigationLinks} />
+				<IconButton onClick={hamburgerOnClickHandler}>
+					<Hamburger label='Show menu' color='white' />
+				</IconButton>
+			</Toolbar>
 			<MobileNav navigationLinks={navigationLinks} isOpen={isOpen} />
-		</AppBar>
+		</StyledHeader>
 	);
 };
 

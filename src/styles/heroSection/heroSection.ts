@@ -8,6 +8,8 @@ export const StyledHeroSection = styled('section')(({ theme }) => ({
 	backgroundRepeat: 'no-repeat',
 	display: 'flex',
 	justifyContent: 'flex-start',
+	alignContent: 'flex-start',
+	padding: '0 1.3rem',
 
 	'& .welcome-text': {
 		fontSize: 'clamp(20px, 5vw, 2.2rem)',
@@ -24,11 +26,12 @@ export const StyledHeroSection = styled('section')(({ theme }) => ({
 		margin: 0,
 	},
 	'& h4.typewritter': {
-		fontSize: 'clamp(20px, 5vw, 3.3rem)',
+		fontSize: 'clamp(35px, 5vw, 3.3rem)',
 		padding: '0',
 		margin: '0',
 		fontFamily: 'Inter',
-		fontWeight: 600,
+		fontWeight: 500,
+		lineHeight: '1.2',
 	},
 	'& h5': {
 		fontSize: 'clamp(1rem, 5vw, 2.2rem)',
@@ -40,10 +43,13 @@ export const StyledHeroSection = styled('section')(({ theme }) => ({
 		gap: '1rem',
 	},
 
-	// SMALL DEVICES
-	[theme.breakpoints.up('sm')]: {},
-	// SMALL DEVICES
+	[theme.breakpoints.up('sm')]: {
+		padding: '0 2rem',
+	},
 	[theme.breakpoints.up('md')]: {
 		padding: '0 3rem',
+	},
+	[theme.breakpoints.up('xl')]: {
+		padding: '0rem',
 	},
 }));

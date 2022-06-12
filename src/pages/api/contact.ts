@@ -1,13 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-type Data = {
-	name: string;
-};
+interface ResponseData {
+	resMessage: string;
+}
 
-export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
-	console.log(req.body);
-	res.status(200).json(req.body);
+export default async (req: NextApiRequest, res: NextApiResponse<ResponseData>) => {
 	const { name, email, subject, message } = req.body;
 	// setting-up
 	const transporter = nodemailer.createTransport({
@@ -32,8 +30,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	  <p><strong>Message: </strong><br>${message}</p>`,
 		});
 		console.log('MESSAGE SENT', emailRes.messageId);
-
-		// res.status(200).json({ messageStatusRes: 'success' });
+		res.status(200).json({ resMessage: 'Your ✉️ was succesfully sent' });
 	} catch (error) {
 		console.log(error);
 		// res.status(400).json({ messageStatusRes: 'error' });

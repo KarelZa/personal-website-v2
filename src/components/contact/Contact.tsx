@@ -10,15 +10,16 @@ const Contact = () => {
 	return (
 		<StyledSection id='contact'>
 			<Grid container justifyContent={'center'} gap={5}>
-				<Grid
-					item
-					xs={12}
-					textAlign={'left'}
-					justifyContent='center'
-					alignContent={'center'}
-				>
+				<Grid item xs={12} textAlign='left' justifyContent='center' alignContent='center'>
 					<SectionCaption justifySelf='center'>contact</SectionCaption>
-					<Typography variant='body1' textAlign={'center'} mt={1}>
+					<Typography
+						variant='h6'
+						textAlign={'center'}
+						mb={0}
+						maxWidth={'600px'}
+						fontWeight={300}
+						mx={'auto'}
+					>
 						Whether you looking for a new member to strengthen your crew or just want to
 						chat, feel free to send me a message.
 					</Typography>

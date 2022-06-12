@@ -1,4 +1,5 @@
 import React from 'react';
+import theme from '../../styles/appTheme/theme';
 // Components
 import Typewriter from 'typewriter-effect';
 import { GiSpiderWeb } from 'react-icons/gi';
@@ -6,7 +7,6 @@ import { GiSpiderWeb } from 'react-icons/gi';
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import { useMediaQuery } from '@mui/material';
-import theme from '../../styles/appTheme/theme';
 
 const HeroSection = () => {
 	return (

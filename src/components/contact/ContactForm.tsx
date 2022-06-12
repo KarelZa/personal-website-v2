@@ -27,18 +27,18 @@ const schema: yup.SchemaOf<FormInputsProps> = yup.object({
 
 const ContactForm = (props: Props) => {
 	const [open, setOpen] = useState(false);
-
-	const handleClick = () => {
-		setOpen(true);
-	};
+	const [message, setMessage] = useState('');
+	// const handleClick = () => {
+	// 	setOpen(true);
+	// };
 
 	const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
 		if (reason === 'clickaway') {
 			return;
 		}
-
 		setOpen(false);
 	};
+
 	const {
 		control, // contains methods for registering component into React Hook Form
 		handleSubmit, // submit func
@@ -60,12 +60,15 @@ const ContactForm = (props: Props) => {
 		};
 
 		try {
+			// post
 			const response = await axios(config);
 			console.log(response);
-			if (response.status === 200) {
+			if (response.status >= 200 && response.status < 299) {
 				console.log('success');
+				setOpen(true);
+				setMessage(response.data.resMessage);
 				// reset();
-			}
+			} else if (response.status === )
 		} catch (error) {
 			console.log(error);
 		}
@@ -94,13 +97,13 @@ const ContactForm = (props: Props) => {
 				type='submit'
 				color='primary'
 				size='large'
-				onClick={handleClick}
+				// onClick={handleClick}
 			>
 				SEND MESSAGE
 			</Button>
-			<Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+			<Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>
 				<Alert onClose={handleClose} severity='success'>
-					This is a success message!
+					{message}
 				</Alert>
 			</Snackbar>
 		</StyledForm>

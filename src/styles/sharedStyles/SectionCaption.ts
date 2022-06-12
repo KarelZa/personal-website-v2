@@ -60,6 +60,6 @@ export const SectionCaption = styled('h4', {
 	},
 	[theme.breakpoints.up('md')]: {
 		fontSize: '5rem',
-		margin: '3.5rem 0rem',
+		margin: '3.5rem 0rem 2.5rem 0',
 	},
 }));
