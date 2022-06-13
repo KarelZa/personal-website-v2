@@ -54,7 +54,7 @@ const ContactForm = (props: Props) => {
 		formValues: FormInputsProps
 	) => {
 		let config = {
-			method: 'post',
+			method: 'POST',
 			url: `${'https://personal-website-v2-tau.vercel.app/api/contact'}`,
 			headers: {
 				'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const ContactForm = (props: Props) => {
 			const response = await axios(config);
 			console.log(response);
 			// successful
-			if (response.statusText === 'OK') {
+			if (response.status >= 200 && response.status < 300) {
 				setOpen(true);
 				setAlertMessage({
 					severity: response.data.severity,
