@@ -9,8 +9,25 @@ import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledSection } from '../../styles/sharedStyles/Section';
 
 const About = () => {
+	const sectionVariant = {
+		hidden: {
+			opacity: 0,
+			y: 10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+		},
+	};
+
 	return (
-		<StyledSection id='about'>
+		<StyledSection
+			id='about'
+			variants={sectionVariant}
+			animate='visible'
+			initial='hidden'
+			transition={{ duration: 1 }}
+		>
 			<SectionCaption>ABOUT</SectionCaption>
 			<StyledAbout container>
 				<Grid item md={6}>

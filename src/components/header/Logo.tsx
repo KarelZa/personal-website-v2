@@ -3,8 +3,20 @@ import React from 'react';
 import { Typography } from '@mui/material';
 import Link from '../shared/Link';
 import theme from '../../styles/appTheme/theme';
+import { motion } from 'framer-motion';
 
-const Logo = () => {
+interface Props {
+	animationVariant: {
+		hidden: {
+			opacity: number;
+		};
+		visible: {
+			opacity: number;
+		};
+	};
+}
+
+const Logo = ({ animationVariant }: Props) => {
 	return (
 		<Link
 			href='/'
@@ -12,7 +24,14 @@ const Logo = () => {
 				textDecoration: 'none',
 			}}
 		>
-			<Typography variant='h4' fontWeight={'500'} letterSpacing='0' fontFamily={'Roboto'}>
+			<Typography
+				variant='h4'
+				fontWeight={'500'}
+				letterSpacing='0'
+				fontFamily={'Roboto'}
+				component={motion.h4}
+				variants={animationVariant}
+			>
 				Karel Zamazal
 			</Typography>
 		</Link>

@@ -1,6 +1,7 @@
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-export const StyledSection = styled('section')(({ theme }) => ({
+export const StyledSection = styled(motion.section)(({ theme }) => ({
 	// backgroundColor: 'red',
 	padding: '5rem 1rem 0rem 1rem',
 	[theme.breakpoints.up('sm')]: {

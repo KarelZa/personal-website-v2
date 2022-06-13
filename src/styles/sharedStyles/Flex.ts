@@ -1,5 +1,5 @@
-import { useMediaQuery } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
 interface RootProps {
 	backColor?: string;
@@ -8,7 +8,7 @@ interface RootProps {
 	gap?: string;
 }
 
-export const Flex = styled('div', {
+export const Flex = styled(motion.div, {
 	shouldForwardProp: (prop) =>
 		prop !== 'backColor' && prop !== 'direction' && prop !== 'gap' && prop !== 'alignment',
 	name: 'MyFlexComponent',

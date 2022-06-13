@@ -21,12 +21,13 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
 		alignItems: 'center',
 		'& .MuiBox-root': {
 			display: 'none',
+			listStyleType: 'none',
 		},
 	},
 
 	// Hamburger
-	'& .MuiIconButton-root': {
-		marginRight: '-1rem',
+	'& .hamburger': {
+		marginRight: '-.5rem',
 	},
 
 	// MobileNav
@@ -65,31 +66,19 @@ export const StyledHeader = styled(AppBar)(({ theme }) => ({
 		'& nav': {
 			'& .MuiBox-root': {
 				display: 'flex',
-				'& .MuiLink-root': {
-					display: 'block',
-					textDecoration: 'none',
-					position: 'relative',
-					marginLeft: '15px',
-					transition: 'borderBottom 2s ease',
-					'&:first-of-type': {
-						borderBottom: '1px solid rgba(255,255,255,0.8)',
-					},
-					'&:not(:first-of-type):after': {
+				'& li': {
+					'& .MuiLink-root': {
 						display: 'block',
-						content: '""',
-						borderBottom: 'solid 1px rgba(255,255,255,0.8)',
-						transform: 'scaleX(0)',
-						transition: 'transform 500ms ease-in-out',
-					},
-					'&:hover::after': {
-						transform: 'scaleX(1)',
+						textDecoration: 'none',
+						position: 'relative',
+						marginLeft: '15px',
 					},
 				},
 			},
 		},
 
 		// Hamburger
-		'& .MuiIconButton-root': {
+		'& .hamburger': {
 			display: 'none',
 		},
 

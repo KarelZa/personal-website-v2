@@ -1,21 +1,32 @@
 import React from 'react';
 import Link from '../shared/Link';
 import { Box, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 
 type NavLinksProps = {
 	navigationLinks: {
 		name: string;
 		href: string;
 	}[];
+	animationVariant: {
+		hidden: {
+			opacity: number;
+		};
+		visible: {
+			opacity: number;
+		};
+	};
 };
 
-const NavLinks = ({ navigationLinks }: NavLinksProps) => {
+const NavLinks = ({ navigationLinks, animationVariant }: NavLinksProps) => {
 	return (
 		<Box>
 			{navigationLinks.map((link, index) => (
-				<Link key={index} href={link.href}>
-					<Typography variant='body1'>{link.name}</Typography>
-				</Link>
+				<motion.li key={index} variants={animationVariant}>
+					<Link href={link.href}>
+						<Typography variant='body1'>{link.name}</Typography>
+					</Link>
+				</motion.li>
 			))}
 		</Box>
 	);

@@ -1,5 +1,6 @@
 import React from 'react';
 import theme from '../../styles/appTheme/theme';
+import { motion } from 'framer-motion';
 // Components
 import Typewriter from 'typewriter-effect';
 import { GiSpiderWeb } from 'react-icons/gi';
@@ -9,22 +10,67 @@ import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import { useMediaQuery } from '@mui/material';
 
 const HeroSection = () => {
+	const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
+	// parent animation
+	const parentVariant = isMobileView
+		? {
+				hidden: {
+					opacity: 0,
+				},
+				visible: {
+					opacity: 1,
+				},
+		  }
+		: {
+				hidden: {
+					opacity: 0,
+				},
+				visible: {
+					opacity: 1,
+					transition: {
+						delay: 1.8,
+						when: 'beforeChildren',
+						staggerChildren: 0.3,
+					},
+				},
+		  };
+	// Child animation
+	const childVariant = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+		},
+	};
+
 	return (
 		<StyledHeroSection>
-			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
-				<h6 className='welcome-text'>Hello there, I am</h6>
-				<h1 className='big-text'>Karel Zamazal</h1>
-				<h4 className='typewritter'>
+			<Flex
+				direction='column'
+				gap={'.9rem'}
+				alignment='flex-start'
+				variants={parentVariant}
+				initial='hidden'
+				animate='visible'
+			>
+				<motion.h6 className='welcome-text' variants={childVariant}>
+					Hello there, I am
+				</motion.h6>
+				<motion.h1 className='big-text' variants={childVariant}>
+					Karel Zamazal
+				</motion.h1>
+				<motion.h4 className='typewritter' variants={childVariant}>
 					<Typewriter
 						onInit={(typewriter) => {
 							typewriter.typeString('Front-End Web Developer').start();
 						}}
 					/>
-				</h4>
-				<h5>
+				</motion.h4>
+				<motion.h5 variants={childVariant}>
 					I enjoy creating things that live on the{' '}
 					{useMediaQuery(theme.breakpoints.up('lg')) ? <GiSpiderWeb size={50} /> : 'web'}
-				</h5>
+				</motion.h5>
 			</Flex>
 		</StyledHeroSection>
 	);

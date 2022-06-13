@@ -1,6 +1,7 @@
 import { keyframes, styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-export const StyledHeroSection = styled('section')(({ theme }) => ({
+export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 	// backgroundColor: 'red',
 	height: '100vh',
 	backgroundSize: 'cover',
