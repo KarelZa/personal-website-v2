@@ -55,7 +55,7 @@ const ContactForm = (props: Props) => {
 	) => {
 		let config = {
 			method: 'post',
-			url: `${'https://personal-website-v2-re4jrkqpl-karelza.vercel.app/api/contact'}`,
+			url: `${'/api/contact'}`,
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -81,10 +81,11 @@ const ContactForm = (props: Props) => {
 			}
 			// Error Handling
 		} catch (error: any) {
+			console.log(error);
 			setOpen(true);
 			setAlertMessage({
 				severity: error.response.data.severity,
-				text: error.response.data.message,
+				text: error.response.data.resMessage,
 			});
 		}
 	};
