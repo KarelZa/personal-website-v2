@@ -55,7 +55,7 @@ const ContactForm = (props: Props) => {
 	) => {
 		let config = {
 			method: 'post',
-			url: `${'/api/contact'}`,
+			url: `${'http://localhost:3000/api/contact'}`,
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -81,7 +81,6 @@ const ContactForm = (props: Props) => {
 			}
 			// Error Handling
 		} catch (error: any) {
-			console.log(error);
 			setOpen(true);
 			setAlertMessage({
 				severity: error.response.data.severity,
