@@ -17,6 +17,11 @@ const About = () => {
 		visible: {
 			opacity: 1,
 			y: 0,
+			// backgroundColor: '#FF0000',
+			transition: {
+				delay: 0.7,
+				duration: 0.7,
+			},
 		},
 	};
 
@@ -24,9 +29,9 @@ const About = () => {
 		<StyledSection
 			id='about'
 			variants={sectionVariant}
-			animate='visible'
+			whileInView='visible'
 			initial='hidden'
-			transition={{ duration: 1 }}
+			viewport={{ once: true }}
 		>
 			<SectionCaption>ABOUT</SectionCaption>
 			<StyledAbout container>

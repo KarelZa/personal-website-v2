@@ -1,11 +1,12 @@
 import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
 interface SectionCaptionProps {
 	justifySelf?: string;
 }
 
-export const SectionCaption = styled('h4', {
+export const SectionCaption = styled(motion.h4, {
 	shouldForwardProp: (prop) => prop !== 'justifySelf',
 	name: 'MyCaptionComponent',
 	slot: 'Root',

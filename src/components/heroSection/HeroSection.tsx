@@ -10,30 +10,20 @@ import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import { useMediaQuery } from '@mui/material';
 
 const HeroSection = () => {
-	const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
+	const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
 	// parent animation
-	const parentVariant = isMobileView
-		? {
-				hidden: {
-					opacity: 0,
-				},
-				visible: {
-					opacity: 1,
-				},
-		  }
-		: {
-				hidden: {
-					opacity: 0,
-				},
-				visible: {
-					opacity: 1,
-					transition: {
-						delay: 1.8,
-						when: 'beforeChildren',
-						staggerChildren: 0.3,
-					},
-				},
-		  };
+	const parentVariant = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+			transition: {
+				when: 'beforeChildren',
+				staggerChildren: 0.3,
+			},
+		},
+	};
 	// Child animation
 	const childVariant = {
 		hidden: {

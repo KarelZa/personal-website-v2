@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 // Components
 import Link from './Link';
 import { RiLinkedinFill, RiFacebookFill, RiGithubFill } from 'react-icons/ri';
@@ -12,17 +13,40 @@ const SocialContacts = [
 ];
 
 const Socials = () => {
+	const parentVariant = {
+		hidden: {
+			opacity: 0,
+			y: 10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 1.1,
+				duration: 0.9,
+			},
+		},
+	};
+	const childVariant = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+		},
+	};
+
 	return (
 		<StyledSocials>
-			<ul>
+			<motion.ul variants={parentVariant} initial='hidden' animate='visible'>
 				{SocialContacts.map((item, index) => (
-					<li key={index}>
+					<motion.li key={index} variants={childVariant}>
 						<Link href={item.url}>
 							<item.icon />
 						</Link>
-					</li>
+					</motion.li>
 				))}
-			</ul>
+			</motion.ul>
 		</StyledSocials>
 	);
 };

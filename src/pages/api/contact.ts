@@ -46,10 +46,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	if (req.method === 'POST') {
 		const emailRes = await sendEmail({ name, email, subject, message });
 		if (emailRes.messageId) {
-			res.status(200).json({
-				severity: 'success',
-				resMessage: 'Your ✉️ was succesfully sent',
-			});
+			return res
+				.status(200)
+				.json({ severity: 'success', resMessage: 'Your ✉️ was succesfully sent' });
 		}
 
 		return res.status(400).json({

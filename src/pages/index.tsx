@@ -37,8 +37,8 @@ const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) =
 			</Head>
 
 			{useMediaQuery(theme.breakpoints.up('md')) && <Socials />}
+			<Header />
 			<Container maxWidth='lg'>
-				<Header />
 				<main>
 					<HeroSection />
 					<About />

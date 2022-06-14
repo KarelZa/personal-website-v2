@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useViewportScroll } from 'framer-motion';
 // Components
 import NavLinks from './NavLinks';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
-import { IconButton, Toolbar, useMediaQuery } from '@mui/material';
+import { Toolbar } from '@mui/material';
 import { Spin as Hamburger } from 'hamburger-react';
 // Styling
 import { StyledHeader } from '../../styles/header/Header.styled';
-import { motion } from 'framer-motion';
-import theme from '../../styles/appTheme/theme';
 
 const navigationLinks = [
 	{ name: 'Home', href: '/' },
@@ -19,59 +18,63 @@ const navigationLinks = [
 ];
 
 const Header = () => {
-	const isMobileView = useMediaQuery(theme.breakpoints.down('md'));
 	const [isOpen, setIsOpen] = useState(false);
+	const [hidden, setHidden] = useState(false);
+	const { scrollY } = useViewportScroll();
+
 	const hamburgerOnClickHandler = () => {
 		setIsOpen((prevState) => !prevState);
 	};
-	// parent animation
-	const parentVariant = isMobileView
-		? {
-				hidden: {
-					opacity: 0,
-				},
-				visible: {
-					opacity: 1,
-				},
-		  }
-		: {
-				hidden: {
-					opacity: 0,
-				},
-				visible: {
-					opacity: 1,
-					transition: {
-						when: 'beforeChildren',
-						staggerChildren: 0.3,
-					},
-				},
-		  };
 
-	// Child animation
-	const childVariant = {
+	function update() {
+		// Scrolling up
+		if (scrollY?.get() < scrollY?.getPrevious()) {
+			setHidden(false);
+			console.log('visible');
+			// +100 Scrolling down
+		} else if (scrollY?.get() > 100 && scrollY?.get() > scrollY?.getPrevious()) {
+			setHidden(true);
+			console.log('hidden');
+		}
+	}
+	/** update the onChange callback to call for `update()` **/
+	useEffect(() => {
+		return scrollY.onChange(() => update());
+	});
+
+	// parent animation
+	const parentVariant = {
 		hidden: {
-			opacity: 0,
+			opacity: 0.3,
+			y: '-5rem',
+			boxShadow: '0px 10px 30px -10px rgba(0,0,0,1)',
 		},
 		visible: {
 			opacity: 1,
+			y: 0,
+			boxShadow: 'none',
+			transition: {
+				type: 'Tween',
+				delay: scrollY?.get() === 0 ? 1 : 0,
+				duration: scrollY?.get() === 0 ? 0.9 : 0.3,
+			},
 		},
 	};
 
 	return (
-		<StyledHeader>
-			<Toolbar
-				component={motion.nav}
-				variants={parentVariant}
-				initial='hidden'
-				animate='visible'
-			>
-				<Logo animationVariant={childVariant} />
-				<NavLinks navigationLinks={navigationLinks} animationVariant={childVariant} />
+		<StyledHeader
+			variants={parentVariant}
+			animate={hidden ? 'hidden' : 'visible'}
+			initial={'hidden'}
+		>
+			<Toolbar component={motion.nav}>
+				<Logo />
+				<NavLinks navigationLinks={navigationLinks} />
 				<motion.div
 					className='hamburger'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
-					transition={{ delay: 0.3 }}
+					transition={{ delay: 0.5 }}
 				>
 					<Hamburger label='Show menu' color='white' onToggle={hamburgerOnClickHandler} />
 				</motion.div>

@@ -8,7 +8,7 @@ type NavLinksProps = {
 		name: string;
 		href: string;
 	}[];
-	animationVariant: {
+	animationVariant?: {
 		hidden: {
 			opacity: number;
 		};
@@ -18,15 +18,15 @@ type NavLinksProps = {
 	};
 };
 
-const NavLinks = ({ navigationLinks, animationVariant }: NavLinksProps) => {
+const NavLinks = ({ navigationLinks }: NavLinksProps) => {
 	return (
 		<Box>
 			{navigationLinks.map((link, index) => (
-				<motion.li key={index} variants={animationVariant}>
+				<li key={index}>
 					<Link href={link.href}>
 						<Typography variant='body1'>{link.name}</Typography>
 					</Link>
-				</motion.li>
+				</li>
 			))}
 		</Box>
 	);

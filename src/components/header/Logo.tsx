@@ -6,7 +6,7 @@ import theme from '../../styles/appTheme/theme';
 import { motion } from 'framer-motion';
 
 interface Props {
-	animationVariant: {
+	animationVariant?: {
 		hidden: {
 			opacity: number;
 		};

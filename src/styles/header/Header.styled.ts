@@ -1,19 +1,24 @@
 import { styled } from '@mui/material/styles';
 import { AppBar } from '@mui/material';
+import { motion } from 'framer-motion';
 
-export const StyledHeader = styled(AppBar)(({ theme }) => ({
+export const StyledHeader = styled(motion.header)(({ theme }) => ({
 	position: 'fixed',
-
+	width: '100%',
 	top: 0,
 	height: '5rem',
 	padding: '1rem 2rem',
 	display: 'flex',
-	justifyContent: 'center',
-	backgroundColor: 'rgba(10, 25, 47, 1)',
+	alignItems: 'center',
+	justifyContent: 'space-between',
+	backgroundColor: 'rgba(10, 25, 47, .8)',
+
 	boxShadow: 'none',
+	zIndex: 50,
 
 	// NavLinks
 	'& nav': {
+		width: '100%',
 		margin: 0,
 		padding: 0,
 		display: 'flex',
