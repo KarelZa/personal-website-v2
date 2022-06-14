@@ -4,10 +4,12 @@ import { motion } from 'framer-motion';
 // Components
 import Typewriter from 'typewriter-effect';
 import { GiSpiderWeb } from 'react-icons/gi';
+import { FiChevronsDown } from 'react-icons/fi';
 // Styling
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
-import { useMediaQuery } from '@mui/material';
+import { Box, Button, Typography, useMediaQuery } from '@mui/material';
+import Link from '../shared/Link';
 
 const HeroSection = () => {
 	const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
@@ -35,15 +37,8 @@ const HeroSection = () => {
 	};
 
 	return (
-		<StyledHeroSection>
-			<Flex
-				direction='column'
-				gap={'.9rem'}
-				alignment='flex-start'
-				variants={parentVariant}
-				initial='hidden'
-				animate='visible'
-			>
+		<StyledHeroSection variants={parentVariant} initial='hidden' animate='visible'>
+			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
 				<motion.h6 className='welcome-text' variants={childVariant}>
 					Hello there, I am
 				</motion.h6>
@@ -62,6 +57,32 @@ const HeroSection = () => {
 					{useMediaQuery(theme.breakpoints.up('lg')) ? <GiSpiderWeb size={50} /> : 'web'}
 				</motion.h5>
 			</Flex>
+			<motion.div className='arrow-box' variants={childVariant}>
+				<Link href={'#about'}>
+					<Typography
+						component={motion.h6}
+						variant='h6'
+						initial={{
+							y: 0,
+							scale: 1,
+						}}
+						animate={{
+							y: 5,
+							scale: 0.8,
+						}}
+						transition={{
+							type: 'tween',
+							repeatType: 'mirror',
+							repeat: Infinity,
+							repeatDelay: 0.5,
+							duration: 2,
+							ease: 'linear',
+						}}
+					>
+						<FiChevronsDown size={50} />
+					</Typography>
+				</Link>
+			</motion.div>
 		</StyledHeroSection>
 	);
 };

@@ -8,9 +8,10 @@ type MobileNavProps = {
 		name: string;
 		href: string;
 	}[];
+	closeNav: () => void;
 };
 
-const MobileNav = ({ isOpen, navigationLinks }: MobileNavProps) => {
+const MobileNav = ({ isOpen, navigationLinks, closeNav }: MobileNavProps) => {
 	useEffect(() => {
 		if (isOpen) {
 			document.body.style.overflow = 'hidden';
@@ -24,13 +25,13 @@ const MobileNav = ({ isOpen, navigationLinks }: MobileNavProps) => {
 			<Drawer variant='permanent' open={isOpen}>
 				<List>
 					{navigationLinks.map((link, index) => (
-						<Link key={index} href={link.href}>
-							<ListItem>
+						<ListItem key={index}>
+							<Link href={link.href} onClick={closeNav}>
 								<Typography variant='h4' fontWeight={500} letterSpacing='0.1rem'>
 									{link.name}
 								</Typography>
-							</ListItem>
-						</Link>
+							</Link>
+						</ListItem>
 					))}
 				</List>
 			</Drawer>

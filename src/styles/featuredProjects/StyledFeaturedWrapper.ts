@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-export const StyledFeaturedWrapper = styled(Box)(({ theme }) => ({
+export const StyledFeaturedWrapper = styled(motion.div)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateRows: 'repeat(auto-fill,minmax(2,1fr))',
 	gap: '2rem',

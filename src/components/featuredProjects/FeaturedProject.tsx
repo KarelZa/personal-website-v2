@@ -9,11 +9,19 @@ import { StyledFeatProject } from '../../styles/featuredProjects/StyledFeatProje
 
 type FeaturedProjectProps = {
 	project: ProjectProps;
+	varianta?: {
+		hidden: {
+			x: number;
+		};
+		animate: {
+			x: number;
+		};
+	};
 };
 
-const FeaturedProject = ({ project }: FeaturedProjectProps) => {
+const FeaturedProject = ({ project, varianta }: FeaturedProjectProps) => {
 	return (
-		<StyledFeatProject>
+		<StyledFeatProject variants={varianta}>
 			<Box className='project-content'>
 				<Box>
 					<Typography variant='overline' color={'secondary'}>

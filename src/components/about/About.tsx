@@ -19,7 +19,7 @@ const About = () => {
 			y: 0,
 			// backgroundColor: '#FF0000',
 			transition: {
-				delay: 0.7,
+				delay: 0.5,
 				duration: 0.7,
 			},
 		},

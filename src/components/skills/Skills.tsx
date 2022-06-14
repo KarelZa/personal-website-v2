@@ -83,8 +83,29 @@ const iconsArr = {
 };
 
 const Skills = () => {
+	const sectionVariant = {
+		hidden: {
+			opacity: 0,
+			y: 10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			// backgroundColor: '#FF0000',
+			transition: {
+				delay: 0.5,
+				duration: 0.7,
+			},
+		},
+	};
 	return (
-		<StyledSection id='skills'>
+		<StyledSection
+			id='skills'
+			variants={sectionVariant}
+			whileInView='visible'
+			initial='hidden'
+			viewport={{ once: true }}
+		>
 			<SectionCaption justifySelf='flex-end'>Skills</SectionCaption>
 			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
 		</StyledSection>

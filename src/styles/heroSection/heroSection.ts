@@ -2,15 +2,38 @@ import { keyframes, styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
 export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
-	// backgroundColor: 'red',
+	position: 'relative',
 	height: '100vh',
-	backgroundSize: 'cover',
-	backgroundPosition: 'center',
-	backgroundRepeat: 'no-repeat',
 	display: 'flex',
-	justifyContent: 'flex-start',
-	alignContent: 'flex-start',
+	flexDirection: 'column',
+	justifyContent: 'center',
+
 	padding: '0 1.3rem',
+
+	// Arrow
+	'& .arrow-box': {
+		position: 'absolute',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		left: '50%',
+		bottom: 0,
+		transform: 'translate(-50%)',
+		fontSize: '2rem',
+		'& h6': {
+			fontSize: '1.5rem',
+			fontWeight: 200,
+			position: 'relative',
+			display: 'block',
+		},
+		'& svg': {
+			marginBottom: '1.5rem',
+			'& polyline:last-of-type': {
+				opacity: 0.5,
+			},
+		},
+	},
 
 	'& .welcome-text': {
 		fontSize: 'clamp(20px, 5vw, 2.2rem)',

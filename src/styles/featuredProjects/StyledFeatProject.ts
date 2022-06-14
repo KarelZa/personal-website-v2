@@ -1,7 +1,8 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-export const StyledFeatProject = styled(Box)(({ theme }) => ({
+export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 	display: 'grid',
 	gridTemplateColumns: 'repeat(12,1fr)',
 	margin: '0rem 0rem',

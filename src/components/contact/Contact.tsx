@@ -7,8 +7,29 @@ import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 
 const Contact = () => {
+	const sectionVariant = {
+		hidden: {
+			opacity: 0,
+			y: 10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			// backgroundColor: '#FF0000',
+			transition: {
+				delay: 0.5,
+				duration: 0.7,
+			},
+		},
+	};
 	return (
-		<StyledSection id='contact'>
+		<StyledSection
+			id='contact'
+			variants={sectionVariant}
+			whileInView='visible'
+			initial='hidden'
+			viewport={{ once: true }}
+		>
 			<Grid container justifyContent={'center'} gap={5}>
 				<Grid item xs={12} textAlign='left' justifyContent='center' alignContent='center'>
 					<SectionCaption justifySelf='center'>contact</SectionCaption>

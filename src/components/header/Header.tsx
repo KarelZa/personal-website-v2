@@ -18,23 +18,21 @@ const navigationLinks = [
 ];
 
 const Header = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const [hidden, setHidden] = useState(false);
-	const { scrollY } = useViewportScroll();
+	const [isNavOpen, setIsNavOpen] = useState(false); // state of nav
+	const [hidden, setHidden] = useState(false); // for header animation
+	const { scrollY } = useViewportScroll(); // for header scroll
 
-	const hamburgerOnClickHandler = () => {
-		setIsOpen((prevState) => !prevState);
+	const closeNavHandler = () => {
+		setIsNavOpen((prevState) => !prevState);
 	};
 
 	function update() {
 		// Scrolling up
 		if (scrollY?.get() < scrollY?.getPrevious()) {
 			setHidden(false);
-			console.log('visible');
 			// +100 Scrolling down
 		} else if (scrollY?.get() > 100 && scrollY?.get() > scrollY?.getPrevious()) {
 			setHidden(true);
-			console.log('hidden');
 		}
 	}
 	/** update the onChange callback to call for `update()` **/
@@ -76,10 +74,19 @@ const Header = () => {
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.5 }}
 				>
-					<Hamburger label='Show menu' color='white' onToggle={hamburgerOnClickHandler} />
+					<Hamburger
+						label='Show menu'
+						color='white'
+						toggled={isNavOpen}
+						onToggle={closeNavHandler}
+					/>
 				</motion.div>
 			</Toolbar>
-			<MobileNav navigationLinks={navigationLinks} isOpen={isOpen} />
+			<MobileNav
+				navigationLinks={navigationLinks}
+				isOpen={isNavOpen}
+				closeNav={closeNavHandler}
+			/>
 		</StyledHeader>
 	);
 };
