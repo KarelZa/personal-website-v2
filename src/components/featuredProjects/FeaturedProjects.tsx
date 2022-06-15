@@ -10,59 +10,27 @@ import { StyledSection } from '../../styles/sharedStyles/Section';
 import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 import theme from '../../styles/appTheme/theme';
 import { useMediaQuery } from '@mui/material';
+import { sectionVariant } from '../../styles/animations/animations';
 
 interface FeaturedProjectsProps {
 	projects: ProjectProps[];
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
-	const [controls, ref] = useMotionObserver('visible');
-	const sectionVariant = {
-		hidden: {
-			opacity: 0,
-			x: 0,
-		},
-		visible: {
-			opacity: 1,
-			x: 0,
-			// backgroundColor: '#FF0000',
-			// transition: {
-			// 	duration: 0.7,
-			// },
-			// transition: {
-			// 	when: 'beforeChildren',
-			// 	staggerChildren: 5,
-			// 	delay: 5,
-			// },
-		},
-	};
-
-	const itemVariant = {
-		hidden: (i: number) => ({
-			opacity: 0,
-			x: i % 2 === 0 ? (i === 0 ? 15 : i * 15) : i * -15,
-		}),
-		visible: {
-			opacity: 1,
-			x: 0,
-			transition: {
-				delay: 0.3,
-				duration: 0.8,
-			},
-		},
-	};
+	const [controls, ref] = useMotionObserver('visible', 0.2);
 
 	return (
-		<StyledSection id='projects'>
+		<StyledSection
+			id='projects'
+			ref={ref}
+			variants={sectionVariant}
+			initial='hidden'
+			animate={controls}
+		>
 			<SectionCaption>Projects</SectionCaption>
-			<StyledFeaturedWrapper variants={sectionVariant} animate='visible' initial='hidden'>
+			<StyledFeaturedWrapper>
 				{projects.map((project, index) => (
-					<FeaturedProject
-						key={project.id}
-						project={project}
-						varianta={itemVariant}
-						index={index}
-					/>
+					<FeaturedProject key={project.id} project={project} index={index} />
 				))}
 			</StyledFeaturedWrapper>
 		</StyledSection>

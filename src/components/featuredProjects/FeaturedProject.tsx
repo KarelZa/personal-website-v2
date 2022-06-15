@@ -6,33 +6,24 @@ import { FiExternalLink, FiGithub } from 'react-icons/fi';
 import { ProjectProps } from '../../models/project.model';
 // Styling
 import { StyledFeatProject } from '../../styles/featuredProjects/StyledFeatProject';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
+import { projectVariant } from '../../styles/animations/animations';
 
 type FeaturedProjectProps = {
 	project: ProjectProps;
-	varianta: {
-		hidden: (i: number) => {
-			opacity: number;
-			x: number;
-		};
-		visible: {
-			opacity: number;
-			x: number;
-			transition: {
-				duration: number;
-			};
-		};
-	};
 	index: number;
 };
 
-const FeaturedProject = ({ project, varianta, index }: FeaturedProjectProps) => {
+const FeaturedProject = ({ project, index }: FeaturedProjectProps) => {
+	const [controls, ref] = useMotionObserver('visible', 0.4);
+
 	return (
 		<StyledFeatProject
-			variants={varianta}
+			ref={ref}
+			variants={projectVariant}
 			custom={index}
-			// variants={sectionVariant}
-			whileInView='visible'
 			initial='hidden'
+			animate={controls}
 		>
 			<Box className='project-content'>
 				<Box>

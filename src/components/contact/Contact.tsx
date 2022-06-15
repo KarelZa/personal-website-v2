@@ -2,33 +2,22 @@ import React from 'react';
 // Components
 import ContactForm from './ContactForm';
 import { Grid, Typography } from '@mui/material';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 // Styling
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
+import { sectionVariant } from '../../styles/animations/animations';
 
 const Contact = () => {
-	const sectionVariant = {
-		hidden: {
-			opacity: 0,
-			y: 10,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			// backgroundColor: '#FF0000',
-			transition: {
-				delay: 0.5,
-				duration: 0.7,
-			},
-		},
-	};
+	const [controls, ref] = useMotionObserver('visible', 0.3);
+
 	return (
 		<StyledSection
 			id='contact'
+			ref={ref}
 			variants={sectionVariant}
-			whileInView='visible'
 			initial='hidden'
-			viewport={{ once: true }}
+			animate={controls}
 		>
 			<Grid container justifyContent={'center'} gap={5}>
 				<Grid item xs={12} textAlign='left' justifyContent='center' alignContent='center'>
