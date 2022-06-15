@@ -9,19 +9,31 @@ import { StyledFeatProject } from '../../styles/featuredProjects/StyledFeatProje
 
 type FeaturedProjectProps = {
 	project: ProjectProps;
-	varianta?: {
-		hidden: {
+	varianta: {
+		hidden: (i: number) => {
+			opacity: number;
 			x: number;
 		};
-		animate: {
+		visible: {
+			opacity: number;
 			x: number;
+			transition: {
+				duration: number;
+			};
 		};
 	};
+	index: number;
 };
 
-const FeaturedProject = ({ project, varianta }: FeaturedProjectProps) => {
+const FeaturedProject = ({ project, varianta, index }: FeaturedProjectProps) => {
 	return (
-		<StyledFeatProject variants={varianta}>
+		<StyledFeatProject
+			variants={varianta}
+			custom={index}
+			// variants={sectionVariant}
+			whileInView='visible'
+			initial='hidden'
+		>
 			<Box className='project-content'>
 				<Box>
 					<Typography variant='overline' color={'secondary'}>

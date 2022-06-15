@@ -2,36 +2,23 @@ import React from 'react';
 // Components
 import aboutpic from '../../../public/images/silueta4.jpg';
 import { Grid, Typography } from '@mui/material';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 // Styling
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledAbout } from '../../styles/about/about';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledSection } from '../../styles/sharedStyles/Section';
+import { sectionVariant } from '../../styles/animations/animations';
 
 const About = () => {
-	const sectionVariant = {
-		hidden: {
-			opacity: 0,
-			y: 10,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			// backgroundColor: '#FF0000',
-			transition: {
-				delay: 0.5,
-				duration: 0.7,
-			},
-		},
-	};
-
+	const [controls, ref] = useMotionObserver('visible', 0.5);
 	return (
 		<StyledSection
 			id='about'
+			ref={ref}
 			variants={sectionVariant}
-			whileInView='visible'
 			initial='hidden'
-			viewport={{ once: true }}
+			animate={controls}
 		>
 			<SectionCaption>ABOUT</SectionCaption>
 			<StyledAbout container>

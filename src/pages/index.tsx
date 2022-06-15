@@ -1,7 +1,7 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
 import theme from '../styles/appTheme/theme';
-import clientPromise from '../../lib/mongodb';
+import clientPromise from '../utils/mongodb/mongodb';
 // Components
 import Header from '../components/header/Header';
 import HeroSection from '../components/heroSection/HeroSection';

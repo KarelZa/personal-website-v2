@@ -7,49 +7,59 @@ import { ProjectProps } from '../../models/project.model';
 import { StyledFeaturedWrapper } from '../../styles/featuredProjects/StyledFeaturedWrapper';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledSection } from '../../styles/sharedStyles/Section';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 
 interface FeaturedProjectsProps {
 	projects: ProjectProps[];
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
+	const [controls, ref] = useMotionObserver('visible');
 	const sectionVariant = {
 		hidden: {
 			opacity: 0,
+			x: 0,
 		},
 		visible: {
 			opacity: 1,
-			transition: {
-				duration: 2,
-				when: 'beforeChildren',
-				staggerChildren: 5,
-			},
+			x: 0,
+			backgroundColor: '#FF0000',
+			// transition: {
+			// 	duration: 0.7,
+			// },
+			// transition: {
+			// 	when: 'beforeChildren',
+			// 	staggerChildren: 5,
+			// 	delay: 5,
+			// },
 		},
 	};
 
-	const childVariant = {
-		hidden: {
+	const itemVariant = {
+		hidden: (i: number) => ({
 			opacity: 0,
-			x: -100,
-		},
-		animate: {
+			x: i % 2 === 0 ? (i === 0 ? 100 : i * 100) : i * -100,
+		}),
+		visible: {
 			opacity: 1,
 			x: 0,
+			transition: {
+				duration: 0.8,
+			},
 		},
 	};
 
 	return (
 		<StyledSection id='projects'>
 			<SectionCaption>Projects</SectionCaption>
-
-			<StyledFeaturedWrapper
-				variants={sectionVariant}
-				whileInView='visible'
-				initial='hidden'
-				viewport={{ once: true }}
-			>
-				{projects.map((project) => (
-					<FeaturedProject key={project.id} project={project} varianta={childVariant} />
+			<StyledFeaturedWrapper variants={sectionVariant} animate='visible' initial='hidden'>
+				{projects.map((project, index) => (
+					<FeaturedProject
+						key={project.id}
+						project={project}
+						varianta={itemVariant}
+						index={index}
+					/>
 				))}
 			</StyledFeaturedWrapper>
 		</StyledSection>

@@ -1,7 +1,7 @@
-import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { motion } from 'framer-motion';
 
-export const StyledCard = styled(Box)(({ theme }) => ({
+export const StyledCard = styled(motion.div)(({ theme }) => ({
 	border: `1px solid rgba(209, 214, 5, .2)`,
 	borderRadius: '8px',
 

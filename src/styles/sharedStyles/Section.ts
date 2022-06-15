@@ -8,6 +8,6 @@ export const StyledSection = styled(motion.section)(({ theme }) => ({
 		padding: '5rem 1.5rem 3rem 1.5rem',
 	},
 	[theme.breakpoints.up('md')]: {
-		padding: '4rem 1rem 4rem 1rem',
+		padding: '5rem 1rem 3rem 1rem',
 	},
 }));

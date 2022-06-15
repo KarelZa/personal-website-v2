@@ -5,7 +5,7 @@ import { responsiveFontSizes, ThemeProvider } from '@mui/material/styles'; // Th
 import CssBaseline from '@mui/material/CssBaseline'; // Css reset
 import { CacheProvider, EmotionCache } from '@emotion/react'; // shared client-side cache for a user session
 import theme from '../styles/appTheme/theme'; // own theme
-import createEmotionCache from '../utils/createEmotionCache'; // own cache
+import createEmotionCache from '../utils/emotion/createEmotionCache'; // own cache
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();

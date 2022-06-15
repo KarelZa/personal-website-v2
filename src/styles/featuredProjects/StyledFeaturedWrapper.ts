@@ -12,14 +12,14 @@ export const StyledFeaturedWrapper = styled(motion.div)(({ theme }) => ({
 	// backgroundColor: 'red',
 	[theme.breakpoints.up('md')]: {
 		gap: '4rem',
-		'& > .MuiBox-root:nth-of-type(2n) > .project-content': {
+		'& > div:nth-of-type(2n) > .project-content': {
 			textAlign: 'left',
 			gridColumn: '1/8',
 		},
-		'& > .MuiBox-root:nth-of-type(2n) > .project-image': {
+		'& > div:nth-of-type(2n) > .project-image': {
 			gridColumn: '6/-1',
 		},
-		'& > .MuiBox-root:nth-of-type(2n) > .project-content > .MuiBox-root > .tech-list': {
+		'& > div:nth-of-type(2n) > .project-content > .MuiBox-root > .tech-list': {
 			position: 'relative',
 			listStyleType: 'none',
 			display: 'flex',
@@ -33,7 +33,7 @@ export const StyledFeaturedWrapper = styled(motion.div)(({ theme }) => ({
 				marginRight: '10px',
 			},
 		},
-		'& > .MuiBox-root:nth-of-type(2n) > .project-content > .MuiBox-root  > .external-links': {
+		'& > div:nth-of-type(2n) > .project-content > .MuiBox-root  > .external-links': {
 			fontSize: '1.3rem',
 			'& a': {
 				paddingLeft: '0rem',

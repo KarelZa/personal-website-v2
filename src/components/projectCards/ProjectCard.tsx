@@ -1,20 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from '../shared/Link';
 import { Box, Typography } from '@mui/material';
 import { BsCodeSquare } from 'react-icons/bs';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { useInView } from 'react-intersection-observer';
+import { useAnimation } from 'framer-motion';
 // Styling
 import { StyledCard } from '../../styles/projectCards/StyledCard';
 // Model (Interface/Type)
 import { CardProps } from '../../models/card.model';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 
 type ProjectCardProps = {
 	card: CardProps;
 };
 
 const ProjectCard = ({ card }: ProjectCardProps) => {
+	const [controls, ref] = useMotionObserver('visible');
+	// const controls = useAnimation();
+	// const [ref, inView] = useInView({ threshold: 0.9 });
+
+	// useEffect(() => {
+	// 	if (inView) {
+	// 		controls.start('visible');
+	// 	}
+	// }, [controls, inView]);
+
+	const cardVariants = {
+		hidden: {
+			y: -20,
+			opacity: 0,
+		},
+		visible: {
+			y: 0,
+			opacity: 1,
+			transition: { duration: 2, delayChilden: 2 },
+		},
+	};
+
 	return (
-		<StyledCard>
+		<StyledCard variants={cardVariants} animate={controls} initial='hidden' ref={ref}>
 			<Box className='card-inner'>
 				<div className='card--body'>
 					<div className='card--top'>

@@ -4,6 +4,8 @@ import PrimarySkills from './PrimarySkills';
 // Styling
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
+import { sectionVariant } from '../../styles/animations/animations';
 
 const iconsArr = {
 	primary: [
@@ -83,28 +85,15 @@ const iconsArr = {
 };
 
 const Skills = () => {
-	const sectionVariant = {
-		hidden: {
-			opacity: 0,
-			y: 10,
-		},
-		visible: {
-			opacity: 1,
-			y: 0,
-			// backgroundColor: '#FF0000',
-			transition: {
-				delay: 0.5,
-				duration: 0.7,
-			},
-		},
-	};
+	const [controls, ref] = useMotionObserver('visible', 0.5, 'THIS IS SKILL SEC');
+
 	return (
 		<StyledSection
 			id='skills'
 			variants={sectionVariant}
-			whileInView='visible'
 			initial='hidden'
-			viewport={{ once: true }}
+			ref={ref}
+			animate={controls}
 		>
 			<SectionCaption justifySelf='flex-end'>Skills</SectionCaption>
 			<PrimarySkills iconsArr={iconsArr.primary} title='Primary' />
