@@ -1,45 +1,32 @@
 import React, { useEffect } from 'react';
+// Components
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 import Link from '../shared/Link';
 import { Box, Typography } from '@mui/material';
 import { BsCodeSquare } from 'react-icons/bs';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
-import { useInView } from 'react-intersection-observer';
-import { useAnimation } from 'framer-motion';
 // Styling
 import { StyledCard } from '../../styles/projectCards/StyledCard';
 // Model (Interface/Type)
 import { CardProps } from '../../models/card.model';
-import { useMotionObserver } from '../../utils/hooks/MotionObserver';
+import { cardVariant } from '../../styles/animations/animations';
 
-type ProjectCardProps = {
+interface ProjectCardProps {
 	card: CardProps;
-};
+	index: number;
+}
 
-const ProjectCard = ({ card }: ProjectCardProps) => {
-	const [controls, ref] = useMotionObserver('visible');
-	// const controls = useAnimation();
-	// const [ref, inView] = useInView({ threshold: 0.9 });
-
-	// useEffect(() => {
-	// 	if (inView) {
-	// 		controls.start('visible');
-	// 	}
-	// }, [controls, inView]);
-
-	const cardVariants = {
-		hidden: {
-			y: -20,
-			opacity: 0,
-		},
-		visible: {
-			y: 0,
-			opacity: 1,
-			transition: { duration: 2, delayChilden: 2 },
-		},
-	};
+const ProjectCard = ({ card, index }: ProjectCardProps) => {
+	const [controls, ref] = useMotionObserver('visible', 0.5);
 
 	return (
-		<StyledCard variants={cardVariants} animate={controls} initial='hidden' ref={ref}>
+		<StyledCard
+			ref={ref}
+			variants={cardVariant}
+			initial='hidden'
+			animate={controls}
+			custom={index}
+		>
 			<Box className='card-inner'>
 				<div className='card--body'>
 					<div className='card--top'>

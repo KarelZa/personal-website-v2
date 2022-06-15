@@ -17,7 +17,7 @@ export const useMotionObserver = (
 	const [ref, inView] = useInView({ threshold: thresholdValue || 0 });
 	// Side-effect handling
 	useEffect(() => {
-		console?.log(logMessage);
+		// console?.log(logMessage);
 		if (inView) {
 			controls.start(startAnimation);
 		}

@@ -5,18 +5,9 @@ import Link from '../shared/Link';
 import theme from '../../styles/appTheme/theme';
 import { motion } from 'framer-motion';
 
-interface Props {
-	animationVariant?: {
-		hidden: {
-			opacity: number;
-		};
-		visible: {
-			opacity: number;
-		};
-	};
-}
+interface Props {}
 
-const Logo = ({ animationVariant }: Props) => {
+const Logo = () => {
 	return (
 		<Link
 			href='/'
@@ -24,14 +15,7 @@ const Logo = ({ animationVariant }: Props) => {
 				textDecoration: 'none',
 			}}
 		>
-			<Typography
-				variant='h4'
-				fontWeight={'500'}
-				letterSpacing='0'
-				fontFamily={'Roboto'}
-				component={motion.h4}
-				variants={animationVariant}
-			>
+			<Typography variant='h4' fontWeight={'500'} letterSpacing='0' fontFamily={'Roboto'}>
 				Karel Zamazal
 			</Typography>
 		</Link>

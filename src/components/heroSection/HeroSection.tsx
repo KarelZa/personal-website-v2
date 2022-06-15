@@ -12,7 +12,6 @@ import { Box, Button, Typography, useMediaQuery } from '@mui/material';
 import Link from '../shared/Link';
 
 const HeroSection = () => {
-	const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
 	// parent animation
 	const parentVariant = {
 		hidden: {

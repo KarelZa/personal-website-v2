@@ -1,10 +1,10 @@
 import React from 'react';
 // Components
 import PrimarySkills from './PrimarySkills';
+import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 // Styling
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
-import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 import { sectionVariant } from '../../styles/animations/animations';
 
 const iconsArr = {
@@ -85,7 +85,7 @@ const iconsArr = {
 };
 
 const Skills = () => {
-	const [controls, ref] = useMotionObserver('visible', 0.5, 'THIS IS SKILL SEC');
+	const [controls, ref] = useMotionObserver('visible', 0.5);
 
 	return (
 		<StyledSection

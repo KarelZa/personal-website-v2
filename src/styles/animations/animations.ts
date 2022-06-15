@@ -1,4 +1,4 @@
-// Used for each section
+// Section
 export const sectionVariant = {
 	hidden: {
 		opacity: 0,
@@ -13,7 +13,7 @@ export const sectionVariant = {
 	},
 };
 
-// Used in FeaturedProject
+// FeaturedProject
 export const projectVariant = {
 	hidden: (i: number) => ({
 		opacity: 0,
@@ -26,4 +26,21 @@ export const projectVariant = {
 			duration: 0.8,
 		},
 	},
+};
+
+// ProjectCard
+export const cardVariant = {
+	hidden: {
+		opacity: 0,
+		y: 20,
+	},
+	visible: (i: number) => ({
+		opacity: 1,
+		y: 0,
+		transition: {
+			ease: 'easeOut',
+			delay: i * 0.2,
+			duration: 0.7,
+		},
+	}),
 };

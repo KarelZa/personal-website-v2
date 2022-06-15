@@ -71,10 +71,12 @@ export const StyledCard = styled(motion.div)(({ theme }) => ({
 	// SMALL DEVICES
 	[theme.breakpoints.up('md')]: {
 		border: 'none',
-		transition: 'transform ease 500ms',
-		'&: hover': {
-			boxShadow: '0px 11px 15px -6px rgba(0,0,0,0.3)',
-			transform: ' translate3d(0px, -13px, 0px)',
+		'& > div': {
+			transition: 'transform ease 500ms',
+			'&:hover': {
+				boxShadow: '0px 11px 15px -6px rgba(0,0,0,0.3)',
+				transform: ' translate3d(0px, -8px, 0px)',
+			},
 		},
 
 		'& .card-inner': {

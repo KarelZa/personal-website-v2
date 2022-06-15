@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { AnimatePresence, motion, useViewportScroll } from 'framer-motion';
+import { motion, useViewportScroll } from 'framer-motion';
 // Components
+import { useScroll } from '../../utils/hooks/useScroll';
 import NavLinks from './NavLinks';
 import Logo from './Logo';
 import MobileNav from './MobileNav';
@@ -18,30 +19,14 @@ const navigationLinks = [
 ];
 
 const Header = () => {
-	const [isNavOpen, setIsNavOpen] = useState(false); // state of nav
-	const [hidden, setHidden] = useState(false); // for header animation
-	const { scrollY } = useViewportScroll(); // for header scroll
+	const [isNavOpen, setIsNavOpen] = useState(false); // mobileNav
+	const [hidden, scrollY] = useScroll(); // hook to hide header
 
 	const closeNavHandler = () => {
 		setIsNavOpen((prevState) => !prevState);
 	};
 
-	function update() {
-		// Scrolling up
-		if (scrollY?.get() < scrollY?.getPrevious()) {
-			setHidden(false);
-			// +100 Scrolling down
-		} else if (scrollY?.get() > 100 && scrollY?.get() > scrollY?.getPrevious()) {
-			setHidden(true);
-		}
-	}
-	/** update the onChange callback to call for `update()` **/
-	useEffect(() => {
-		return scrollY.onChange(() => update());
-	});
-
-	// parent animation
-	const parentVariant = {
+	const headerVariant = {
 		hidden: {
 			opacity: 0.3,
 			y: '-5rem',
@@ -50,18 +35,18 @@ const Header = () => {
 		visible: {
 			opacity: 1,
 			y: 0,
-			boxShadow: 'none',
+			boxShadow: '0px 0px 30px 0px rgba(0,0,0,0)',
 			transition: {
 				type: 'Tween',
-				delay: scrollY?.get() === 0 ? 1 : 0,
-				duration: scrollY?.get() === 0 ? 0.9 : 0.3,
+				delay: scrollY?.get() === 0 ? 1 : 0, // depends on viewport
+				duration: scrollY?.get() === 0 ? 0.9 : 0.3, // depends on viewport
 			},
 		},
 	};
 
 	return (
 		<StyledHeader
-			variants={parentVariant}
+			variants={headerVariant}
 			animate={hidden ? 'hidden' : 'visible'}
 			initial={'hidden'}
 		>
