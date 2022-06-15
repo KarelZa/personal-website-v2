@@ -8,12 +8,16 @@ import { StyledFeaturedWrapper } from '../../styles/featuredProjects/StyledFeatu
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { useMotionObserver } from '../../utils/hooks/MotionObserver';
+import theme from '../../styles/appTheme/theme';
+import { useMediaQuery } from '@mui/material';
 
 interface FeaturedProjectsProps {
 	projects: ProjectProps[];
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
+	const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
+	const xOffsetValue = useMediaQuery(theme.breakpoints.down('sm')) ? 10 : 100;
 	const [controls, ref] = useMotionObserver('visible');
 	const sectionVariant = {
 		hidden: {
@@ -23,7 +27,7 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
 		visible: {
 			opacity: 1,
 			x: 0,
-			backgroundColor: '#FF0000',
+			// backgroundColor: '#FF0000',
 			// transition: {
 			// 	duration: 0.7,
 			// },
@@ -38,12 +42,13 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
 	const itemVariant = {
 		hidden: (i: number) => ({
 			opacity: 0,
-			x: i % 2 === 0 ? (i === 0 ? 100 : i * 100) : i * -100,
+			x: i % 2 === 0 ? (i === 0 ? xOffsetValue : i * xOffsetValue) : i * -xOffsetValue,
 		}),
 		visible: {
 			opacity: 1,
 			x: 0,
 			transition: {
+				delay: 0.3,
 				duration: 0.8,
 			},
 		},

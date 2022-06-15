@@ -12,7 +12,6 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 	alignItems: 'center',
 	justifyContent: 'space-between',
 	backgroundColor: 'rgba(10, 25, 47, .8)',
-
 	boxShadow: 'none',
 	zIndex: 50,
 
