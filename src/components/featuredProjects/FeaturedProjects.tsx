@@ -16,8 +16,6 @@ interface FeaturedProjectsProps {
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
-	const isMobileView = useMediaQuery(theme.breakpoints.down('sm'));
-	const xOffsetValue = useMediaQuery(theme.breakpoints.down('sm')) ? 10 : 100;
 	const [controls, ref] = useMotionObserver('visible');
 	const sectionVariant = {
 		hidden: {
@@ -42,7 +40,7 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
 	const itemVariant = {
 		hidden: (i: number) => ({
 			opacity: 0,
-			x: i % 2 === 0 ? (i === 0 ? xOffsetValue : i * xOffsetValue) : i * -xOffsetValue,
+			x: i % 2 === 0 ? (i === 0 ? 15 : i * 15) : i * -15,
 		}),
 		visible: {
 			opacity: 1,
