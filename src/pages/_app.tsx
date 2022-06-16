@@ -26,14 +26,9 @@ export default function MyApp(props: MyAppProps) {
 					<Head>
 						<meta name='viewport' content='initial-scale=1, width=device-width' />
 					</Head>
-
-					{/* <ThemeProvider theme={responsiveFontSizes(theme)}> */}
 					{/* CssReset */}
 					<CssBaseline enableColorScheme />
-
 					<Component {...pageProps} />
-
-					{/* </ThemeProvider> */}
 				</PageProvider>
 			</CacheProvider>
 		</ThemeProvider>
