@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useViewportScroll } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 // Components
 import { useScroll } from '../../utils/hooks/useScroll';
 import NavLinks from './NavLinks';

@@ -7,7 +7,6 @@ import { AppProps } from 'next/app'; // types from nextjs
 import { responsiveFontSizes } from '@mui/material/styles'; // ThemeProvider from Materiaul-iu
 import CssBaseline from '@mui/material/CssBaseline'; // Css reset
 import { CacheProvider, css, EmotionCache } from '@emotion/react'; // shared client-side cache for a user session
-import { GlobalStyles, ScopedCssBaseline } from '@mui/material';
 import { ThemeProvider } from 'next-themes';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -21,7 +20,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 	return (
-		<ThemeProvider enableColorScheme>
+		<ThemeProvider enableColorScheme defaultTheme='system'>
 			<CacheProvider value={emotionCache}>
 				<PageProvider>
 					<Head>

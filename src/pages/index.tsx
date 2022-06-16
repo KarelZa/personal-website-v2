@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { lightTheme, theme } from '../styles/appTheme/theme';
+import { lightTheme, darkTheme } from '../styles/appTheme/theme';
 import clientPromise from '../utils/mongodb/mongodb';
 // Components
 import Header from '../components/header/Header';
@@ -17,6 +17,7 @@ import { ProjectProps } from '../models/project.model';
 import { CardProps } from '../models/card.model';
 // Styling
 import { Container, useMediaQuery } from '@mui/material';
+import { useTheme } from 'next-themes';
 
 interface HomeProps {
 	featuredProjectsData: ProjectProps[];
@@ -24,6 +25,9 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
+	const { theme, setTheme } = useTheme();
+	console.log(theme);
+
 	return (
 		<>
 			<Head>
@@ -34,7 +38,7 @@ const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) =
 				/>
 			</Head>
 
-			{useMediaQuery(theme.breakpoints.up('md')) && <Socials />}
+			{useMediaQuery(darkTheme.breakpoints.up('md')) && <Socials />}
 			<Header />
 			<Container maxWidth='lg'>
 				<main>

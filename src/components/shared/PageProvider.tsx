@@ -2,7 +2,7 @@ import { CssBaseline } from '@mui/material';
 import { responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 import { useTheme } from 'next-themes';
 import { ReactNode, useEffect, useState } from 'react';
-import { lightTheme, theme } from '../../styles/appTheme/theme';
+import { lightTheme, darkTheme } from '../../styles/appTheme/theme';
 
 interface PageProviderProps {
 	children: ReactNode;
@@ -14,7 +14,7 @@ const PageProvider = ({ children }: PageProviderProps) => {
 	const [currentTheme, setCurrentTheme] = useState(lightTheme);
 
 	useEffect(() => {
-		resolvedTheme === 'light' ? setCurrentTheme(lightTheme) : setCurrentTheme(theme);
+		resolvedTheme === 'light' ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme);
 	}, [resolvedTheme]);
 
 	return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;

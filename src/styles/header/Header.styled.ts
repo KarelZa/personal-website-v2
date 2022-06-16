@@ -1,5 +1,4 @@
 import { styled } from '@mui/material/styles';
-import { AppBar } from '@mui/material';
 import { motion } from 'framer-motion';
 
 export const StyledHeader = styled(motion.header)(({ theme }) => ({

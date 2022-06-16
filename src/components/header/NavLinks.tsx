@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from '../shared/Link';
 import { Box, Typography } from '@mui/material';
 

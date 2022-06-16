@@ -1,28 +1,11 @@
+import { PaletteMode } from '@mui/material';
+import { amber, deepOrange, grey } from '@mui/material/colors';
 import { createTheme } from '@mui/material/styles';
+import { deepmerge } from '@mui/utils';
 
-// DarkTheme
-export const theme = createTheme({
-	palette: {
-		// background: {
-		// 	// default: '#0a192f',
-		// 	// paper: '#0a192f',
-		// },
-		primary: {
-			light: '#000',
-			main: '#ECFBFC',
-			dark: '#e6f1ff',
-		},
-		secondary: {
-			contrastText: '#EEF355',
-			main: '#D1D646',
-		},
-		mode: 'dark',
-	},
+const commonSettings = {
 	typography: {
 		fontFamily: 'Montserrat',
-		allVariants: {
-			color: '#ECFBFC',
-		},
 	},
 	breakpoints: {
 		values: {
@@ -33,19 +16,53 @@ export const theme = createTheme({
 			xl: 1536,
 		},
 	},
-	// components: {
-	// 	MuiCssBaseline: {
-	// 		styleOverrides: {
-	// 			html: {
-	// 				backgroundColor: '#0a192f',
-	// 			},
-	// 		},
-	// 	},
-	// },
-});
+};
 
-// LightTheme
-export const lightTheme = createTheme({
+const getDesignTokens = (mode: PaletteMode) => ({
+	palette: {
+		mode,
+		primary: {
+			...amber,
+			...(mode === 'dark' && {
+				main: amber[300],
+			}),
+		},
+		...(mode === 'dark' && {
+			background: {
+				default: deepOrange[900],
+				paper: deepOrange[900],
+			},
+		}),
+	},
+});
+const darkModeTheme = createTheme(getDesignTokens('dark'));
+
+// const darkSettings = {
+// 	palette: {
+// 		background: {
+// 			default: deepOrange[500],
+// 			// default: '#0a192f',
+// 			// paper: '#0a192f',
+// 		},
+// 		primary: {
+// 			light: '#000',
+// 			main: '#ECFBFC',
+// 			dark: '#e6f1ff',
+// 		},
+// 		secondary: {
+// 			contrastText: '#EEF355',
+// 			main: '#D1D646',
+// 		},
+// 		mode: 'dark',
+// 	},
+// 	typography: {
+// 		allVariants: {
+// 			color: '#ECFBFC',
+// 		},
+// 	},
+// };
+
+const lightSettings = {
 	palette: {
 		background: {
 			default: 'white',
@@ -62,27 +79,14 @@ export const lightTheme = createTheme({
 		mode: 'light',
 	},
 	typography: {
-		fontFamily: 'Montserrat',
 		allVariants: {
 			color: '#000',
 		},
 	},
-	breakpoints: {
-		values: {
-			xs: 0,
-			sm: 600,
-			md: 813,
-			lg: 1180,
-			xl: 1536,
-		},
-	},
-	// components: {
-	// 	MuiCssBaseline: {
-	// 		styleOverrides: {
-	// 			body: {
-	// 				backgroundColor: 'white',
-	// 			},
-	// 		},
-	// 	},
-	// },
-});
+};
+
+// DarkTheme
+export const darkTheme = createTheme(deepmerge(commonSettings, darkModeTheme));
+
+// LightTheme
+export const lightTheme = createTheme(deepmerge(commonSettings, lightSettings));

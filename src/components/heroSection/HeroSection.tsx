@@ -1,5 +1,5 @@
 import React from 'react';
-import { theme } from '../../styles/appTheme/theme';
+import { darkTheme } from '../../styles/appTheme/theme';
 import { motion } from 'framer-motion';
 // Components
 import Link from '../shared/Link';
@@ -32,7 +32,11 @@ const HeroSection = () => {
 				</motion.h4>
 				<motion.h5 variants={childVariant}>
 					I enjoy creating things that live on the{' '}
-					{useMediaQuery(theme.breakpoints.up('lg')) ? <GiSpiderWeb size={50} /> : 'web'}
+					{useMediaQuery(darkTheme.breakpoints.up('lg')) ? (
+						<GiSpiderWeb size={50} />
+					) : (
+						'web'
+					)}
 				</motion.h5>
 			</Flex>
 			<motion.div className='arrow-box' variants={childVariant}>
@@ -61,7 +65,7 @@ const HeroSection = () => {
 					</Typography>
 				</Link>
 			</motion.div>
-			{useMediaQuery(theme.breakpoints.up('md')) && <Options />}
+			{useMediaQuery(darkTheme.breakpoints.up('md')) && <Options />}
 		</StyledHeroSection>
 	);
 };

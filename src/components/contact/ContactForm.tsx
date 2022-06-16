@@ -8,7 +8,7 @@ import { Flex } from '../../styles/sharedStyles/Flex';
 import CustomInput from './CustomInput';
 import axios from 'axios';
 import { useForm, SubmitHandler, Controller, useController } from 'react-hook-form';
-import { theme } from '../../styles/appTheme/theme';
+import { darkTheme } from '../../styles/appTheme/theme';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 type Props = {};
@@ -92,8 +92,8 @@ const ContactForm = (props: Props) => {
 	return (
 		<StyledForm onSubmit={handleSubmit(formSubmitHandler)}>
 			<Flex
-				direction={useMediaQuery(theme.breakpoints.up('sm')) ? 'row' : 'column'}
-				gap={useMediaQuery(theme.breakpoints.up('sm')) ? '1rem' : '0'}
+				direction={useMediaQuery(darkTheme.breakpoints.up('sm')) ? 'row' : 'column'}
+				gap={useMediaQuery(darkTheme.breakpoints.up('sm')) ? '1rem' : '0'}
 			>
 				<CustomInput control={control} name='name' id='outlined-basic' defaultValue='' />
 				<CustomInput control={control} name='email' id='outlined-basic' defaultValue='' />

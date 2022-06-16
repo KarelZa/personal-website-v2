@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import createEmotionServer from '@emotion/server/create-instance';
-import { theme } from '../styles/appTheme/theme';
+import { darkTheme } from '../styles/appTheme/theme';
 import createEmotionCache from '../utils/emotion/createEmotionCache';
 
 export default class MyDocument extends Document {
@@ -9,8 +9,7 @@ export default class MyDocument extends Document {
 		return (
 			<Html lang='en' style={{ scrollBehavior: 'smooth', overflowX: 'hidden' }}>
 				<Head>
-					{/* PWA primary color */}
-					<meta name='theme-color' content={theme.palette.primary.main} />
+					<meta name='theme-color' />
 					<link rel='shortcut icon' href='./favicon.ico' />
 					<link
 						href='https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&family=Montserrat:wght@100;200;300;400;500;600;700&family=Pacifico&family=Permanent+Marker&family=Roboto:wght@500;700&display=swap'
