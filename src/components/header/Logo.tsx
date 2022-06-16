@@ -2,7 +2,7 @@ import React from 'react';
 // Components
 import { Typography } from '@mui/material';
 import Link from '../shared/Link';
-import theme from '../../styles/appTheme/theme';
+import { theme } from '../../styles/appTheme/theme';
 import { motion } from 'framer-motion';
 
 interface Props {}

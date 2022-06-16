@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { red, yellow } from '@mui/material/colors';
 
 // DarkTheme
 export const theme = createTheme({
@@ -75,11 +74,11 @@ export const lightTheme = createTheme({
 			xl: 1536,
 		},
 	},
-	components: {
-		MuiTextField: {
-			styleOverrides: {
-				root: {},
-			},
-		},
-	},
+	// components: {
+	// 	MuiTextField: {
+	// 		styleOverrides: {
+	// 			root: {},
+	// 		},
+	// 	},
+	// },
 });
