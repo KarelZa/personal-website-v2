@@ -7,33 +7,7 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'center',
-
 	padding: '0 1.3rem',
-
-	// Arrow
-	'& .arrow-box': {
-		position: 'absolute',
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'center',
-		alignItems: 'center',
-		left: '50%',
-		bottom: 0,
-		transform: 'translate(-50%)',
-		fontSize: '2rem',
-		'& h6': {
-			fontSize: '1.5rem',
-			fontWeight: 200,
-			position: 'relative',
-			display: 'block',
-		},
-		'& svg': {
-			marginBottom: '1.5rem',
-			'& polyline:last-of-type': {
-				opacity: 0.5,
-			},
-		},
-	},
 
 	'& .welcome-text': {
 		fontSize: 'clamp(20px, 5vw, 2.2rem)',
@@ -66,11 +40,36 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 		alignItems: 'center',
 		gap: '1rem',
 	},
+	// Arrow
+	'& .arrow-box': {
+		position: 'absolute',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+		left: '50%',
+		bottom: 0,
+		transform: 'translate(-50%)',
+		fontSize: '2rem',
+		'& h6': {
+			fontSize: '1.5rem',
+			fontWeight: 200,
+			position: 'relative',
+			display: 'block',
+		},
+		'& svg': {
+			marginBottom: '1.5rem',
+			'& polyline:last-of-type': {
+				opacity: 0.5,
+			},
+		},
+	},
 
 	[theme.breakpoints.up('sm')]: {
 		padding: '0 2rem',
 	},
 	[theme.breakpoints.up('md')]: {
+		position: 'relative',
 		padding: '0 3rem',
 	},
 	[theme.breakpoints.up('xl')]: {

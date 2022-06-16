@@ -1,40 +1,19 @@
 import React from 'react';
-import theme from '../../styles/appTheme/theme';
+import { theme } from '../../styles/appTheme/theme';
 import { motion } from 'framer-motion';
 // Components
+import Link from '../shared/Link';
 import Typewriter from 'typewriter-effect';
 import { GiSpiderWeb } from 'react-icons/gi';
 import { FiChevronsDown } from 'react-icons/fi';
+import { Typography, useMediaQuery } from '@mui/material';
 // Styling
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
-import { Box, Button, Typography, useMediaQuery } from '@mui/material';
-import Link from '../shared/Link';
+import { childVariant, parentVariant } from '../../styles/animations/animations';
+import Options from '../shared/Options';
 
 const HeroSection = () => {
-	// parent animation
-	const parentVariant = {
-		hidden: {
-			opacity: 0,
-		},
-		visible: {
-			opacity: 1,
-			transition: {
-				when: 'beforeChildren',
-				staggerChildren: 0.3,
-			},
-		},
-	};
-	// Child animation
-	const childVariant = {
-		hidden: {
-			opacity: 0,
-		},
-		visible: {
-			opacity: 1,
-		},
-	};
-
 	return (
 		<StyledHeroSection variants={parentVariant} initial='hidden' animate='visible'>
 			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
@@ -82,6 +61,7 @@ const HeroSection = () => {
 					</Typography>
 				</Link>
 			</motion.div>
+			{useMediaQuery(theme.breakpoints.up('md')) && <Options />}
 		</StyledHeroSection>
 	);
 };

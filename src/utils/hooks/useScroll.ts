@@ -8,7 +8,6 @@ import { useViewportScroll } from 'framer-motion';
 export const useScroll = (initialState: boolean = false) => {
 	const [hidden, setHidden] = useState(initialState); // for header animation: ;
 	const { scrollY } = useViewportScroll(); // for header scroll
-	console.log(initialState);
 
 	function update() {
 		// Scrolling up

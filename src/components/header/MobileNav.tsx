@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Link from '../shared/Link';
 import { Drawer, Fade, List, ListItem, Typography } from '@mui/material';
+import Options from '../shared/Options';
 
 type MobileNavProps = {
 	isOpen: boolean;
@@ -34,6 +35,7 @@ const MobileNav = ({ isOpen, navigationLinks, closeNav }: MobileNavProps) => {
 						</ListItem>
 					))}
 				</List>
+				<Options />
 			</Drawer>
 		</Fade>
 	);

@@ -8,7 +8,7 @@ import { StyledFeaturedWrapper } from '../../styles/featuredProjects/StyledFeatu
 import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { StyledSection } from '../../styles/sharedStyles/Section';
 import { useMotionObserver } from '../../utils/hooks/MotionObserver';
-import theme from '../../styles/appTheme/theme';
+import { theme } from '../../styles/appTheme/theme';
 import { useMediaQuery } from '@mui/material';
 import { sectionVariant } from '../../styles/animations/animations';
 

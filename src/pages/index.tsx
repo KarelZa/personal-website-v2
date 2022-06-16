@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import theme from '../styles/appTheme/theme';
+import { theme } from '../styles/appTheme/theme';
 import clientPromise from '../utils/mongodb/mongodb';
 // Components
 import Header from '../components/header/Header';
@@ -24,8 +24,6 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
-	// console.log(featuredProjects);
-	// console.log(projects);
 	return (
 		<>
 			<Head>

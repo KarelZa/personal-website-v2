@@ -1,9 +1,10 @@
 import { styled } from '@mui/material/styles';
 
-export const StyledSocials = styled('div')(({ theme }) => ({
+export const StyledOptions = styled('div')(({ theme }) => ({
 	margin: '0rem 0 .5rem 0',
 	'& ul': {
-		justifyContent: 'center',
+		justifyContent: 'space-around',
+		gap: '.4rem',
 		display: 'flex',
 		alignItems: 'center',
 		listStyleType: 'none',
@@ -11,9 +12,10 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		padding: '0',
 
 		'& li': {
-			padding: '0 .5rem',
+			width: '100%',
+			textAlign: 'center',
 			'& > .MuiLink-root': {
-				fontSize: '2.1rem',
+				fontSize: '3.1rem',
 				color: theme.palette.primary.dark,
 			},
 		},
@@ -26,7 +28,7 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		position: 'fixed',
 		width: '50px',
 		bottom: '0',
-		left: '1rem',
+		right: '1rem',
 		margin: '0',
 		padding: '0',
 		'& ul': {
@@ -48,7 +50,6 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 				backgroundColor: theme.palette.primary.dark,
 			},
 			'& li': {
-				// backgroundColor: theme.palette.background.default,
 				position: 'relative',
 				padding: '.1rem 0rem',
 				zIndex: 30,
@@ -67,7 +68,7 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 		},
 	},
 	[theme.breakpoints.up(1220)]: {
-		left: '3%',
+		right: '3%',
 		'& ul': {
 			'& li': {
 				padding: '.3rem 0',

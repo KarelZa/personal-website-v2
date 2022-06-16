@@ -8,7 +8,7 @@ import { Flex } from '../../styles/sharedStyles/Flex';
 import CustomInput from './CustomInput';
 import axios from 'axios';
 import { useForm, SubmitHandler, Controller, useController } from 'react-hook-form';
-import theme from '../../styles/appTheme/theme';
+import { theme } from '../../styles/appTheme/theme';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 
 type Props = {};

@@ -13,6 +13,29 @@ export const sectionVariant = {
 	},
 };
 
+// Hero
+export const parentVariant = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+		transition: {
+			when: 'beforeChildren',
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+export const childVariant = {
+	hidden: {
+		opacity: 0,
+	},
+	visible: {
+		opacity: 1,
+	},
+};
+
 // FeaturedProject
 export const projectVariant = {
 	hidden: (i: number) => ({
