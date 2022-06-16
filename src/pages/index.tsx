@@ -1,6 +1,6 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { theme } from '../styles/appTheme/theme';
+import { lightTheme, theme } from '../styles/appTheme/theme';
 import clientPromise from '../utils/mongodb/mongodb';
 // Components
 import Header from '../components/header/Header';

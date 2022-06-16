@@ -4,8 +4,8 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
 	palette: {
 		// background: {
-		// 	default: '#0a192f',
-		// 	paper: '#0a192f',
+		// 	// default: '#0a192f',
+		// 	// paper: '#0a192f',
 		// },
 		primary: {
 			light: '#000',
@@ -33,21 +33,23 @@ export const theme = createTheme({
 			xl: 1536,
 		},
 	},
-	components: {
-		MuiTextField: {
-			styleOverrides: {
-				root: {},
-			},
-		},
-	},
+	// components: {
+	// 	MuiCssBaseline: {
+	// 		styleOverrides: {
+	// 			html: {
+	// 				backgroundColor: '#0a192f',
+	// 			},
+	// 		},
+	// 	},
+	// },
 });
 
 // LightTheme
 export const lightTheme = createTheme({
 	palette: {
-		// background: {
-		// 	default: '#3300ff',
-		// },
+		background: {
+			default: 'white',
+		},
 		primary: {
 			light: '#000',
 			main: '#ECFBFC',
@@ -75,9 +77,11 @@ export const lightTheme = createTheme({
 		},
 	},
 	// components: {
-	// 	MuiTextField: {
+	// 	MuiCssBaseline: {
 	// 		styleOverrides: {
-	// 			root: {},
+	// 			body: {
+	// 				backgroundColor: 'white',
+	// 			},
 	// 		},
 	// 	},
 	// },
