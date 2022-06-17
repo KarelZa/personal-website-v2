@@ -20,7 +20,7 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
 	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 	return (
-		<ThemeProvider enableColorScheme defaultTheme='system'>
+		<ThemeProvider enableColorScheme defaultTheme='dark'>
 			<CacheProvider value={emotionCache}>
 				<PageProvider>
 					<Head>

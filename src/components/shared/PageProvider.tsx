@@ -17,6 +17,6 @@ const PageProvider = ({ children }: PageProviderProps) => {
 		resolvedTheme === 'light' ? setCurrentTheme(lightTheme) : setCurrentTheme(darkTheme);
 	}, [resolvedTheme]);
 
-	return <ThemeProvider theme={currentTheme}>{children}</ThemeProvider>;
+	return <ThemeProvider theme={responsiveFontSizes(currentTheme)}>{children}</ThemeProvider>;
 };
 export default PageProvider;

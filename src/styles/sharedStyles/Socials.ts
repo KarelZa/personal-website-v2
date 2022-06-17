@@ -48,13 +48,13 @@ export const StyledSocials = styled('div')(({ theme }) => ({
 				backgroundColor: theme.palette.primary.dark,
 			},
 			'& li': {
-				// backgroundColor: theme.palette.background.default,
+				backgroundColor: theme.palette.background.default,
 				position: 'relative',
 				padding: '.1rem 0rem',
 				zIndex: 30,
 				'& > .MuiTypography-root': {
 					display: 'inline-block',
-					color: theme.palette.primary.dark,
+					color: theme.palette.primary.light,
 					transition: ' transform ease 300ms',
 					'&:hover': {
 						transform: 'scale(1.2)',

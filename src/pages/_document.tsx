@@ -7,7 +7,7 @@ import createEmotionCache from '../utils/emotion/createEmotionCache';
 export default class MyDocument extends Document {
 	render() {
 		return (
-			<Html lang='en' style={{ scrollBehavior: 'smooth', overflowX: 'hidden' }}>
+			<Html lang='en' style={{ scrollBehavior: 'smooth' }}>
 				<Head>
 					<meta name='theme-color' />
 					<link rel='shortcut icon' href='./favicon.ico' />

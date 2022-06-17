@@ -10,7 +10,7 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
-	backgroundColor: 'rgba(10, 25, 47, .8)',
+	backgroundColor: theme.palette.background.default,
 	boxShadow: 'none',
 	zIndex: 50,
 
@@ -39,7 +39,7 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 		'& .MuiPaper-root': {
 			paddingTop: '5rem',
 			width: '100%',
-			backgroundColor: theme.palette.background.default,
+			// backgroundColor: theme.palette.background.default,
 			'& ul': {
 				padding: '0 1rem',
 				margin: '0 1rem',

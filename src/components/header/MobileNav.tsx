@@ -13,13 +13,13 @@ type MobileNavProps = {
 };
 
 const MobileNav = ({ isOpen, navigationLinks, closeNav }: MobileNavProps) => {
-	useEffect(() => {
-		if (isOpen) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'unset';
-		}
-	}, [isOpen]);
+	// useEffect(() => {
+	// 	if (isOpen) {
+	// 		document.body.style.overflow = 'hidden';
+	// 	} else {
+	// 		document.body.style.overflow = 'unset';
+	// 	}
+	// }, [isOpen]);
 
 	return (
 		<Fade in={isOpen} timeout={250}>

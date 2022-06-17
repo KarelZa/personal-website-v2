@@ -14,9 +14,13 @@ export const StyledOptions = styled('div')(({ theme }) => ({
 		'& li': {
 			width: '100%',
 			textAlign: 'center',
-			'& > .MuiLink-root': {
-				fontSize: '3.1rem',
-				color: theme.palette.primary.dark,
+
+			'& .MuiIconButton-root': {
+				'& svg': {
+					color: theme.palette.primary.light,
+					height: '30px',
+					width: '30px',
+				},
 			},
 		},
 	},
@@ -53,14 +57,7 @@ export const StyledOptions = styled('div')(({ theme }) => ({
 				position: 'relative',
 				padding: '.1rem 0rem',
 				zIndex: 30,
-				'& > .MuiTypography-root': {
-					display: 'inline-block',
-					color: theme.palette.primary.dark,
-					transition: ' transform ease 300ms',
-					'&:hover': {
-						transform: 'scale(1.2)',
-					},
-				},
+
 				'&:last-of-type': {
 					paddingBottom: '1rem',
 				},
@@ -72,9 +69,6 @@ export const StyledOptions = styled('div')(({ theme }) => ({
 		'& ul': {
 			'& li': {
 				padding: '.3rem 0',
-				'& > .MuiLink-root': {
-					fontSize: '2.3rem',
-				},
 				'&:last-of-type': {
 					paddingBottom: '1.2rem',
 				},

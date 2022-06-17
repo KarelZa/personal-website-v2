@@ -161,7 +161,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			},
 			'& .project-description': {
 				padding: '1rem',
-				backgroundColor: '#112240',
+				backgroundColor: '#234000',
 				borderRadius: '3px',
 				boxShadow: '0 10px 30px -15px var(--navy-shadow)',
 			},

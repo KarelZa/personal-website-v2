@@ -1,10 +1,6 @@
 import { styled } from '@mui/material/styles';
 
 export const StyledForm = styled('form')(({ theme }) => ({
-	// backgroundColor: 'red',
-	// marginTop: '1.5rem',
-	// marginBottom: '1.5rem',
-
 	'& .MuiFormControl-root': {
 		width: '100%',
 		marginBottom: '1rem',
@@ -15,9 +11,7 @@ export const StyledForm = styled('form')(({ theme }) => ({
 		},
 	},
 	'& .MuiOutlinedInput-root': {
-		'& fieldset': {
-			borderColor: 'rgba(230, 241, 255, .2)',
-		},
+		'& fieldset': {},
 	},
 	'& .MuiButton-root': {
 		display: 'block',

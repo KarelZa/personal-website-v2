@@ -10,12 +10,35 @@ import { IconButton } from '@mui/material';
 type OptionsProps = {};
 
 const Options = (props: OptionsProps) => {
+	const parentVariant = {
+		hidden: {
+			opacity: 0,
+			y: 10,
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 1.1,
+				duration: 0.9,
+			},
+		},
+	};
+	const childVariant = {
+		hidden: {
+			opacity: 0,
+		},
+		visible: {
+			opacity: 1,
+		},
+	};
+
 	const { theme, resolvedTheme, setTheme } = useTheme();
 	const loaded = useLoaded();
 	return (
 		<StyledOptions>
-			<ul>
-				<li>
+			<motion.ul variants={parentVariant} initial='hidden' animate='visible'>
+				<motion.li variants={childVariant}>
 					<IconButton
 						onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
 					>
@@ -25,9 +48,9 @@ const Options = (props: OptionsProps) => {
 							<MdDarkMode size={20} />
 						)}
 					</IconButton>
-				</li>
-				<li>LANG</li>
-			</ul>
+				</motion.li>
+				<motion.li variants={childVariant}>LANG</motion.li>
+			</motion.ul>
 		</StyledOptions>
 	);
 };

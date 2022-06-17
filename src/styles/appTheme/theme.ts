@@ -41,12 +41,9 @@ const darkSettings = {
 	palette: {
 		background: {
 			default: '#0a192f',
-			// paper: '#0a192f',
 		},
 		primary: {
-			light: '#000',
-			main: '#ECFBFC',
-			dark: '#e6f1ff',
+			main: '#ffe5ec',
 		},
 		secondary: {
 			contrastText: '#EEF355',
@@ -56,7 +53,7 @@ const darkSettings = {
 	},
 	typography: {
 		allVariants: {
-			color: '#ECFBFC',
+			color: '#ffe5ec',
 		},
 	},
 };
@@ -64,12 +61,10 @@ const darkSettings = {
 const lightSettings = {
 	palette: {
 		background: {
-			default: 'white',
+			default: '#ffe5ec',
 		},
 		primary: {
-			light: '#000',
-			main: '#ECFBFC',
-			dark: '#e6f1ff',
+			main: '#0a192f',
 		},
 		secondary: {
 			contrastText: '#EEF355',
@@ -79,7 +74,7 @@ const lightSettings = {
 	},
 	typography: {
 		allVariants: {
-			color: '#000',
+			color: '#0a192f',
 		},
 	},
 };
