@@ -67,8 +67,8 @@ const lightSettings = {
 			main: '#0a192f',
 		},
 		secondary: {
-			contrastText: '#EEF355',
-			main: '#D1D646',
+			contrastText: '#00C8FF',
+			main: '#006784',
 		},
 		mode: 'light',
 	},

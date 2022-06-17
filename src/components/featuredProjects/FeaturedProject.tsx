@@ -27,9 +27,7 @@ const FeaturedProject = ({ project, index }: FeaturedProjectProps) => {
 		>
 			<Box className='project-content'>
 				<Box>
-					<Typography variant='overline' color={'secondary'}>
-						Featured Project
-					</Typography>
+					<Typography variant='overline'>Featured Project</Typography>
 					<Typography variant='h4'>
 						<Link href={project.links[0].url}>{project.title}</Link>
 					</Typography>

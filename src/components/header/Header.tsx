@@ -30,12 +30,10 @@ const Header = () => {
 		hidden: {
 			opacity: 0.3,
 			y: '-5rem',
-			boxShadow: '0px 10px 30px -10px rgba(0,0,0,1)',
 		},
 		visible: {
 			opacity: 1,
 			y: 0,
-			boxShadow: '0px 0px 30px 0px rgba(0,0,0,0)',
 			transition: {
 				type: 'Tween',
 				delay: scrollY?.get() === 0 ? 1 : 0, // depends on viewport
@@ -46,9 +44,9 @@ const Header = () => {
 
 	return (
 		<StyledHeader
-		// variants={headerVariant}
-		// animate={hidden ? 'hidden' : 'visible'}
-		// initial={'hidden'}
+			variants={headerVariant}
+			animate={hidden ? 'hidden' : 'visible'}
+			initial={'hidden'}
 		>
 			<Toolbar component={motion.nav}>
 				<Logo />
@@ -59,12 +57,7 @@ const Header = () => {
 					animate={{ opacity: 1 }}
 					transition={{ delay: 0.5 }}
 				>
-					<Hamburger
-						label='Show menu'
-						color='white'
-						toggled={isNavOpen}
-						onToggle={closeNavHandler}
-					/>
+					<Hamburger label='Show menu' toggled={isNavOpen} onToggle={closeNavHandler} />
 				</motion.div>
 			</Toolbar>
 			<MobileNav

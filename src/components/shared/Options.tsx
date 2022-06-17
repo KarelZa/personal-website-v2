@@ -42,11 +42,7 @@ const Options = (props: OptionsProps) => {
 					<IconButton
 						onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
 					>
-						{theme === 'dark' && loaded ? (
-							<MdLightMode size={20} />
-						) : (
-							<MdDarkMode size={20} />
-						)}
+						{theme === 'dark' && loaded ? <MdLightMode /> : <MdDarkMode />}
 					</IconButton>
 				</motion.li>
 				<motion.li variants={childVariant}>LANG</motion.li>

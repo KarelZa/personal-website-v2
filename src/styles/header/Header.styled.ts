@@ -31,6 +31,7 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 	// Hamburger
 	'& .hamburger': {
 		marginRight: '-.5rem',
+		color: theme.palette.primary.main,
 	},
 
 	// MobileNav
@@ -39,7 +40,7 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 		'& .MuiPaper-root': {
 			paddingTop: '5rem',
 			width: '100%',
-			// backgroundColor: theme.palette.background.default,
+			backgroundColor: theme.palette.background.default,
 			'& ul': {
 				padding: '0 1rem',
 				margin: '0 1rem',

@@ -7,7 +7,6 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 	gridTemplateColumns: 'repeat(12,1fr)',
 	margin: '0rem 0rem',
 	position: 'relative',
-	// backgroundColor: 'green',
 	gap: '0rem',
 
 	'& .project-image, & .project-content': {
@@ -21,9 +20,11 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 		opacity: '.25',
 		height: '100%',
 		boxShadow: '0 10px 30px -15px black',
+		transition: 'backgroundColor 500ms ease',
 		'& a': {
 			display: 'block',
-			border: `1px solid rgba(209, 214, 5, .5)`,
+			border: `1px solid ${theme.palette.secondary.dark}`,
+
 			position: 'relative',
 			alignSelf: 'center',
 			vericalAlign: 'middle',
@@ -72,6 +73,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 		padding: '1.5rem',
 		'& .MuiTypography-overline': {
 			position: 'relative',
+			color: theme.palette.secondary.main,
 		},
 		'& .MuiTypography-h4': {
 			marginBottom: '20px',
@@ -79,7 +81,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			fontWeight: '800',
 			'& > a': {
 				textDecoration: 'none',
-				color: theme.palette.primary.dark,
+				color: theme.palette.primary,
 				zIndex: 1,
 			},
 		},
@@ -88,7 +90,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			margin: '1.2rem 0',
 			zIndex: 2,
 			'& .MuiTypography-body1': {
-				fontWeight: '200',
+				fontWeight: '300',
 			},
 		},
 		'& .external-links': {
@@ -161,7 +163,8 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			},
 			'& .project-description': {
 				padding: '1rem',
-				backgroundColor: '#234000',
+				backgroundColor:
+					theme.palette.background.default === '#0a192f' ? '#112240' : '#ffd8e3',
 				borderRadius: '3px',
 				boxShadow: '0 10px 30px -15px var(--navy-shadow)',
 			},
