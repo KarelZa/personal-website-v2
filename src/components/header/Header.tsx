@@ -26,31 +26,23 @@ const Header = () => {
 		setIsNavOpen((prevState) => !prevState);
 	};
 
-	useEffect(() => {
-		if (isNavOpen) {
-			document.body.style.overflow = 'hidden';
-		} else {
-			document.body.style.overflow = 'unset';
-		}
-	}, [isNavOpen]);
-
-	// const headerVariant = {
-	// 	hidden: {
-	// 		opacity: 0.3,
-	// 		y: '-5rem',
-	// 		boxShadow: '0px 10px 30px -10px rgba(0,0,0,1)',
-	// 	},
-	// 	visible: {
-	// 		opacity: 1,
-	// 		y: 0,
-	// 		boxShadow: '0px 0px 30px 0px rgba(0,0,0,0)',
-	// 		transition: {
-	// 			type: 'Tween',
-	// 			delay: scrollY?.get() === 0 ? 1 : 0, // depends on viewport
-	// 			duration: scrollY?.get() === 0 ? 0.9 : 0.3, // depends on viewport
-	// 		},
-	// 	},
-	// };
+	const headerVariant = {
+		hidden: {
+			opacity: 0.3,
+			y: '-5rem',
+			boxShadow: '0px 10px 30px -10px rgba(0,0,0,1)',
+		},
+		visible: {
+			opacity: 1,
+			y: 0,
+			boxShadow: '0px 0px 30px 0px rgba(0,0,0,0)',
+			transition: {
+				type: 'Tween',
+				delay: scrollY?.get() === 0 ? 1 : 0, // depends on viewport
+				duration: scrollY?.get() === 0 ? 0.9 : 0.3, // depends on viewport
+			},
+		},
+	};
 
 	return (
 		<StyledHeader
