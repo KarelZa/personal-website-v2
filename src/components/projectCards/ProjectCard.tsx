@@ -7,9 +7,9 @@ import { BsCodeSquare } from 'react-icons/bs';
 import { FiExternalLink, FiGithub } from 'react-icons/fi';
 // Styling
 import { StyledCard } from '../../styles/projectCards/StyledCard';
+import { cardVariant } from '../../styles/animations/animations';
 // Model (Interface/Type)
 import { CardProps } from '../../models/card.model';
-import { cardVariant } from '../../styles/animations/animations';
 
 interface ProjectCardProps {
 	card: CardProps;

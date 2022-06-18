@@ -2,14 +2,17 @@ import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
 export const StyledCard = styled(motion.div)(({ theme }) => ({
-	border: `1px solid rgba(209, 214, 5, .2)`,
+	border: `1px solid ${
+		theme.palette.mode === 'dark' ? 'rgba(209, 214, 5, 0.2)' : 'rgba(209, 214, 255, 0.2)'
+	}`,
 	borderRadius: '8px',
 
 	'& .card-inner': {
 		borderRadius: '8px',
 		position: 'relative',
 		height: '100%',
-		backgroundColor: 'rgba(13, 38, 74, .6)',
+		backgroundColor:
+			theme.palette.mode === 'dark' ? 'rgba(13, 38, 74, .7)' : 'rgba(0, 103, 132, .1)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
@@ -47,7 +50,7 @@ export const StyledCard = styled(motion.div)(({ theme }) => ({
 			},
 			'& .MuiTypography-body2 ': {
 				lineHeight: '1.5',
-				fontWeight: '200',
+				fontWeight: '400',
 			},
 		},
 		'& .card--footer': {

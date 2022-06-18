@@ -23,7 +23,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 		transition: 'backgroundColor 500ms ease',
 		'& a': {
 			display: 'block',
-			border: `1px solid ${theme.palette.secondary.dark}`,
+			border: `1px solid ${theme.palette.secondary.light}`,
 
 			position: 'relative',
 			alignSelf: 'center',

@@ -8,18 +8,14 @@ export const StyledCardsWrapper = styled(Box)(({ theme }) => ({
 
 	gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
 	gap: '1.2rem',
-	// backgroundColor: 'red',
 
 	// SMALL DEVICES
 	[theme.breakpoints.up('sm')]: {
 		gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))',
-		// backgroundColor: 'red',
 	},
 
 	[theme.breakpoints.up('md')]: {
 		gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-		// backgroundColor: 'red',
-
 		padding: '0rem 2rem',
 		margin: '0 auto',
 	},
