@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { dark } from '@mui/material/styles/createPalette';
 import { motion } from 'framer-motion';
 
 export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
@@ -163,8 +164,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			},
 			'& .project-description': {
 				padding: '1rem',
-				backgroundColor:
-					theme.palette.background.default === '#0a192f' ? '#112240' : '#ffd8e3',
+				backgroundColor: theme.palette.mode === 'dark' ? '#1E293B' : '#ffd8e3',
 				borderRadius: '3px',
 				boxShadow: '0 10px 30px -15px var(--navy-shadow)',
 			},

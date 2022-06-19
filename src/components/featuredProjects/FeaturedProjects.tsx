@@ -11,7 +11,7 @@ import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 import { sectionVariant } from '../../styles/animations/animations';
 
 interface FeaturedProjectsProps {
-	projects: ProjectProps[];
+	projects?: ProjectProps[];
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
@@ -27,7 +27,7 @@ const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
 		>
 			<SectionCaption>Projects</SectionCaption>
 			<StyledFeaturedWrapper>
-				{projects.map((project, index) => (
+				{projects?.map((project, index) => (
 					<FeaturedProject key={project.id} project={project} index={index} />
 				))}
 			</StyledFeaturedWrapper>

@@ -1,4 +1,3 @@
-import { CssBaseline } from '@mui/material';
 import { responsiveFontSizes, ThemeProvider } from '@mui/material/styles';
 import { useTheme } from 'next-themes';
 import { ReactNode, useEffect, useState } from 'react';

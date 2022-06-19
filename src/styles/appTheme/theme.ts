@@ -40,7 +40,7 @@ const commonSettings = {
 const darkSettings = {
 	palette: {
 		background: {
-			default: '#0a192f',
+			default: '#0F172A',
 		},
 		primary: {
 			main: '#ffe5ec',
@@ -64,7 +64,7 @@ const lightSettings = {
 			default: '#ffe5ec',
 		},
 		primary: {
-			main: '#0a192f',
+			main: '#0F172A',
 		},
 		secondary: {
 			contrastText: '#00C8FF',
@@ -74,7 +74,7 @@ const lightSettings = {
 	},
 	typography: {
 		allVariants: {
-			color: '#0a192f',
+			color: '#0F172A',
 		},
 	},
 };

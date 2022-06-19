@@ -17,16 +17,18 @@ import { ProjectProps } from '../models/project.model';
 import { CardProps } from '../models/card.model';
 // Styling
 import { Container, useMediaQuery } from '@mui/material';
-import { useTheme } from 'next-themes';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 interface HomeProps {
 	featuredProjectsData: ProjectProps[];
 	projectCardsData: CardProps[];
+	locale: any;
 }
 
 const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
-	const { theme, setTheme } = useTheme();
-	console.log(theme);
+	const { t } = useTranslation();
 
 	return (
 		<>
@@ -43,6 +45,7 @@ const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) =
 			<Container maxWidth='lg'>
 				<main>
 					<HeroSection />
+					{/* <h2>{locale}</h2> */}
 					<About />
 					<Skills />
 					<FeaturedProjects projects={featuredProjectsData} />
@@ -55,7 +58,7 @@ const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) =
 	);
 };
 
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	const client = await clientPromise;
 	const db = client.db('personal-website'); // accessing db
 	let featuredCollection = await db.collection('featured').find({}).toArray(); // accessing collection & getting all documents
@@ -80,6 +83,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 				links: project.links,
 				id: project._id,
 			})),
+			...(await serverSideTranslations(locale as string, ['common'])),
 		},
 	};
 };

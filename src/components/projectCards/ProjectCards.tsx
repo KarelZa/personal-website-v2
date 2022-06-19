@@ -11,7 +11,7 @@ import { sectionVariant } from '../../styles/animations/animations';
 import { CardProps } from '../../models/card.model';
 
 type ProjectCardsProps = {
-	cards: CardProps[];
+	cards?: CardProps[];
 };
 
 const ProjectCards = ({ cards }: ProjectCardsProps) => {
@@ -20,7 +20,7 @@ const ProjectCards = ({ cards }: ProjectCardsProps) => {
 		<StyledSection ref={ref} variants={sectionVariant} initial='hidden' animate={controls}>
 			<SectionCaption>Other</SectionCaption>
 			<StyledCardsWrapper>
-				{cards.map((card, index) => (
+				{cards?.map((card, index) => (
 					<ProjectCard key={card.id} card={card} index={index} />
 				))}
 			</StyledCardsWrapper>

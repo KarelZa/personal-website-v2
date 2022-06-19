@@ -12,13 +12,20 @@ import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import { childVariant, parentVariant } from '../../styles/animations/animations';
 import Options from '../shared/Options';
+import { useTranslation } from 'next-i18next';
+
+// interface HeroSectionProps {
+// 	locale: any;
+// }
 
 const HeroSection = () => {
+	let { t } = useTranslation();
 	return (
 		<StyledHeroSection variants={parentVariant} initial='hidden' animate='visible'>
 			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
 				<motion.h6 className='welcome-text' variants={childVariant}>
-					Hello there, I am
+					{/* Hello there, I am */}
+					{t('common:welcome_msg')}
 				</motion.h6>
 				<motion.h1 className='big-text' variants={childVariant}>
 					Karel Zamazal

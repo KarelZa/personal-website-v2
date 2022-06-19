@@ -6,10 +6,13 @@ import { StyledOptions } from '../../styles/sharedStyles/Options';
 import { useTheme } from 'next-themes';
 import { useLoaded } from '../../utils/hooks/useLoaded';
 import { IconButton } from '@mui/material';
+import { useRouter } from 'next/router';
+import Link from './Link';
 
 type OptionsProps = {};
 
 const Options = (props: OptionsProps) => {
+	const router = useRouter();
 	const parentVariant = {
 		hidden: {
 			opacity: 0,
@@ -45,7 +48,18 @@ const Options = (props: OptionsProps) => {
 						{theme === 'dark' && loaded ? <MdLightMode /> : <MdDarkMode />}
 					</IconButton>
 				</motion.li>
-				<motion.li variants={childVariant}>LANG</motion.li>
+				<motion.li
+					variants={childVariant}
+					onClick={() => router.push('/', '/', { locale: 'cs' })}
+				>
+					CZK
+				</motion.li>
+				<motion.li
+					variants={childVariant}
+					onClick={() => router.push('/', '/', { locale: 'en' })}
+				>
+					ENG
+				</motion.li>
 			</motion.ul>
 		</StyledOptions>
 	);

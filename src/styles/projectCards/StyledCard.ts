@@ -11,8 +11,7 @@ export const StyledCard = styled(motion.div)(({ theme }) => ({
 		borderRadius: '8px',
 		position: 'relative',
 		height: '100%',
-		backgroundColor:
-			theme.palette.mode === 'dark' ? 'rgba(13, 38, 74, .7)' : 'rgba(0, 103, 132, .1)',
+		backgroundColor: theme.palette.mode === 'dark' ? '#1E293B' : 'rgba(0, 103, 132, .1)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'space-between',
