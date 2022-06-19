@@ -85,7 +85,7 @@ const iconsArr = {
 };
 
 const Skills = () => {
-	const [controls, ref] = useMotionObserver('visible', 0.5);
+	const [controls, ref] = useMotionObserver('visible', 0.3);
 
 	return (
 		<StyledSection

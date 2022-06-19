@@ -10,7 +10,8 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
-	backgroundColor: theme.palette.background.default,
+	backgroundColor:
+		theme.palette.mode === 'dark' ? 'rgba(15, 23, 42, .95)' : 'rgba(255, 229, 236, .95)',
 	boxShadow: 'none',
 	zIndex: 50,
 

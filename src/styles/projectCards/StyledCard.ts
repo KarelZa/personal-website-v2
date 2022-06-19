@@ -2,9 +2,6 @@ import { styled } from '@mui/material/styles';
 import { motion } from 'framer-motion';
 
 export const StyledCard = styled(motion.div)(({ theme }) => ({
-	border: `1px solid ${
-		theme.palette.mode === 'dark' ? 'rgba(209, 214, 5, 0.2)' : 'rgba(209, 214, 255, 0.2)'
-	}`,
 	borderRadius: '8px',
 
 	'& .card-inner': {
@@ -42,13 +39,13 @@ export const StyledCard = styled(motion.div)(({ theme }) => ({
 				fontFamily: 'Inter',
 				margin: '1.3rem 0 1rem 0',
 				fontWeight: '700',
-				color: theme.palette.primary.dark,
+				color: theme.palette.primary.main,
 				'&:hover': {
 					color: theme.palette.secondary.main,
 				},
 			},
 			'& .MuiTypography-body2 ': {
-				lineHeight: '1.5',
+				lineHeight: '1.6',
 				fontWeight: '400',
 			},
 		},
@@ -63,7 +60,10 @@ export const StyledCard = styled(motion.div)(({ theme }) => ({
 				'& li': {
 					marginRight: '1rem',
 					fontFamily: 'Montserrat',
-					fontWeight: '100',
+					'& .MuiTypography-root': {
+						fontWeight: 500,
+						fontSize: '.8rem',
+					},
 				},
 			},
 		},

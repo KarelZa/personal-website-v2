@@ -48,7 +48,7 @@ const Options = (props: OptionsProps) => {
 						{theme === 'dark' && loaded ? <MdLightMode /> : <MdDarkMode />}
 					</IconButton>
 				</motion.li>
-				<motion.li
+				{/* <motion.li
 					variants={childVariant}
 					onClick={() => router.push('/', '/', { locale: 'cs' })}
 				>
@@ -59,7 +59,7 @@ const Options = (props: OptionsProps) => {
 					onClick={() => router.push('/', '/', { locale: 'en' })}
 				>
 					ENG
-				</motion.li>
+				</motion.li> */}
 			</motion.ul>
 		</StyledOptions>
 	);

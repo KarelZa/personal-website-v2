@@ -11,13 +11,13 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 
 	'& .welcome-text': {
 		fontSize: 'clamp(20px, 5vw, 2.2rem)',
-		color: '#D1D646',
+		color: theme.palette.secondary.main,
 		padding: 0,
 		margin: 0,
 		fontWeight: '400',
 	},
 	'& h1.big-text': {
-		fontSize: 'clamp(35px, 8vw, 5rem)',
+		fontSize: 'clamp(40px, 8vw, 5.5rem)',
 		fontFamily: 'Inter',
 		lineHeight: 1,
 		padding: 0,
@@ -35,7 +35,7 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 		fontSize: 'clamp(1rem, 5vw, 2.2rem)',
 		padding: 0,
 		margin: 0,
-		fontWeight: '200',
+		fontWeight: '400',
 		display: 'flex',
 		alignItems: 'center',
 		gap: '1rem',

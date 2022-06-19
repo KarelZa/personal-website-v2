@@ -11,7 +11,7 @@ import { StyledSection } from '../../styles/sharedStyles/Section';
 import { sectionVariant } from '../../styles/animations/animations';
 
 const About = () => {
-	const [controls, ref] = useMotionObserver('visible', 0.5);
+	const [controls, ref] = useMotionObserver('visible', 0.3);
 	return (
 		<StyledSection
 			id='about'
@@ -25,9 +25,7 @@ const About = () => {
 				<Grid item md={6}>
 					<Flex direction='column'>
 						<Typography variant='h4'>Karel Zamazal</Typography>
-						<Typography variant='h6' fontWeight={'100'} mb={3} color={'secondary'}>
-							Junior Web developer
-						</Typography>
+						<Typography variant='h6'>Junior Web developer</Typography>
 
 						<Typography
 							variant='body1'
@@ -38,8 +36,8 @@ const About = () => {
 							Based in the Ostrava, Czech Republic, I've just finished Object-Oriented
 							Programming course at the Technical University of Ostrava. Currently I
 							am seeking for a job opportunity where I could utilize and further
-							develop my skills. I spent most of my time learning or building stuff in
-							React technology as I enjoy it the most.
+							extend my skills. If I am not coding I like to hike, travel & spend time
+							with friends.
 						</Typography>
 					</Flex>
 				</Grid>

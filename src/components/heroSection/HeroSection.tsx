@@ -24,8 +24,8 @@ const HeroSection = () => {
 		<StyledHeroSection variants={parentVariant} initial='hidden' animate='visible'>
 			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
 				<motion.h6 className='welcome-text' variants={childVariant}>
-					{/* Hello there, I am */}
-					{t('common:welcome_msg')}
+					Hello there, my name is
+					{/* {t('common:welcome_msg')} */}
 				</motion.h6>
 				<motion.h1 className='big-text' variants={childVariant}>
 					Karel Zamazal

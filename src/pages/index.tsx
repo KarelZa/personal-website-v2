@@ -20,6 +20,7 @@ import { Container, useMediaQuery } from '@mui/material';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 interface HomeProps {
 	featuredProjectsData: ProjectProps[];
@@ -28,7 +29,8 @@ interface HomeProps {
 }
 
 const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
-	const { t } = useTranslation();
+	let { t } = useTranslation();
+	const router = useRouter();
 
 	return (
 		<>
@@ -45,7 +47,6 @@ const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) =
 			<Container maxWidth='lg'>
 				<main>
 					<HeroSection />
-					{/* <h2>{locale}</h2> */}
 					<About />
 					<Skills />
 					<FeaturedProjects projects={featuredProjectsData} />
@@ -83,7 +84,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 				links: project.links,
 				id: project._id,
 			})),
-			...(await serverSideTranslations(locale as string, ['common'])),
+			// ...(await serverSideTranslations(locale as string, ['common'])),
 		},
 	};
 };

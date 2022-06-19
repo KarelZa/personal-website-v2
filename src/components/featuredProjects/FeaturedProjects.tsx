@@ -15,7 +15,7 @@ interface FeaturedProjectsProps {
 }
 
 const FeaturedProjects = ({ projects }: FeaturedProjectsProps) => {
-	const [controls, ref] = useMotionObserver('visible', 0.2);
+	const [controls, ref] = useMotionObserver('visible', 0.1);
 
 	return (
 		<StyledSection

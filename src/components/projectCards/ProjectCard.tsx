@@ -17,7 +17,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ card, index }: ProjectCardProps) => {
-	const [controls, ref] = useMotionObserver('visible', 0.5);
+	const [controls, ref] = useMotionObserver('visible', 0.3);
 
 	return (
 		<StyledCard

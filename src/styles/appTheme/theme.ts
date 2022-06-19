@@ -18,25 +18,6 @@ const commonSettings = {
 	},
 };
 
-// const getDesignTokens = (mode: PaletteMode) => ({
-// 	palette: {
-// 		mode,
-// 		primary: {
-// 			...amber,
-// 			...(mode === 'dark' && {
-// 				main: amber[300],
-// 			}),
-// 		},
-// 		...(mode === 'dark' && {
-// 			background: {
-// 				default: deepOrange[900],
-// 				paper: deepOrange[900],
-// 			},
-// 		}),
-// 	},
-// });
-// const darkModeTheme = createTheme(getDesignTokens('dark'));
-
 const darkSettings = {
 	palette: {
 		background: {

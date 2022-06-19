@@ -9,7 +9,7 @@ import { SectionCaption } from '../../styles/sharedStyles/SectionCaption';
 import { sectionVariant } from '../../styles/animations/animations';
 
 const Contact = () => {
-	const [controls, ref] = useMotionObserver('visible', 0.3);
+	const [controls, ref] = useMotionObserver('visible', 0.2);
 
 	return (
 		<StyledSection
@@ -30,8 +30,8 @@ const Contact = () => {
 						fontWeight={300}
 						mx={'auto'}
 					>
-						Whether you looking for a new member to strengthen your crew or just want to
-						chat, feel free to send me a message.
+						Whether you are looking for a new member to strengthen your crew or just
+						want to discuss something, feel free to send me a message.
 					</Typography>
 				</Grid>
 				<Grid item xs={12} md={10}>

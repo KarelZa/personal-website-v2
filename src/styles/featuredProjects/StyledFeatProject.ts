@@ -25,7 +25,6 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 		'& a': {
 			display: 'block',
 			border: `1px solid ${theme.palette.secondary.light}`,
-
 			position: 'relative',
 			alignSelf: 'center',
 			vericalAlign: 'middle',
@@ -116,6 +115,10 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			zIndex: 2,
 			'& li': {
 				marginRight: '10px',
+				fontWeight: 100,
+				'& .MuiTypography-root': {
+					fontWeight: 500,
+				},
 			},
 		},
 	},

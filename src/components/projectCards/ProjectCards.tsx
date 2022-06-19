@@ -15,7 +15,7 @@ type ProjectCardsProps = {
 };
 
 const ProjectCards = ({ cards }: ProjectCardsProps) => {
-	const [controls, ref] = useMotionObserver('visible', 0.3);
+	const [controls, ref] = useMotionObserver('visible', 0.1);
 	return (
 		<StyledSection ref={ref} variants={sectionVariant} initial='hidden' animate={controls}>
 			<SectionCaption>Other</SectionCaption>
