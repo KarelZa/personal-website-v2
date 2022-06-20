@@ -6,7 +6,6 @@ import { AppProps } from 'next/app'; // types from nextjs
 import CssBaseline from '@mui/material/CssBaseline'; // Css reset
 import { CacheProvider, EmotionCache } from '@emotion/react'; // shared client-side cache for a user session
 import { ThemeProvider } from 'next-themes';
-import { appWithTranslation } from 'next-i18next';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -34,4 +33,4 @@ function MyApp(props: MyAppProps) {
 	);
 }
 
-export default appWithTranslation(MyApp);
+export default MyApp;

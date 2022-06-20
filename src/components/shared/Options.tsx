@@ -50,13 +50,13 @@ const Options = (props: OptionsProps) => {
 				</motion.li>
 				{/* <motion.li
 					variants={childVariant}
-					onClick={() => router.push('/', '/', { locale: 'cs' })}
+					onClick={() => router.push('/', undefined, { locale: 'cs', shallow: true })}
 				>
 					CZK
 				</motion.li>
 				<motion.li
 					variants={childVariant}
-					onClick={() => router.push('/', '/', { locale: 'en' })}
+					onClick={() => router.push('/', undefined, { locale: 'en', shallow: true })}
 				>
 					ENG
 				</motion.li> */}

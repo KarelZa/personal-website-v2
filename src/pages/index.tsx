@@ -17,32 +17,26 @@ import { ProjectProps } from '../models/project.model';
 import { CardProps } from '../models/card.model';
 // Styling
 import { Container, useMediaQuery } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+import Options from '../components/shared/Options';
 
 interface HomeProps {
 	featuredProjectsData: ProjectProps[];
 	projectCardsData: CardProps[];
-	locale: any;
 }
 
 const Home: NextPage<HomeProps> = ({ projectCardsData, featuredProjectsData }) => {
-	let { t } = useTranslation();
-	const router = useRouter();
-
 	return (
 		<>
 			<Head>
-				<title>Karel Zamazal | Portfolio</title>
+				<title>Personal Portfolio</title>
 				<meta
 					name='description'
-					content='Welcome to my personal website, where you can find information about me, my work/projects and also contact details'
+					content='Welcome to my personal website, where you can find information about me, my work/projects as well as contact details'
 				/>
 			</Head>
 
 			{useMediaQuery(darkTheme.breakpoints.up('md')) && <Socials />}
+			{useMediaQuery(darkTheme.breakpoints.up('md')) && <Options />}
 			<Header />
 			<Container maxWidth='lg'>
 				<main>
@@ -84,8 +78,8 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 				links: project.links,
 				id: project._id,
 			})),
-			// ...(await serverSideTranslations(locale as string, ['common'])),
 		},
+		revalidate: 10,
 	};
 };
 
