@@ -55,7 +55,7 @@ const ContactForm = (props: Props) => {
 	) => {
 		let config = {
 			method: 'POST',
-			url: `${process.env.NEXT_PUBLIC_API_URL}`,
+			url: `${process.env.NEXT_PUBLIC_API_MAIL}`,
 			headers: {
 				'Content-Type': 'application/json',
 			},
