@@ -44,6 +44,7 @@ const Options = (props: OptionsProps) => {
 				<motion.li variants={childVariant}>
 					<IconButton
 						onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
+						aria-label='dark-mode-button'
 					>
 						{theme === 'dark' && loaded ? <MdLightMode /> : <MdDarkMode />}
 					</IconButton>

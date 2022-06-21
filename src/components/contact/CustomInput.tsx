@@ -6,7 +6,7 @@ import { FormInputsProps } from '../../models/form.model';
 interface AdditionalProps {
 	rows?: number;
 	isMultiline?: boolean;
-	id: string;
+	id?: string;
 }
 
 function CustomInput({ ...props }: AdditionalProps & UseControllerProps<FormInputsProps>) {
@@ -23,12 +23,14 @@ function CustomInput({ ...props }: AdditionalProps & UseControllerProps<FormInpu
 				`${props.name.charAt(0)}`,
 				`${props.name.charAt(0).toUpperCase()}`
 			)}
-			id=''
 			variant='outlined'
 			error={!!fieldState.error}
 			helperText={fieldState.error?.message || ''}
 			multiline={props.isMultiline}
 			rows={props.rows}
+			inputProps={{
+				'aria-label': props.name,
+			}}
 		/>
 	);
 }

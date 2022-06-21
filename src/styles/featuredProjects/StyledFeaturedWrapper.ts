@@ -9,9 +9,8 @@ export const StyledFeaturedWrapper = styled(motion.div)(({ theme }) => ({
 	position: 'relative',
 	margin: '2rem 0',
 
-	// backgroundColor: 'red',
 	[theme.breakpoints.up('md')]: {
-		gap: '4rem',
+		gap: '5rem',
 		'& > div:nth-of-type(2n) > .project-content': {
 			textAlign: 'left',
 			gridColumn: '1/8',

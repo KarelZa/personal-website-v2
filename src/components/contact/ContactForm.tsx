@@ -63,7 +63,6 @@ const ContactForm = (props: Props) => {
 		};
 		try {
 			const response = await axios(config);
-			console.log(response);
 			// successful
 			if (response.status >= 200 && response.status < 300) {
 				setOpen(true);
@@ -95,25 +94,19 @@ const ContactForm = (props: Props) => {
 				direction={useMediaQuery(darkTheme.breakpoints.up('sm')) ? 'row' : 'column'}
 				gap={useMediaQuery(darkTheme.breakpoints.up('sm')) ? '1rem' : '0'}
 			>
-				<CustomInput control={control} name='name' id='outlined-basic' defaultValue='' />
-				<CustomInput control={control} name='email' id='outlined-basic' defaultValue='' />
+				<CustomInput control={control} name='name' defaultValue='' />
+				<CustomInput control={control} name='email' defaultValue='' />
 			</Flex>
-			<CustomInput control={control} name='subject' id='outlined-basic' defaultValue='' />
+			<CustomInput control={control} name='subject' defaultValue='' />
 			<CustomInput
 				control={control}
 				name='message'
 				isMultiline
 				rows={6}
-				id='outlined-multiline-static'
+				id='message'
 				defaultValue=''
 			/>
-			<Button
-				variant='outlined'
-				type='submit'
-				color='primary'
-				size='large'
-				// onClick={handleClick}
-			>
+			<Button variant='outlined' type='submit' color='primary' size='large'>
 				SEND MESSAGE
 			</Button>
 			<Snackbar open={open} autoHideDuration={4000} onClose={handleClose}>

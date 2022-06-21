@@ -8,6 +8,7 @@ import { ProjectProps } from '../../models/project.model';
 import { StyledFeatProject } from '../../styles/featuredProjects/StyledFeatProject';
 import { useMotionObserver } from '../../utils/hooks/MotionObserver';
 import { projectVariant } from '../../styles/animations/animations';
+import { motion } from 'framer-motion';
 
 type FeaturedProjectProps = {
 	project: ProjectProps;
@@ -59,7 +60,14 @@ const FeaturedProject = ({ project, index }: FeaturedProjectProps) => {
 					}
 				>
 					<div className='image-wrapper'>
-						<img src={project.image.path} alt={project.image.alt} />
+						<motion.img
+							src={project.image.path}
+							alt={project.image.alt}
+							whileHover={{
+								scale: 1.015,
+								transition: { type: 'tween', duration: 1.5, ease: 'easeOut' },
+							}}
+						/>
 					</div>
 				</Link>
 			</Box>

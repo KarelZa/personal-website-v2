@@ -40,10 +40,8 @@ const HeroSection = () => {
 				</motion.h5>
 			</Flex>
 			<motion.div className='arrow-box' variants={childVariant}>
-				<Link href={'#about'}>
-					<Typography
-						component={motion.h6}
-						variant='h6'
+				<Link href={'#about'} aria-label='scroll to about section link'>
+					<motion.p
 						initial={{
 							y: 0,
 							scale: 1,
@@ -62,7 +60,7 @@ const HeroSection = () => {
 						}}
 					>
 						<FiChevronsDown size={50} />
-					</Typography>
+					</motion.p>
 				</Link>
 			</motion.div>
 		</StyledHeroSection>

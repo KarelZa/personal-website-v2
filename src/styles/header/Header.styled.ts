@@ -23,7 +23,7 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 		display: 'flex',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		'& .MuiBox-root': {
+		'& ul': {
 			display: 'none',
 			listStyleType: 'none',
 		},
@@ -69,8 +69,9 @@ export const StyledHeader = styled(motion.header)(({ theme }) => ({
 
 		// NavLinks
 		'& nav': {
-			'& .MuiBox-root': {
+			'& ul': {
 				display: 'flex',
+				listStyle: 'none',
 				'& li': {
 					'& .MuiLink-root': {
 						display: 'block',

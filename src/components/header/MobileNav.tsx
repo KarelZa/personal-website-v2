@@ -24,7 +24,7 @@ const MobileNav = ({ isOpen, navigationLinks, closeNav }: MobileNavProps) => {
 	return (
 		<Fade in={isOpen} timeout={250}>
 			<Drawer variant='permanent' open={isOpen}>
-				<List>
+				<List role={'list'}>
 					{navigationLinks.map((link, index) => (
 						<ListItem key={index}>
 							<Link href={link.href} onClick={closeNav}>

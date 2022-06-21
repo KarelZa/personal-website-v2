@@ -3,6 +3,7 @@ import React from 'react';
 import aboutpic from '../../../public/images/silueta4.jpg';
 import { Grid, Typography } from '@mui/material';
 import { useMotionObserver } from '../../utils/hooks/MotionObserver';
+import Image from 'next/image';
 // Styling
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledAbout } from '../../styles/about/about';
@@ -42,7 +43,13 @@ const About = () => {
 					</Flex>
 				</Grid>
 				<Grid item md={4}>
-					<img src={aboutpic.src} />
+					<Image
+						src={aboutpic.src}
+						alt='Darker picture of me'
+						width={290}
+						height={290}
+						layout='intrinsic'
+					/>
 				</Grid>
 			</StyledAbout>
 		</StyledSection>

@@ -21,7 +21,7 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 		opacity: '.25',
 		height: '100%',
 		boxShadow: '0 10px 30px -15px black',
-		transition: 'backgroundColor 500ms ease',
+		transition: 'background-color 1s ease',
 		'& a': {
 			display: 'block',
 			border: `1px solid ${theme.palette.secondary.light}`,
@@ -30,10 +30,12 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			vericalAlign: 'middle',
 			width: '100%',
 			height: '100%',
-			backgroundColor: 'rgba(0,200, 250, .5)',
+			backgroundColor: 'rgba(0,200, 250, .1)',
 			borderRadius: '5px',
 			zIndex: 1,
+			transition: 'background-color 1s ease',
 			'&::before': {
+				transition: 'background-color 1s ease',
 				content: "''",
 				position: 'absolute',
 				width: '100%',
@@ -57,7 +59,8 @@ export const StyledFeatProject = styled(motion.div)(({ theme }) => ({
 			maxWidth: '100%',
 			verticalAlign: 'middle',
 			borderRadius: '5px',
-			'&  img': {
+			transition: 'filter 1s ease',
+			'& img': {
 				height: '100%',
 				width: '100%',
 				objectFit: 'cover',

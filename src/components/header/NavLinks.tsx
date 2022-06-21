@@ -11,7 +11,7 @@ type NavLinksProps = {
 
 const NavLinks = ({ navigationLinks }: NavLinksProps) => {
 	return (
-		<Box>
+		<ul>
 			{navigationLinks.map((link, index) => (
 				<li key={index}>
 					<Link href={link.href}>
@@ -19,7 +19,7 @@ const NavLinks = ({ navigationLinks }: NavLinksProps) => {
 					</Link>
 				</li>
 			))}
-		</Box>
+		</ul>
 	);
 };
 

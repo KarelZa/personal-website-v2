@@ -23,10 +23,6 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 		marginTop: '3rem',
 	},
 	'& img': {
-		width: '100%',
-		height: '100%',
-		maxWidth: '250px',
-		objectFit: 'contain',
 		borderRadius: '50%',
 	},
 
@@ -38,10 +34,6 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 
 		'& .MuiGrid-root.MuiGrid-item:last-of-type': {
 			marginTop: '0rem',
-		},
-		'& img': {
-			maxWidth: '100%',
-			boxShadow: '0 10px 30px -10px black',
 		},
 	},
 }));
