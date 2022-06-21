@@ -55,7 +55,7 @@ const ContactForm = (props: Props) => {
 	) => {
 		let config = {
 			method: 'POST',
-			url: `${'https://personal-website-v2-tau.vercel.app/api/contact'}`,
+			url: `${process.env.BASE_API_URL}`,
 			headers: {
 				'Content-Type': 'application/json',
 			},
