@@ -6,42 +6,39 @@ import Link from '../shared/Link';
 import Typewriter from 'typewriter-effect';
 import { GiSpiderWeb } from 'react-icons/gi';
 import { FiChevronsDown } from 'react-icons/fi';
-import { Typography, useMediaQuery } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 // Styling
 import { Flex } from '../../styles/sharedStyles/Flex';
 import { StyledHeroSection } from '../../styles/heroSection/heroSection';
 import { childVariant, parentVariant } from '../../styles/animations/animations';
-import Options from '../shared/Options';
 
 const HeroSection = () => {
 	return (
 		<StyledHeroSection variants={parentVariant} initial='hidden' animate='visible'>
-			<Flex direction='column' gap={'.9rem'} alignment='flex-start'>
-				<motion.h6 className='welcome-text' variants={childVariant}>
-					Hello there, my name is
-				</motion.h6>
-				<motion.h1 className='big-text' variants={childVariant}>
-					Karel Zamazal
-				</motion.h1>
-				<motion.h4 className='typewritter' variants={childVariant}>
+			<Flex direction='column' gap={'1.5rem'} alignment='flex-start'>
+				<motion.h1 variants={childVariant}>Hello, my name is</motion.h1>
+				<motion.h2 variants={childVariant}>Karel Zamazal</motion.h2>
+				<motion.h3 variants={childVariant}>
 					<Typewriter
 						onInit={(typewriter) => {
 							typewriter.typeString('Front-End Web Developer').start();
 						}}
 					/>
-				</motion.h4>
-				<motion.h5 variants={childVariant}>
+				</motion.h3>
+				<motion.h4 variants={childVariant}>
 					I enjoy creating things that live on the{' '}
 					{useMediaQuery(darkTheme.breakpoints.up('lg')) ? (
 						<GiSpiderWeb size={50} />
 					) : (
 						'web'
 					)}
-				</motion.h5>
+				</motion.h4>
 			</Flex>
 			<motion.div className='arrow-box' variants={childVariant}>
 				<Link href={'#about'} aria-label='scroll to about section link'>
-					<motion.p
+					<motion.button
+						type='button'
+						aria-label='to about section'
 						initial={{
 							y: 0,
 							scale: 1,
@@ -60,7 +57,7 @@ const HeroSection = () => {
 						}}
 					>
 						<FiChevronsDown size={50} />
-					</motion.p>
+					</motion.button>
 				</Link>
 			</motion.div>
 		</StyledHeroSection>

@@ -61,11 +61,9 @@ const ContactForm = (props: Props) => {
 			},
 			data: formValues,
 		};
-		console.log(config);
 
 		try {
 			const response = await axios(config);
-			console.log(response);
 
 			// successful
 			if (response.status >= 200 && response.status < 300) {
@@ -105,9 +103,8 @@ const ContactForm = (props: Props) => {
 			<CustomInput
 				control={control}
 				name='message'
-				isMultiline
+				isMultiline={true}
 				rows={6}
-				id='message'
 				defaultValue=''
 			/>
 			<Button variant='outlined' type='submit' color='primary' size='large'>

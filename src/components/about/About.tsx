@@ -26,7 +26,7 @@ const About = () => {
 				<Grid item md={6}>
 					<Flex direction='column'>
 						<Typography variant='h4'>Karel Zamazal</Typography>
-						<Typography variant='h6'>Junior Web developer</Typography>
+						<Typography variant='h5'>Junior Web developer</Typography>
 
 						<Typography
 							variant='body1'
@@ -43,13 +43,7 @@ const About = () => {
 					</Flex>
 				</Grid>
 				<Grid item md={4}>
-					<Image
-						src={aboutpic.src}
-						alt='Darker picture of me'
-						width={290}
-						height={290}
-						layout='intrinsic'
-					/>
+					<Image src={aboutpic.src} alt='' width={290} height={290} />
 				</Grid>
 			</StyledAbout>
 		</StyledSection>

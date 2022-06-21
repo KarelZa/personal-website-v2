@@ -8,7 +8,7 @@ export const StyledAbout = styled(Grid)(({ theme }) => ({
 	'& h4': {
 		fontWeight: 600,
 	},
-	'& h6': {
+	'& h5': {
 		color: theme.palette.secondary.light,
 		marginBottom: '1.5rem',
 		fontWeight: 500,

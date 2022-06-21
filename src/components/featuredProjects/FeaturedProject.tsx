@@ -44,7 +44,13 @@ const FeaturedProject = ({ project, index }: FeaturedProjectProps) => {
 					</ul>
 					<Box className='external-links'>
 						{project.links.map((link, index) => (
-							<Link href={link.url} key={index}>
+							<Link
+								href={link.url}
+								key={index}
+								aria-label={
+									link.name === 'github' ? 'github link' : 'external link'
+								}
+							>
 								{link.name === 'github' ? <FiGithub /> : <FiExternalLink />}
 							</Link>
 						))}

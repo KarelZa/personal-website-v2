@@ -7,9 +7,17 @@ import { RiLinkedinFill, RiFacebookFill, RiGithubFill } from 'react-icons/ri';
 import { StyledSocials } from '../../styles/sharedStyles/Socials';
 
 const SocialContacts = [
-	{ icon: RiLinkedinFill, url: 'https://www.linkedin.com/in/karel-zamazal/' },
-	{ icon: RiFacebookFill, url: 'https://www.facebook.com/karel-zamazal/' },
-	{ icon: RiGithubFill, url: 'https://www.github.com' },
+	{
+		icon: RiLinkedinFill,
+		url: 'https://linkedin.com/in/karel-zamazal',
+		ariatext: 'linkedin link',
+	},
+	{
+		icon: RiFacebookFill,
+		url: 'https://www.facebook.com/karel-zamazal/',
+		ariatext: 'facebook link',
+	},
+	{ icon: RiGithubFill, url: 'https://github.com/KarelZa', ariatext: 'github link' },
 ];
 
 const Socials = () => {
@@ -41,7 +49,7 @@ const Socials = () => {
 			<motion.ul variants={parentVariant} initial='hidden' animate='visible'>
 				{SocialContacts.map((item, index) => (
 					<motion.li key={index} variants={childVariant}>
-						<Link href={item.url}>
+						<Link href={item.url} aria-label={item.ariatext}>
 							<item.icon />
 						</Link>
 					</motion.li>

@@ -9,29 +9,31 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 	justifyContent: 'center',
 	padding: '0 1.3rem',
 
-	'& .welcome-text': {
+	'& h1': {
 		fontSize: 'clamp(20px, 5vw, 2.2rem)',
 		color: theme.palette.secondary.main,
 		padding: 0,
 		margin: 0,
 		fontWeight: '400',
+		lineHeight: 1,
 	},
-	'& h1.big-text': {
+	'& h2': {
 		fontSize: 'clamp(40px, 8vw, 5.5rem)',
 		fontFamily: 'Inter',
 		lineHeight: 1,
 		padding: 0,
 		margin: 0,
 	},
-	'& h4.typewritter': {
+	'& h3': {
+		lineHeight: 1,
 		fontSize: 'clamp(35px, 5vw, 3.3rem)',
 		padding: '0',
 		margin: '0',
 		fontFamily: 'Inter',
 		fontWeight: 500,
-		lineHeight: '1.2',
 	},
-	'& h5': {
+	'& h4': {
+		lineHeight: 1,
 		fontSize: 'clamp(1rem, 5vw, 2.2rem)',
 		padding: 0,
 		margin: 0,
@@ -51,11 +53,11 @@ export const StyledHeroSection = styled(motion.section)(({ theme }) => ({
 		bottom: 0,
 		transform: 'translate(-50%)',
 		fontSize: '2rem',
-		'& h6': {
-			fontSize: '1.5rem',
-			fontWeight: 200,
-			position: 'relative',
-			display: 'block',
+		'& button': {
+			outline: 'none',
+			border: 'none',
+			backgroundColor: 'transparent',
+			cursor: 'pointer',
 		},
 		'& svg': {
 			marginBottom: '1.5rem',

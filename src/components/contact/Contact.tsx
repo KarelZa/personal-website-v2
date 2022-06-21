@@ -24,6 +24,7 @@ const Contact = () => {
 					<SectionCaption justifySelf='center'>contact</SectionCaption>
 					<Typography
 						variant='h6'
+						component={'h5'}
 						textAlign={'center'}
 						mb={0}
 						maxWidth={'600px'}

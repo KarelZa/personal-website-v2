@@ -33,7 +33,13 @@ const ProjectCard = ({ card, index }: ProjectCardProps) => {
 						<BsCodeSquare size={33} />
 						<div>
 							{card.links.map((link, index) => (
-								<Link href={link.url} key={index}>
+								<Link
+									href={link.url}
+									key={index}
+									aria-label={
+										link.icon === 'github' ? 'github link' : 'external link'
+									}
+								>
 									{link.icon === 'github' ? (
 										<FiGithub size={25} />
 									) : (
@@ -44,7 +50,9 @@ const ProjectCard = ({ card, index }: ProjectCardProps) => {
 						</div>
 					</div>
 					<Link href={card.links[0].url}>
-						<Typography variant='h6'>{card.title}</Typography>
+						<Typography variant='h6' component={'h5'}>
+							{card.title}
+						</Typography>
 					</Link>
 					<Typography variant='body2'>{card.description}</Typography>
 				</div>
