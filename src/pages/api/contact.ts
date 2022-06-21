@@ -42,9 +42,11 @@ async function sendEmail(request: ContactData) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<ResponseData>) {
 	const { name, email, subject, message } = req.body;
-
+	console.log(req);
 	if (req.method === 'POST') {
 		const emailRes = await sendEmail({ name, email, subject, message });
+		console.log(res);
+
 		if (emailRes.messageId) {
 			return res
 				.status(200)

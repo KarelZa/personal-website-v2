@@ -55,14 +55,18 @@ const ContactForm = (props: Props) => {
 	) => {
 		let config = {
 			method: 'POST',
-			url: `${process.env.BASE_API_URL}`,
+			url: `${process.env.NEXT_PUBLIC_API_URL}`,
 			headers: {
 				'Content-Type': 'application/json',
 			},
 			data: formValues,
 		};
+		console.log(config);
+
 		try {
 			const response = await axios(config);
+			console.log(response);
+
 			// successful
 			if (response.status >= 200 && response.status < 300) {
 				setOpen(true);
