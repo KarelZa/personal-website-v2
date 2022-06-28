@@ -31,55 +31,43 @@ const iconsArr = {
 		},
 		{
 			id: '4',
-			imgPath: 'images/techIcons/nodejs.svg',
-			name: 'NodeJS',
-		},
-		{
-			id: '5',
 			imgPath: 'images/techIcons/html5.svg',
 			name: 'HTML5',
 		},
 		{
-			id: '6',
+			id: '5',
 			imgPath: 'images/techIcons/css3.svg',
 			name: 'CSS3',
 		},
 		{
-			id: '7',
+			id: '6',
 			imgPath: 'images/techIcons/bootstrap.svg',
 			name: 'Bootstrap',
 		},
 		{
-			id: '8',
+			id: '7',
 			imgPath: 'images/techIcons/mysql.svg',
 			name: 'MySQL',
 		},
 		{
-			id: '10',
+			id: '8',
 			imgPath: 'images/techIcons/mui.svg',
 			name: 'Material-UI',
 		},
 		{
-			id: '11',
+			id: '9',
 			imgPath: 'images/techIcons/sc.svg',
 			name: 'SC',
 		},
 		{
-			id: '12',
+			id: '10',
 			imgPath: 'images/techIcons/mongodb.svg',
 			name: 'mongoDB',
 		},
-	],
-	secondary: [
 		{
-			id: '0',
-			imgPath: 'images/techIcons/csharp.svg',
-			name: 'C#',
-		},
-		{
-			id: '1',
-			imgPath: 'images/techIcons/java.svg',
-			name: 'Java',
+			id: '11',
+			imgPath: 'images/techIcons/git.svg',
+			name: 'Git',
 		},
 	],
 };
